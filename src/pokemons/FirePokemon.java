@@ -1,9 +1,15 @@
 package pokemons;
 
 public class FirePokemon extends Pokemon {
+	
+	protected double rechargeRate = 0.05;
 
 	public FirePokemon(String name) {
 		super(name, 0, 200, 530, 80, 120);
+	}
+
+	public FirePokemon(String name, int xp, double shield, double health, double damage, int cost) {
+		super(name, xp, shield, health, damage, cost);
 	}
 
 	@Override
@@ -27,7 +33,7 @@ public class FirePokemon extends Pokemon {
 
 	@Override
 	public void recharge() {
-		double percentage = 0.8 + 0.05*this.xp;
+		double percentage = 0.8 * ((1 + rechargeRate) * this.xp);
 		
 		this.health = percentage * 530;
 		this.shield = percentage * 200;

@@ -1,8 +1,8 @@
 package pokemons;
 
-import interfaces.IPokemon;
+import interfaces.Hostile;
 
-public abstract class Pokemon implements IPokemon {
+public abstract class Pokemon implements Hostile {
 	protected String name;
 	protected int xp;
 	protected double shield;
@@ -24,19 +24,21 @@ public abstract class Pokemon implements IPokemon {
 
 	protected abstract void getReceiveDamage(double damage);
 
+	protected abstract void recharge();
+	
 	protected void afterAttack() {
 	}
 
 	@Override
-	public void attack(IPokemon other) {
+	public void attack(Pokemon other) {
 		other.receiveDamage(getAttack());
 		afterAttack();
 	}
 
-	@Override
 	public void receiveDamage(double damage) {
 		getReceiveDamage(damage);
 		this.shield = Math.max(0, this.shield);
 		this.health = Math.max(0, this.health);
 	}
+	
 }
