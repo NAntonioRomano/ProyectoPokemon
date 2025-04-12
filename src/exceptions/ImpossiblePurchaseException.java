@@ -10,4 +10,8 @@ public class ImpossiblePurchaseException extends Exception {
         this.availableCost = availableCost;
     }
 
+    @Override
+    public String toString() {
+        return "ImpossiblePurchaseException [cost=" + cost + ", availableCost=" + availableCost + "]";
+    }
 }

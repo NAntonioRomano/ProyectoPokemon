@@ -1,7 +1,9 @@
+import exceptions.ImpossiblePurchaseException;
 import gym.Arena;
 import gym.Gym;
 import gym.Trainer;
 import gym.TrainerPrepared;
+import interfaces.Witchable;
 import pokemons.FirePokemon;
 import pokemons.IcePokemon;
 import pokemons.Pokemon;
@@ -25,14 +27,13 @@ public class Main {
             Pokemon mewtwo = new StonePokemon("Mewtwo");
             Pokemon snorlax = new StonePokemon("Snorlax");
 
-            Weapon sword = new Sword();
-
             Trainer ash = new Trainer("Ash");
             Trainer misty = new Trainer("Misty");
 
             ash.addCredits(10000000);
             misty.addCredits(10000000);
 
+            Weapon sword = new Sword();
             ash.purchase(sword);
 
             ash.purchase(charmander);
@@ -44,7 +45,7 @@ public class Main {
             misty.purchase(snorlax);
 
             Spell spell = new Wind();
-            spell.bewitch(ash.getPokemons().get(0));
+            spell.bewitch(charmander);
 
             Arena arena = new Arena("Pewter City", new TrainerPrepared(ash), new TrainerPrepared(misty));
 
