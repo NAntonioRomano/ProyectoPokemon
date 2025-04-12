@@ -20,7 +20,7 @@ public class Main {
 
         try {
 
-            Pokemon charmander = new FirePokemon("Charmander nazi");
+            Pokemon charmander = new FirePokemon("Charmander");
             Pokemon squirtle = new WaterPokemon("Squirtle");
             Pokemon bulbasaur = new FirePokemon("Bulbasaur");
             Pokemon pikachu = new IcePokemon("Pikachu");
