@@ -1,6 +1,6 @@
-package pokemons;
+package models.pokemons;
 
-import weapons.Weapon;
+import models.weapons.Weapon;
 
 public class StonePokemon extends FirePokemon {
 

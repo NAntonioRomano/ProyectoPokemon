@@ -1,6 +1,6 @@
 package capabilties;
 
-import pokemons.Pokemon;
+import models.pokemons.Pokemon;
 
 public interface PokemonCapability {
     void onPokemonPurchased(Pokemon pokemon);

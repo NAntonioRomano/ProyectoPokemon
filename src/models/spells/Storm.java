@@ -1,12 +1,12 @@
-package spells;
+package models.spells;
 
 import interfaces.Witchable;
 
-public class Fog extends Spell {
+public class Storm extends Spell {
 
     @Override
     public void bewitch(Witchable witchable) {
-        witchable.bewitchFog();
+        witchable.bewitchStorm();
     }
 
 }

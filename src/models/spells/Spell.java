@@ -1,4 +1,4 @@
-package spells;
+package models.spells;
 
 import interfaces.Witchable;
 

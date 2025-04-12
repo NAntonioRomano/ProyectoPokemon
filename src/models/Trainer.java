@@ -1,4 +1,4 @@
-package gym;
+package models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,9 +7,8 @@ import capabilties.PokemonCapability;
 import capabilties.WeaponCapability;
 import exceptions.ImpossiblePurchaseException;
 import interfaces.Classifiable;
-import models.AbstractBuyer;
-import pokemons.Pokemon;
-import weapons.Weapon;
+import models.pokemons.Pokemon;
+import models.weapons.Weapon;
 
 public class Trainer extends AbstractBuyer implements Classifiable, PokemonCapability, WeaponCapability {
 	private String name;

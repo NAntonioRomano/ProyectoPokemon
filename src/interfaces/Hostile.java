@@ -1,6 +1,6 @@
 package interfaces;
 
-import pokemons.Pokemon;
+import models.pokemons.Pokemon;
 
 public interface Hostile {
 	void attack(Pokemon pokemon);

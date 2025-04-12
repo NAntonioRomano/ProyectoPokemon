@@ -1,6 +1,6 @@
 package capabilties;
 
-import weapons.Weapon;
+import models.weapons.Weapon;
 
 public interface WeaponCapability {
     void onWeaponPurchased(Weapon weapon);

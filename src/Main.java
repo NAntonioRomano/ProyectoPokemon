@@ -1,18 +1,18 @@
 import exceptions.ImpossiblePurchaseException;
-import gym.Arena;
-import gym.Gym;
-import gym.Trainer;
-import gym.TrainerPrepared;
 import interfaces.Witchable;
-import pokemons.FirePokemon;
-import pokemons.IcePokemon;
-import pokemons.Pokemon;
-import pokemons.StonePokemon;
-import pokemons.WaterPokemon;
-import spells.Spell;
-import spells.Wind;
-import weapons.Sword;
-import weapons.Weapon;
+import models.Arena;
+import models.Gym;
+import models.Trainer;
+import models.TrainerPrepared;
+import models.pokemons.FirePokemon;
+import models.pokemons.IcePokemon;
+import models.pokemons.Pokemon;
+import models.pokemons.StonePokemon;
+import models.pokemons.WaterPokemon;
+import models.spells.Spell;
+import models.spells.Wind;
+import models.weapons.Sword;
+import models.weapons.Weapon;
 
 public class Main {
 

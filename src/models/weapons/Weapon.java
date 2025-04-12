@@ -1,4 +1,4 @@
-package weapons;
+package models.weapons;
 
 import capabilties.WeaponCapability;
 import interfaces.Buyer;

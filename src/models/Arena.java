@@ -1,4 +1,4 @@
-package gym;
+package models;
 
 public class Arena {
     private String name;

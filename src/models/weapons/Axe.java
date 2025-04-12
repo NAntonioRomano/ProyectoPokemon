@@ -1,6 +1,6 @@
-package weapons;
+package models.weapons;
 
-import pokemons.Pokemon;
+import models.pokemons.Pokemon;
 
 public class Axe extends Weapon {
 

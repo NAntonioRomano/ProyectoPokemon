@@ -1,9 +1,9 @@
-package gym;
+package models;
 
 import java.util.List;
 
 import exceptions.TrainerWithoutPokemonsException;
-import pokemons.Pokemon;
+import models.pokemons.Pokemon;
 
 public class TrainerPrepared {
 	private String name;

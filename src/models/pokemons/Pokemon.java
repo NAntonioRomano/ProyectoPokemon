@@ -1,4 +1,4 @@
-package pokemons;
+package models.pokemons;
 
 import capabilties.PokemonCapability;
 import interfaces.Buyer;

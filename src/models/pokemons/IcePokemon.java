@@ -1,4 +1,4 @@
-package pokemons;
+package models.pokemons;
 
 public class IcePokemon extends Pokemon {
 
