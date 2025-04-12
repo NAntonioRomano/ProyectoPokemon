@@ -7,6 +7,10 @@ import pokemons.IcePokemon;
 import pokemons.Pokemon;
 import pokemons.StonePokemon;
 import pokemons.WaterPokemon;
+import spells.Spell;
+import spells.Wind;
+import weapons.Sword;
+import weapons.Weapon;
 
 public class Main {
 
@@ -21,16 +25,26 @@ public class Main {
             Pokemon mewtwo = new StonePokemon("Mewtwo");
             Pokemon snorlax = new StonePokemon("Snorlax");
 
+            Weapon sword = new Sword();
+
             Trainer ash = new Trainer("Ash");
             Trainer misty = new Trainer("Misty");
 
-            ash.getPokemons().add(charmander);
-            ash.getPokemons().add(squirtle);
-            ash.getPokemons().add(bulbasaur);
+            ash.addCredits(10000000);
+            misty.addCredits(10000000);
 
-            misty.getPokemons().add(pikachu);
-            misty.getPokemons().add(mewtwo);
-            misty.getPokemons().add(snorlax);
+            ash.purchase(sword);
+
+            ash.purchase(charmander);
+            ash.purchase(squirtle);
+            ash.purchase(bulbasaur);
+
+            misty.purchase(pikachu);
+            misty.purchase(mewtwo);
+            misty.purchase(snorlax);
+
+            Spell spell = new Wind();
+            spell.bewitch(ash.getPokemons().get(0));
 
             Arena arena = new Arena("Pewter City", new TrainerPrepared(ash), new TrainerPrepared(misty));
 

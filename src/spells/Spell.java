@@ -4,6 +4,6 @@ import interfaces.Witchable;
 
 public abstract class Spell {
 
-    protected abstract void bewitch(Witchable witchable);
+    public abstract void bewitch(Witchable witchable);
 
 }

@@ -3,11 +3,15 @@ package gym;
 import java.util.ArrayList;
 import java.util.List;
 
+import capabilties.PokemonCapability;
+import capabilties.WeaponCapability;
 import exceptions.ImpossiblePurchaseException;
 import interfaces.Classifiable;
+import models.AbstractBuyer;
 import pokemons.Pokemon;
+import weapons.Weapon;
 
-public class Trainer implements Classifiable {
+public class Trainer extends AbstractBuyer implements Classifiable, PokemonCapability, WeaponCapability {
 	private String name;
 	private List<Pokemon> pokemons;
 	private double credits;
@@ -33,22 +37,31 @@ public class Trainer implements Classifiable {
 		this.credits += credits;
 	}
 
-	// public void purchasePokemon(Pokemon pokemon) throws
-	// ImpossiblePurchaseException {
-	// double cost = pokemon.getCost();
-
-	// if (credits < cost)
-	// throw new ImpossiblePurchaseException(cost, credits);
-
-	// pokemons.add(pokemon);
-	// credits -= cost;
-	// }
-
 	@Override
 	public int getCategory() {
 		return pokemons.stream()
 				.mapToInt(Pokemon::getCategory)
 				.sum();
+	}
+
+	@Override
+	public double getBalance() {
+		return credits;
+	}
+
+	@Override
+	public void subtract(double amount) {
+		this.credits -= amount;
+	}
+
+	@Override
+	public void onPokemonPurchased(Pokemon pokemon) {
+		pokemons.add(pokemon);
+	}
+
+	@Override
+	public void onWeaponPurchased(Weapon weapon) {
+		System.out.println("No se qué pingo hacer con esta arma :/");
 	}
 
 }

@@ -1,5 +1,7 @@
 package weapons;
 
+import capabilties.WeaponCapability;
+import interfaces.Buyer;
 import interfaces.Hostile;
 import interfaces.Valuable;
 
@@ -17,4 +19,8 @@ public abstract class Weapon implements Hostile, Valuable {
 		return this.cost;
 	}
 
+	@Override
+	public void deliverTo(Buyer buyer) {
+		((WeaponCapability) buyer).onWeaponPurchased(this);
+	}
 }

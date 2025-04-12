@@ -7,7 +7,8 @@ import pokemons.Pokemon;
 
 public class TrainerPrepared {
 	private String name;
-	private Pokemon[] pokemons = new Pokemon[3];
+	private Pokemon[] pokemons;
+	private final int maxPokemonsPerFigth = 3;
 
 	public TrainerPrepared(Trainer trainer) throws TrainerWithoutPokemonsException {
 		this.name = trainer.getName();
@@ -16,7 +17,10 @@ public class TrainerPrepared {
 		if (trainerPokemons.size() == 0)
 			throw new TrainerWithoutPokemonsException();
 
-		for (int i = 0; i < pokemons.length; i++)
+		int length = Math.min(maxPokemonsPerFigth, trainerPokemons.size());
+		pokemons = new Pokemon[length];
+
+		for (int i = 0; i < length; i++)
 			pokemons[i] = trainerPokemons.get(i);
 	}
 

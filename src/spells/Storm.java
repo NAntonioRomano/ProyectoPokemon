@@ -5,7 +5,7 @@ import interfaces.Witchable;
 public class Storm extends Spell {
 
     @Override
-    protected void bewitch(Witchable witchable) {
+    public void bewitch(Witchable witchable) {
         witchable.bewitchStorm();
     }
 

@@ -1,5 +1,7 @@
 package pokemons;
 
+import capabilties.PokemonCapability;
+import interfaces.Buyer;
 import interfaces.Classifiable;
 import interfaces.Hostile;
 import interfaces.Valuable;
@@ -60,6 +62,11 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 	@Override
 	public int getCategory() {
 		return this.xp;
+	}
+
+	@Override
+	public void deliverTo(Buyer buyer) {
+		((PokemonCapability) buyer).onPokemonPurchased(this);
 	}
 
 	public String getName() {
