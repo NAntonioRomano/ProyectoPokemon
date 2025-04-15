@@ -1,7 +1,4 @@
-import exceptions.ImpossiblePurchaseException;
-import interfaces.Witchable;
 import models.Arena;
-import models.Gym;
 import models.Trainer;
 import models.TrainerPrepared;
 import models.pokemons.FirePokemon;
@@ -47,9 +44,10 @@ public class Main {
             Spell spell = new Wind();
             spell.bewitch(charmander);
 
-            Arena arena = new Arena("Pewter City", new TrainerPrepared(ash), new TrainerPrepared(misty));
+            Arena arena = new Arena("Pewter City");
 
-            arena.startBattle();
+            TrainerPrepared winner = arena.startBattle(new TrainerPrepared(misty),new TrainerPrepared(ash));
+            System.out.println("The winner in " + arena.getName() + " is: " + winner);
 
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());

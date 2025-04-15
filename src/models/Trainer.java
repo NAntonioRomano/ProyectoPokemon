@@ -5,12 +5,12 @@ import java.util.List;
 
 import capabilties.PokemonCapability;
 import capabilties.WeaponCapability;
-import exceptions.ImpossiblePurchaseException;
+import interfaces.Buyer;
 import interfaces.Classifiable;
 import models.pokemons.Pokemon;
 import models.weapons.Weapon;
 
-public class Trainer extends AbstractBuyer implements Classifiable, PokemonCapability, WeaponCapability {
+public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCapability {
 	private String name;
 	private List<Pokemon> pokemons;
 	private double credits;

@@ -77,4 +77,12 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		return this.health <= 0;
 	}
 
+	@Override
+	public String toString() {
+		return "Pokemon [name=" + name + ", xp=" + xp + ", shield=" + shield + ", health=" + health + ", damage="
+				+ damage + ", cost=" + cost + "]";
+	}
+
+	
+
 }

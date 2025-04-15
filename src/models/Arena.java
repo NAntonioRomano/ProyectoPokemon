@@ -1,39 +1,46 @@
 package models;
 
+import models.pokemons.*;
+
 public class Arena {
     private String name;
-    private TrainerPrepared trainer1;
-    private TrainerPrepared trainer2;
 
-    public Arena(String name, TrainerPrepared trainer1, TrainerPrepared trainer2) {
+    public Arena(String name){
         this.name = name;
-        this.trainer1 = trainer1;
-        this.trainer2 = trainer2;
     }
 
     public String getName() {
         return name;
     }
 
-    public TrainerPrepared getTrainer1() {
-        return trainer1;
+    public TrainerPrepared startBattle(TrainerPrepared TP1, TrainerPrepared TP2){
+        int cantBattleT1 = 0;
+        int cantBattleT2 = 0;
+
+        Pokemon inBattleT1 = TP1.getPokemons()[cantBattleT1];
+        Pokemon inBattleT2 = TP2.getPokemons()[cantBattleT2];
+
+        while(!TP1.allDeadPokemons() && !TP2.allDeadPokemons()){
+            inBattleT1.attack(inBattleT2);
+            if(!inBattleT2.isDead()){
+                inBattleT2.attack(inBattleT1);
+            }else if(!TP2.allDeadPokemons()){
+                cantBattleT2++;
+                inBattleT2 = TP2.getPokemons()[cantBattleT2];
+            }
+            
+            if(!TP1.allDeadPokemons() && inBattleT1.isDead()){
+                cantBattleT1++;
+                inBattleT1 = TP1.getPokemons()[cantBattleT1];
+            }
+        }
+
+        if (TP1.allDeadPokemons())
+            return TP2;
+
+        return TP1;
+
     }
 
-    public TrainerPrepared getTrainer2() {
-        return trainer2;
-    }
 
-    public void setTrainer1(TrainerPrepared trainer1) {
-        this.trainer1 = trainer1;
-    }
-
-    public void setTrainer2(TrainerPrepared trainer2) {
-        this.trainer2 = trainer2;
-    }
-
-    public void startBattle() {
-        System.out.println("Starting battle between " + trainer1.getName() + " and " + trainer2.getName());
-
-        trainer1.getPokemons()[0].attack(trainer2.getPokemons()[0]);
-    }
 }

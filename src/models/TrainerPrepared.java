@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Arrays;
 import java.util.List;
 
 import exceptions.TrainerWithoutPokemonsException;
@@ -31,4 +32,18 @@ public class TrainerPrepared {
 	public Pokemon[] getPokemons() {
 		return pokemons;
 	}
+
+	public boolean allDeadPokemons(){
+		for (Pokemon pokemon : pokemons) {
+			if (!pokemon.isDead())
+				return false;
+		}
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "TrainerPrepared [name=" + name + ", pokemons=" + Arrays.toString(pokemons) + "]";
+	}
+
 }
