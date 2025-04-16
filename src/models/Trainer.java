@@ -8,12 +8,13 @@ import capabilties.WeaponCapability;
 import interfaces.Buyer;
 import interfaces.Classifiable;
 import models.pokemons.Pokemon;
+import models.pokemons.StonePokemon;
 import models.weapons.Weapon;
 
 public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCapability {
 	private String name;
-	private List<Pokemon> pokemons;
 	private double credits;
+	private List<Pokemon> pokemons;
 
 	public Trainer(String name) {
 		this.name = name;
@@ -26,10 +27,6 @@ public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCa
 
 	public List<Pokemon> getPokemons() {
 		return pokemons;
-	}
-
-	public double getCredits() {
-		return credits;
 	}
 
 	public void addCredits(double credits) {
@@ -66,7 +63,26 @@ public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCa
 
 	@Override
 	public void onWeaponPurchased(Weapon weapon) {
-		System.out.println("No se qué pingo hacer con esta arma :/");
+		setWeapon(weapon);
+	}
+
+	public void setWeapon(Weapon weapon) {
+		StonePokemon pokemon = pokemons.stream()
+				.filter(item -> item instanceof StonePokemon)
+				.map(item -> (StonePokemon) item)
+				.findFirst()
+				.orElse(null);
+
+		if (pokemon != null)
+			pokemon.setWeapon(weapon);
+		else
+			System.out.println(name + " no tiene pokemones de piedra para equipar el arma.");
+
+	}
+
+	@Override
+	public String toString() {
+		return "Trainer [name=" + name + ", credits=" + credits + ", pokemons=" + pokemons + "]";
 	}
 
 }

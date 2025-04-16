@@ -5,9 +5,17 @@ public class ImpossiblePurchaseException extends Exception {
     private double availableCost;
 
     public ImpossiblePurchaseException(double cost, double availableCost) {
-        super("Fondos insuficientes para realizar la compra: $" + cost + " - $" + availableCost);
+        super("Insufficient funds to make the purchase: $" + cost + " - $" + availableCost);
         this.cost = cost;
         this.availableCost = availableCost;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public double getAvailableCost() {
+        return availableCost;
     }
 
     @Override

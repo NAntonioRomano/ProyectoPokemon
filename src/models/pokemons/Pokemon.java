@@ -25,6 +25,14 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		this.cost = cost;
 	}
 
+	public String getName() {
+		return this.name;
+	}
+
+	public boolean isDead() {
+		return this.health <= 0;
+	}
+
 	protected abstract double getAttack();
 
 	protected abstract void getReceiveDamage(double damage);
@@ -39,7 +47,7 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		if (other.isDead())
 			System.out.println(other.getName() + " is already dead!");
 		else {
-			System.out.println("Attacking " + other.getName() + " with " + this.getName());
+			System.out.println(this.getName() + " is attacking " + other.getName() + "!");
 			other.receiveDamage(getAttack());
 			afterAttack();
 		}
@@ -68,28 +76,17 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 	public void deliverTo(Buyer buyer) {
 		PokemonCapability capability = (PokemonCapability) buyer;
 
-		if (!capability.canPokemonBePurchased(this)) {
-			System.out.println("You already have " + name + "!");
-			return;
-		}
-
-		capability.onPokemonPurchased(this);
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public boolean isDead() {
-		return this.health <= 0;
+		if (capability.canPokemonBePurchased(this))
+			capability.onPokemonPurchased(this);
+		else
+			System.out.println("Already have " + name + "!");
 	}
 
 	@Override
 	public String toString() {
-		return "Pokemon [name=" + name + ", xp=" + xp + ", shield=" + shield + ", health=" + health + ", damage="
+		return getClass().getSimpleName() + " [name=" + name + ", xp=" + xp + ", shield=" + shield + ", health="
+				+ health + ", damage="
 				+ damage + ", cost=" + cost + "]";
 	}
-
-	
 
 }

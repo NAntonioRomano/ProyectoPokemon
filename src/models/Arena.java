@@ -4,8 +4,9 @@ import models.pokemons.*;
 
 public class Arena {
     private String name;
+    private final double creditsForWinner = 500;
 
-    public Arena(String name){
+    public Arena(String name) {
         this.name = name;
     }
 
@@ -13,34 +14,35 @@ public class Arena {
         return name;
     }
 
-    public TrainerPrepared startBattle(TrainerPrepared TP1, TrainerPrepared TP2){
-        int cantBattleT1 = 0;
-        int cantBattleT2 = 0;
+    public Trainer startBattle(TrainerPrepared TP1, TrainerPrepared TP2) {
+        int fighterIndexTP1 = 0;
+        int fighterIndexTP2 = 0;
 
-        Pokemon inBattleT1 = TP1.getPokemons()[cantBattleT1];
-        Pokemon inBattleT2 = TP2.getPokemons()[cantBattleT2];
+        Pokemon pokemonInBattleTP1 = TP1.getPokemon(fighterIndexTP1);
+        Pokemon pokemonInBattleTP2 = TP2.getPokemon(fighterIndexTP2);
 
-        while(!TP1.allDeadPokemons() && !TP2.allDeadPokemons()){
-            inBattleT1.attack(inBattleT2);
-            if(!inBattleT2.isDead()){
-                inBattleT2.attack(inBattleT1);
-            }else if(!TP2.allDeadPokemons()){
-                cantBattleT2++;
-                inBattleT2 = TP2.getPokemons()[cantBattleT2];
+        while (!TP1.allDeadPokemons() && !TP2.allDeadPokemons()) {
+            pokemonInBattleTP1.attack(pokemonInBattleTP2);
+
+            if (!pokemonInBattleTP2.isDead())
+                pokemonInBattleTP2.attack(pokemonInBattleTP1);
+            else if (!TP2.allDeadPokemons()) {
+                fighterIndexTP2++;
+                pokemonInBattleTP2 = TP2.getPokemon(fighterIndexTP2);
             }
-            
-            if(!TP1.allDeadPokemons() && inBattleT1.isDead()){
-                cantBattleT1++;
-                inBattleT1 = TP1.getPokemons()[cantBattleT1];
+
+            if (!TP1.allDeadPokemons() && pokemonInBattleTP1.isDead()) {
+                fighterIndexTP1++;
+                pokemonInBattleTP1 = TP1.getPokemon(fighterIndexTP1);
             }
         }
 
-        if (TP1.allDeadPokemons())
-            return TP2;
+        Trainer winner = TP1.allDeadPokemons() ? TP2.getTrainer() : TP1.getTrainer();
 
-        return TP1;
+        winner.addCredits(creditsForWinner);
+
+        return winner;
 
     }
-
 
 }

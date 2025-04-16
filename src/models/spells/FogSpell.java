@@ -2,7 +2,7 @@ package models.spells;
 
 import interfaces.Witchable;
 
-public class Fog extends Spell {
+public class FogSpell extends Spell {
 
     @Override
     public void bewitch(Witchable witchable) {

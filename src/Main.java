@@ -7,7 +7,7 @@ import models.pokemons.Pokemon;
 import models.pokemons.StonePokemon;
 import models.pokemons.WaterPokemon;
 import models.spells.Spell;
-import models.spells.Wind;
+import models.spells.WindSpell;
 import models.weapons.Sword;
 import models.weapons.Weapon;
 
@@ -30,9 +30,6 @@ public class Main {
             ash.addCredits(10000000);
             misty.addCredits(10000000);
 
-            Weapon sword = new Sword();
-            ash.purchase(sword);
-
             ash.purchase(charmander);
             ash.purchase(charmander);
             ash.purchase(squirtle);
@@ -42,12 +39,15 @@ public class Main {
             misty.purchase(mewtwo);
             misty.purchase(snorlax);
 
-            Spell spell = new Wind();
+            Weapon sword = new Sword();
+            misty.purchase(sword);
+
+            Spell spell = new WindSpell();
             spell.bewitch(charmander);
 
             Arena arena = new Arena("Pewter City");
 
-            TrainerPrepared winner = arena.startBattle(new TrainerPrepared(misty),new TrainerPrepared(ash));
+            Trainer winner = arena.startBattle(new TrainerPrepared(misty), new TrainerPrepared(ash));
             System.out.println("The winner in " + arena.getName() + " is: " + winner);
 
         } catch (Exception e) {

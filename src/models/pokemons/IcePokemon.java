@@ -29,7 +29,6 @@ public class IcePokemon extends Pokemon {
 		this.health += 200;
 		this.shield += 100;
 		this.damage += 100;
-
 	}
 
 	@Override
