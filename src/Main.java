@@ -27,8 +27,8 @@ public class Main {
             Trainer ash = new Trainer("Ash");
             Trainer misty = new Trainer("Misty");
 
-            ash.addCredits(10000000);
-            misty.addCredits(10000000);
+            ash.addCredits(1000);
+            misty.addCredits(1000);
 
             ash.purchase(charmander);
             ash.purchase(charmander);
