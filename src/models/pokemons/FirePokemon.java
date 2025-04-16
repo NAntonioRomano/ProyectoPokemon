@@ -1,13 +1,25 @@
 package models.pokemons;
 
+/**
+ * FirePokemon class represents a specific type of Pokemon with fire
+ * attributes and behaviors.
+ */
 public class FirePokemon extends Pokemon {
 
 	protected double rechargeRate = 0.05;
 
+	/**
+	 * Constructor for FirePokemon with a name.
+	 *
+	 * @param name The name of the FirePokemon.
+	 */
 	public FirePokemon(String name) {
 		super(name, 0, 200, 530, 80, 120);
 	}
 
+	/**
+	 * Constructor for FirePokemon with all attributes.
+	 */
 	public FirePokemon(String name, int xp, double shield, double health, double damage, int cost) {
 		super(name, xp, shield, health, damage, cost);
 	}
@@ -54,6 +66,11 @@ public class FirePokemon extends Pokemon {
 	public void bewitchStorm() {
 		this.shield *= 0.8;
 		this.damage *= 0.8;
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		throw new CloneNotSupportedException("FirePokemon cannot be cloned");
 	}
 
 }

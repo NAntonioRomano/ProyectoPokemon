@@ -8,6 +8,7 @@ import models.pokemons.StonePokemon;
 import models.pokemons.WaterPokemon;
 import models.spells.Spell;
 import models.spells.WindSpell;
+import models.weapons.Axe;
 import models.weapons.Sword;
 import models.weapons.Weapon;
 
@@ -31,7 +32,6 @@ public class Main {
             misty.addCredits(1000);
 
             ash.purchase(charmander);
-            ash.purchase(charmander);
             ash.purchase(squirtle);
             ash.purchase(bulbasaur);
 
@@ -39,8 +39,13 @@ public class Main {
             misty.purchase(mewtwo);
             misty.purchase(snorlax);
 
+            // Ash purchases a Pokemon that already exists in his collection. Should not
+            // duplicate
+            ash.purchase(charmander);
+
             Weapon sword = new Sword();
             misty.purchase(sword);
+            snorlax.setWeapon(misty.getWeapons().get(0));
 
             Spell spell = new WindSpell();
             spell.bewitch(charmander);
@@ -49,6 +54,14 @@ public class Main {
 
             Trainer winner = arena.startBattle(new TrainerPrepared(misty), new TrainerPrepared(ash));
             System.out.println("The winner in " + arena.getName() + " is: " + winner);
+
+            System.out.println();
+            System.out.println("-------------------Clone test---------------------");
+
+            System.out.println(misty);
+            Trainer jitjav = (Trainer) misty.clone();
+
+            System.out.println(jitjav);
 
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());

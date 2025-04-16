@@ -1,13 +1,14 @@
 package models.pokemons;
 
-import capabilties.PokemonCapability;
+import capabilities.PokemonCapability;
 import interfaces.Buyer;
 import interfaces.Classifiable;
 import interfaces.Hostile;
 import interfaces.Valuable;
 import interfaces.Witchable;
+import models.weapons.Weapon;
 
-public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witchable {
+public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witchable, Cloneable {
 	protected String name;
 	protected int xp;
 	protected double shield;
@@ -33,6 +34,14 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		return this.health <= 0;
 	}
 
+	public void incrementXp(int xp) {
+		this.xp += xp;
+	}
+
+	public void incrementXp() {
+		incrementXp(1);
+	}
+
 	protected abstract double getAttack();
 
 	protected abstract void getReceiveDamage(double damage);
@@ -42,6 +51,10 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 	protected void afterAttack() {
 	}
 
+	public void setWeapon(Weapon weapon) {
+		throw new UnsupportedOperationException(name + " cannot use a weapon");
+	}
+
 	@Override
 	public void attack(Pokemon other) {
 		if (other.isDead())
@@ -49,6 +62,10 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		else {
 			System.out.println(this.getName() + " is attacking " + other.getName() + "!");
 			other.receiveDamage(getAttack());
+
+			if (other.isDead())
+				incrementXp();
+
 			afterAttack();
 		}
 	}
@@ -87,6 +104,11 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		return getClass().getSimpleName() + " [name=" + name + ", xp=" + xp + ", shield=" + shield + ", health="
 				+ health + ", damage="
 				+ damage + ", cost=" + cost + "]";
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 
 }
