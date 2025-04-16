@@ -34,6 +34,7 @@ public class Main {
             ash.purchase(sword);
 
             ash.purchase(charmander);
+            ash.purchase(charmander);
             ash.purchase(squirtle);
             ash.purchase(bulbasaur);
 

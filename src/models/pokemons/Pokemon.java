@@ -66,7 +66,14 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 
 	@Override
 	public void deliverTo(Buyer buyer) {
-		((PokemonCapability) buyer).onPokemonPurchased(this);
+		PokemonCapability capability = (PokemonCapability) buyer;
+
+		if (!capability.canPokemonBePurchased(this)) {
+			System.out.println("You already have " + name + "!");
+			return;
+		}
+
+		capability.onPokemonPurchased(this);
 	}
 
 	public String getName() {

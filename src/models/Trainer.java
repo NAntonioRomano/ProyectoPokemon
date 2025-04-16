@@ -54,6 +54,12 @@ public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCa
 	}
 
 	@Override
+	public boolean canPokemonBePurchased(Pokemon pokemon) {
+		return !pokemons.stream()
+				.anyMatch(item -> item.getName() == pokemon.getName());
+	}
+
+	@Override
 	public void onPokemonPurchased(Pokemon pokemon) {
 		pokemons.add(pokemon);
 	}
