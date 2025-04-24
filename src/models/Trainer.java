@@ -22,8 +22,8 @@ import models.weapons.Weapon;
 public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCapability, Cloneable {
 	private String name;
 	private double credits;
-	private List<Pokemon> pokemons;
-	private List<Weapon> weapons;
+	private ArrayList<Pokemon> pokemons;
+	private ArrayList<Weapon> weapons;
 
 	/**
 	 * Constructor to create a Trainer object with a specified name.
@@ -108,24 +108,16 @@ public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCa
 	public Object clone() throws CloneNotSupportedException {
 
 		Trainer clone = (Trainer) super.clone();
-		clone.pokemons = new ArrayList<>();
-		clone.weapons = new ArrayList<>();
+		clone.pokemons = (ArrayList<Pokemon>) this.pokemons.clone();
+		clone.weapons = (ArrayList<Weapon>) this.weapons.clone();
+		clone.pokemons.clear();
+		clone.weapons.clear();
 
-		for (Pokemon pokemon : this.pokemons) {
-			try {
-				clone.pokemons.add((Pokemon) pokemon.clone());
-			} catch (CloneNotSupportedException e) {
-				// Pass
-			}
-		}
+		for (Pokemon pokemon : this.pokemons)
+			clone.pokemons.add((Pokemon) pokemon.clone());
 
-		for (Weapon weapon : this.weapons) {
-			try {
-				clone.weapons.add((Weapon) weapon.clone());
-			} catch (CloneNotSupportedException e) {
-				// Pass
-			}
-		}
+		for (Weapon weapon : this.weapons)
+			clone.weapons.add((Weapon) weapon.clone());
 
 		return clone;
 	}
