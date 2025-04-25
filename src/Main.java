@@ -8,7 +8,6 @@ import models.pokemons.StonePokemon;
 import models.pokemons.WaterPokemon;
 import models.spells.Spell;
 import models.spells.WindSpell;
-import models.weapons.Axe;
 import models.weapons.Sword;
 import models.weapons.Weapon;
 
