@@ -13,4 +13,6 @@ public interface Hostile {
 	 * @param pokemon The Pokemon to be attacked.
 	 */
 	void attack(Pokemon pokemon);
+
+	void afterAttack();
 }

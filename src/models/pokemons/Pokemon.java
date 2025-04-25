@@ -63,9 +63,6 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 
 	protected abstract void recharge();
 
-	protected void afterAttack() {
-	}
-
 	public void setWeapon(Weapon weapon) {
 		throw new UnsupportedOperationException(name + " cannot use a weapon");
 	}
@@ -100,6 +97,11 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 
 			afterAttack();
 		}
+	}
+
+	@Override
+	protected void afterAttack() {
+
 	}
 
 	// this method is called from Valuable
