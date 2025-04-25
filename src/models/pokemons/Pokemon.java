@@ -70,6 +70,23 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		throw new UnsupportedOperationException(name + " cannot use a weapon");
 	}
 
+	public void receiveDamage(double damage) {
+		getReceiveDamage(damage);
+		this.shield = Math.max(0, this.shield);
+		this.health = Math.max(0, this.health);
+
+		if (this.isDead())
+			System.out.println(this.getName() + " has died!");
+	}
+
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + " [name=" + name + ", xp=" + xp + ", shield=" + shield + ", health="
+				+ health + ", damage="
+				+ damage + ", cost=" + cost + "]";
+	}
+
+	// This method is called from hostile
 	@Override
 	public void attack(Pokemon other) {
 		if (other.isDead())
@@ -85,25 +102,13 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		}
 	}
 
-	public void receiveDamage(double damage) {
-		getReceiveDamage(damage);
-		this.shield = Math.max(0, this.shield);
-		this.health = Math.max(0, this.health);
-
-		if (this.isDead())
-			System.out.println(this.getName() + " has died!");
-	}
-
+	// this method is called from Valuable
 	@Override
 	public double getCost() {
 		return this.cost;
 	}
 
-	@Override
-	public int getCategory() {
-		return this.xp;
-	}
-
+	// this method is called from Valuable
 	@Override
 	public void deliverTo(Buyer buyer) {
 		PokemonCapability capability = (PokemonCapability) buyer;
@@ -114,16 +119,33 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 			System.out.println("Already have " + name + "!");
 	}
 
+	// this method is called from Classifiable
 	@Override
-	public String toString() {
-		return getClass().getSimpleName() + " [name=" + name + ", xp=" + xp + ", shield=" + shield + ", health="
-				+ health + ", damage="
-				+ damage + ", cost=" + cost + "]";
+	public int getCategory() {
+		return this.xp;
 	}
 
+	// this method is called from Cloneable
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
 	}
 
+	// this method is called from Witchable
+	@Override
+	public void bewitchFog() {
+		throw new UnsupportedOperationException("Pokemon cannot bewitch fog");
+	}
+
+	// this method is called from Witchable
+	@Override
+	public void bewitchWind() {
+		throw new UnsupportedOperationException("Pokemon cannot bewitch wind");
+	}
+
+	// this method is called from Witchable
+	@Override
+	public void bewitchStorm() {
+		throw new UnsupportedOperationException("Pokemon cannot bewitch storm");
+	}
 }
