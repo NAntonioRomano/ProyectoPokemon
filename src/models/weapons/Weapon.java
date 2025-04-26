@@ -24,6 +24,10 @@ public abstract class Weapon implements Hostile, Valuable, Cloneable {
 	}
 
 	@Override
+	public void afterAttack() {
+	}
+
+	@Override
 	public double getCost() {
 		return this.cost;
 	}
