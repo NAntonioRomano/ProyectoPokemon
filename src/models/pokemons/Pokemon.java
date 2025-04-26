@@ -99,8 +99,9 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		}
 	}
 
+	// this method is called from Hostile
 	@Override
-	protected void afterAttack() {
+	public void afterAttack() {
 
 	}
 
