@@ -1,11 +1,10 @@
 package models;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import exceptions.TrainerWithoutPokemonsException;
 import models.pokemons.Pokemon;
-import models.weapons.Weapon;
 
 /**
  * TrainerPrepared class represents a trainer with a limited number of pokemon
@@ -75,6 +74,37 @@ public class TrainerPrepared {
 	 */
 	public Pokemon getPokemon(int index) throws ArrayIndexOutOfBoundsException {
 		return pokemons[index];
+	}
+
+	public Pokemon getRandomPokemon() {
+
+		List<Pokemon> livePokemons = getLivePokemons();
+
+		if (livePokemons.size() == 0)
+			return null;
+
+		int randomIndex = (int) (Math.random() * livePokemons.size());
+
+		Pokemon choicePokemon = livePokemons.get(randomIndex);
+
+		System.out
+				.println(choicePokemon != null
+						? "✅ " + this.getName() + ": Chose " + choicePokemon.getName()
+								+ " for battle!"
+						: "No more pokemons for " + this.getName());
+		return choicePokemon;
+	}
+
+	public List<Pokemon> getLivePokemons() {
+
+		List<Pokemon> livePokemons = new ArrayList<>();
+
+		for (Pokemon pokemon : pokemons) {
+			if (!pokemon.isDead()) {
+				livePokemons.add(pokemon);
+			}
+		}
+		return livePokemons;
 	}
 
 	/**
