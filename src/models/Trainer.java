@@ -12,13 +12,6 @@ import models.pokemons.Pokemon;
 import models.pokemons.StonePokemon;
 import models.weapons.Weapon;
 
-/**
- * The Trainer class represents a trainer in the game.
- * It implements the Buyer, Classifiable, PokemonCapability, and
- * WeaponCapability interfaces.
- * It contains information about the trainer's name, credits, and their
- * collection of pokemon.
- */
 public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCapability, Cloneable {
 	private String name;
 	private double credits;
@@ -27,7 +20,8 @@ public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCa
 
 	/**
 	 * Constructor to create a Trainer object with a specified name.
-	 *
+	 * preconditions: name != null
+	 * 
 	 * @param name the name of the trainer
 	 */
 	public Trainer(String name) {
@@ -36,32 +30,18 @@ public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCa
 		this.weapons = new ArrayList<>();
 	}
 
-	/**
-	 * Getter method to retrieve the trainer's name.
-	 * 
-	 * @return the name of the trainer
-	 */
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * @return the list of pokemons owned by the trainer.
-	 */
 	public List<Pokemon> getPokemons() {
 		return pokemons;
 	}
 
-	/**
-	 * @return the list of weapons owned by the trainer.
-	 */
 	public List<Weapon> getWeapons() {
 		return weapons;
 	}
 
-	/**
-	 * @param credits the credits to add.
-	 */
 	public void addCredits(double credits) {
 		this.credits += credits;
 	}

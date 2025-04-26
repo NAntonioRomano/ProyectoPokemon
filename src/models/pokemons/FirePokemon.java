@@ -1,16 +1,13 @@
 package models.pokemons;
 
-/**
- * FirePokemon class represents a specific type of Pokemon with fire
- * attributes and behaviors.
- */
 public class FirePokemon extends Pokemon {
 
 	protected double rechargeRate = 0.05;
 
 	/**
 	 * Constructor for FirePokemon with a name.
-	 *
+	 * preconditions: name != null
+	 * 
 	 * @param name The name of the FirePokemon.
 	 */
 	public FirePokemon(String name) {
@@ -19,6 +16,15 @@ public class FirePokemon extends Pokemon {
 
 	/**
 	 * Constructor for FirePokemon with all attributes.
+	 * preconditions: name != null, xp >= 0, shield >= 0, health > 0, damage >= 0,
+	 * cost >= 0
+	 * 
+	 * @param name   The name of the FirePokemon.
+	 * @param xp     The experience points of the FirePokemon.
+	 * @param shield The shield of the FirePokemon.
+	 * @param health The health of the FirePokemon.
+	 * @param damage The damage of the FirePokemon.
+	 * @param cost   The cost of the FirePokemon.
 	 */
 	public FirePokemon(String name, int xp, double shield, double health, double damage, int cost) {
 		super(name, xp, shield, health, damage, cost);

@@ -1,14 +1,11 @@
 package models.pokemons;
 
-/**
- * IcePokemon class represents a specific type of Pokemon with fire
- * attributes and behaviors.
- */
 public class IcePokemon extends Pokemon {
 
 	/**
 	 * Constructor for IcePokemon.
-	 *
+	 * preconditions: name != null
+	 * 
 	 * @param name The name of the IcePokemon.
 	 */
 	public IcePokemon(String name) {

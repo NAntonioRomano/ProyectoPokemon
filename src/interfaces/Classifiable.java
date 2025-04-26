@@ -1,10 +1,5 @@
 package interfaces;
 
-/**
- * Classifiable interface represents an object that can be classified into a
- * category.
- * 
- */
 public interface Classifiable {
 
     /**

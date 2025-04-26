@@ -1,13 +1,10 @@
 package models.pokemons;
 
-/**
- * WaterPokemon class represents a specific type of Pokemon with fire
- * attributes and behaviors.
- */
 public class WaterPokemon extends Pokemon {
 
 	/**
 	 * Constructor for WaterPokemon
+	 * preconditions: name != null
 	 * 
 	 * @param name the name of the Pokemon
 	 */

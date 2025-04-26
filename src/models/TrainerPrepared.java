@@ -6,10 +6,6 @@ import java.util.List;
 import exceptions.TrainerWithoutPokemonsException;
 import models.pokemons.Pokemon;
 
-/**
- * TrainerPrepared class represents a trainer with a limited number of pokemon
- * prepared for battle.
- */
 public class TrainerPrepared {
 	private String name;
 	private Pokemon[] pokemons;
@@ -18,6 +14,7 @@ public class TrainerPrepared {
 
 	/**
 	 * Constructor for TrainerPrepared class.
+	 * preconditions: trainer != null
 	 * 
 	 * @param trainer Trainer object to be prepared.
 	 * @throws TrainerWithoutPokemonsException if the trainer has no pokemons.
@@ -38,35 +35,21 @@ public class TrainerPrepared {
 		this.trainer = trainer;
 	}
 
-	/**
-	 * Getter for the name of the trainer prepared.
-	 * 
-	 * @return the name of the trainer prepared.
-	 */
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * Getter for array of pokemons.
-	 * 
-	 * @return the array of pokemons.
-	 */
 	public Pokemon[] getPokemons() {
 		return pokemons;
 	}
 
-	/**
-	 * Getter for the trainer.
-	 * 
-	 * @return the trainer.
-	 */
 	public Trainer getTrainer() {
 		return trainer;
 	}
 
 	/**
 	 * Getter for pokemon of the trainer prepared in espific index.
+	 * preconditions: index >= 0
 	 * 
 	 * @param index the index of the pokemon.
 	 * @return the pokemon in the index.
@@ -76,17 +59,19 @@ public class TrainerPrepared {
 		return pokemons[index];
 	}
 
+	/**
+	 * Method to get a random live pokemon from the trainer.
+	 * 
+	 * @return the random pokemon.
+	 */
 	public Pokemon getRandomPokemon() {
-
 		List<Pokemon> livePokemons = getLivePokemons();
 
 		if (livePokemons.size() == 0)
 			return null;
 
 		int randomIndex = (int) (Math.random() * livePokemons.size());
-
 		Pokemon choicePokemon = livePokemons.get(randomIndex);
-
 		System.out
 				.println(choicePokemon != null
 						? "✅ " + this.getName() + ": Chose " + choicePokemon.getName()
@@ -95,6 +80,11 @@ public class TrainerPrepared {
 		return choicePokemon;
 	}
 
+	/**
+	 * Method to get the live pokemons of the trainer.
+	 * 
+	 * @return the list of live pokemons.
+	 */
 	public List<Pokemon> getLivePokemons() {
 
 		List<Pokemon> livePokemons = new ArrayList<>();

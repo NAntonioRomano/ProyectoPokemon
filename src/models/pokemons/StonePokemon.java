@@ -2,16 +2,13 @@ package models.pokemons;
 
 import models.weapons.Weapon;
 
-/**
- * StonePokemon class represents a specific type of Pokemon with fire
- * attributes and behaviors.
- */
 public class StonePokemon extends FirePokemon {
 
 	protected Weapon weapon;
 
 	/**
 	 * Constructor for StonePokemon
+	 * preconditions: name != null
 	 * 
 	 * @param name the name of the pokemon
 	 */

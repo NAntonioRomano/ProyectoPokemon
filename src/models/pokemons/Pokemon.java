@@ -8,11 +8,6 @@ import interfaces.Valuable;
 import interfaces.Witchable;
 import models.weapons.Weapon;
 
-/**
- * Abstract class representing a Pokemon.
- * Implements the Hostile, Valuable, Classifiable, Witchable, and Cloneable
- * interfaces.
- */
 public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witchable, Cloneable {
 	protected String name;
 	protected int xp;
@@ -23,6 +18,8 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 
 	/**
 	 * Constructor for the Pokemon class.
+	 * preconditions: name != null && xp >= 0 && shield >= 0 && health > 0 && damage
+	 * >= 0 && cost >= 0
 	 * 
 	 * @param name   The name of the Pokemon.
 	 * @param xp     The experience points of the Pokemon.
@@ -57,16 +54,41 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		incrementXp(1);
 	}
 
+	/**
+	 * Return the amount of attack of this pokemon
+	 */
 	protected abstract double getAttack();
+
+	/**
+	 * Calculate the damage received
+	 * preconditions: damage >= 0
+	 * 
+	 * @param damage The damage received
+	 */
 
 	protected abstract void getReceiveDamage(double damage);
 
+	/**
+	 * Recharge the pokemon
+	 */
 	protected abstract void recharge();
 
+	/**
+	 * Set the weapon of the pokemon
+	 * preconditions: weapon != null
+	 * 
+	 * @param weapon The weapon to set
+	 */
 	public void setWeapon(Weapon weapon) {
 		throw new UnsupportedOperationException(name + " cannot use a weapon");
 	}
 
+	/**
+	 * Recieves damage from another pokemon
+	 * preconditions: damage >= 0
+	 * 
+	 * @param damage The damage received
+	 */
 	public void receiveDamage(double damage) {
 		getReceiveDamage(damage);
 		this.shield = Math.max(0, this.shield);

@@ -1,8 +1,5 @@
 package interfaces;
 
-/**
- * Witchable interface represents an object that can be bewitched by Spell
- */
 public interface Witchable {
 
     /**

@@ -5,16 +5,13 @@ import interfaces.Buyer;
 import interfaces.Hostile;
 import interfaces.Valuable;
 
-/**
- * Abstract class representing a weapon.
- * Implements the Hostile and Valuable interfaces.
- */
 public abstract class Weapon implements Hostile, Valuable, Cloneable {
 
 	protected double cost;
 
 	/**
 	 * Constructor for the Weapon class.
+	 * preconditions: cost >= 0
 	 * 
 	 * @param cost The cost of the weapon.
 	 */

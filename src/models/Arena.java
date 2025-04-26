@@ -2,11 +2,6 @@ package models;
 
 import models.pokemons.*;
 
-/**
- * Arena class represents a battle arena where two trainers can battle
- * against each other.
- * It contains methods to start a battle and determine the winner.
- */
 public class Arena {
 
     private String name;
@@ -14,7 +9,8 @@ public class Arena {
 
     /**
      * Constructor for Arena class.
-     *
+     * preconditions: name != null
+     * 
      * @param name The name of the arena.
      */
     public Arena(String name) {
@@ -22,6 +18,14 @@ public class Arena {
         this.creditsForWinner = 500;
     }
 
+    /**
+     * Constructor for Arena class.
+     * preconditions: name != null, creditsForWinner >= 0
+     * 
+     * @param name             The name of the arena.
+     * @param creditsForWinner The amount of credits to be given to the winner.
+     *
+     */
     public Arena(String name, double creditsForWinner) {
         this.name = name;
         this.creditsForWinner = creditsForWinner;
@@ -29,7 +33,7 @@ public class Arena {
 
     /**
      * Returns the name of the arena.
-     *
+     * 
      * @return The name of the arena.
      */
     public String getName() {
@@ -42,6 +46,11 @@ public class Arena {
      * which contain the trainers and their respective Pokemon.
      * The battle continues until one of the trainers has all their Pokemon
      * defeated.
+     * preconditions: TP1 != null, TP2 != null
+     * 
+     * @param TP1 The first TrainerPrepared object representing the first trainer.
+     * @param TP2 The second TrainerPrepared object representing the second trainer.
+     * @return The Trainer object representing the winner of the battle.
      */
     public Trainer startBattle(TrainerPrepared TP1, TrainerPrepared TP2) {
 
