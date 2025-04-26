@@ -30,13 +30,14 @@ public class Main {
             ash.addCredits(1000);
             misty.addCredits(1000);
 
-            ash.purchase(charmander);
-            // ash.purchase(squirtle);
+            // ash.purchase(charmander);
+            ash.purchase(squirtle);
             // ash.purchase(bulbasaur);
 
-            misty.purchase(pikachu);
+            // misty.purchase(pikachu);
             // misty.purchase(mewtwo);
             // misty.purchase(snorlax);
+            misty.purchase(bulbasaur);
 
             // Ash purchases a Pokemon that already exists in his collection. Should not
             // duplicate

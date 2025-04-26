@@ -74,8 +74,11 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 
 		if (this.isDead())
 			System.out.println("❌ " + this.getName() + " has died!");
-		else
-			System.out.println(this.getName() + " has received " + damage + " damage!");
+		else {
+			System.out.println(this.getName() + " has received " + damage + " damage! - Stats "
+					+ this.getName() + ": Health: " + this.health + ", Shield: "
+					+ this.shield);
+		}
 	}
 
 	@Override
