@@ -30,7 +30,7 @@ public class FirePokemon extends Pokemon {
 	}
 
 	@Override
-	protected void afterAttack() {
+	public void afterAttack() {
 		this.damage = Math.max(10, damage * 0.75);
 	}
 
@@ -38,6 +38,8 @@ public class FirePokemon extends Pokemon {
 	protected void getReceiveDamage(double damage) {
 		if (this.shield > 0) {
 			this.shield -= damage * 0.75;
+			if (this.shield < 0)
+				this.health += this.shield;
 			this.health -= damage * 0.25;
 		} else
 			this.health -= damage;

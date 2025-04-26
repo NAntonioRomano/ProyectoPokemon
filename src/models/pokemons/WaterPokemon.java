@@ -31,6 +31,8 @@ public class WaterPokemon extends Pokemon {
 	protected void getReceiveDamage(double damage) {
 		if (this.shield > 0) {
 			this.shield -= damage * 0.5;
+			if (this.shield < 0)
+				this.health += this.shield;
 			this.health -= damage * 0.5;
 		} else
 			this.health -= damage;

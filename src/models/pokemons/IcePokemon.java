@@ -27,9 +27,11 @@ public class IcePokemon extends Pokemon {
 
 	@Override
 	protected void getReceiveDamage(double damage) {
-		if (this.shield > 0)
+		if (this.shield > 0) {
 			this.shield -= damage;
-		else
+			if (this.shield < 0)
+				this.health += this.shield;
+		} else
 			this.health -= damage;
 	}
 

@@ -23,7 +23,8 @@ public class StonePokemon extends FirePokemon {
 	@Override
 	public void attack(Pokemon other) {
 		if (this.weapon != null) {
-			System.out.println(name + " attacks " + other.getName() + " with a weapon");
+			System.out.println("⚔️ " + name + " attacks " + other.getName() + " with a wepon with " + damage
+					+ " damage!");
 			weapon.attack(other);
 		} else
 			super.attack(other);
