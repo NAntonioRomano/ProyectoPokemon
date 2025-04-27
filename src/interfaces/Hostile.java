@@ -15,5 +15,6 @@ public interface Hostile {
 	/**
 	 * This method is called after an attack.
 	 */
-	void afterAttack();
+	default void afterAttack() {
+	}
 }
