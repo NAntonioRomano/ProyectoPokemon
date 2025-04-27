@@ -82,32 +82,6 @@ public class Arena {
         System.out.println();
 
         return winner;
-
-        // int fighterIndexTP1 = 0;
-        // int fighterIndexTP2 = 0;
-        //
-        // while (!TP1.allDeadPokemons() && !TP2.allDeadPokemons()) {
-        //
-        // Pokemon pokemonInBattleTP1 = TP1.getPokemon(fighterIndexTP1);
-        // Pokemon pokemonInBattleTP2 = TP2.getPokemon(fighterIndexTP2);
-        //
-        // pokemonInBattleTP1.attack(pokemonInBattleTP2);
-        //
-        // if (!pokemonInBattleTP2.isDead())
-        // pokemonInBattleTP2.attack(pokemonInBattleTP1);
-        // else if (!TP2.allDeadPokemons())
-        // fighterIndexTP2++;
-        //
-        // if (!TP1.allDeadPokemons() && pokemonInBattleTP1.isDead())
-        // fighterIndexTP1++;
-        //
-        // }
-        //
-        // Trainer winner = TP1.allDeadPokemons() ? TP2.getTrainer() : TP1.getTrainer();
-        // winner.addCredits(creditsForWinner);
-        //
-        // return winner;
-
     }
 
 }

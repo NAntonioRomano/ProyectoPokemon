@@ -30,25 +30,24 @@ public class Main {
             ash.addCredits(1000);
             misty.addCredits(1000);
 
-            // ash.purchase(charmander);
+            ash.purchase(charmander);
             ash.purchase(squirtle);
-            // ash.purchase(bulbasaur);
+            ash.purchase(bulbasaur);
 
-            // misty.purchase(pikachu);
-            // misty.purchase(mewtwo);
-            // misty.purchase(snorlax);
-            misty.purchase(bulbasaur);
+            misty.purchase(pikachu);
+            misty.purchase(mewtwo);
+            misty.purchase(snorlax);
 
             // Ash purchases a Pokemon that already exists in his collection. Should not
             // duplicate
-            // ash.purchase(charmander);
+            ash.purchase(charmander);
 
-            // Weapon sword = new Sword();
-            // misty.purchase(sword);
-            // snorlax.setWeapon(misty.getWeapons().get(0));
+            Weapon sword = new Sword();
+            misty.purchase(sword);
+            snorlax.setWeapon(misty.getWeapons().get(0));
 
-            // Spell spell = new WindSpell();
-            // spell.bewitch(charmander);
+            Spell spell = new WindSpell();
+            spell.bewitch(charmander);
 
             Arena arena = new Arena("Pewter City");
 
@@ -59,9 +58,9 @@ public class Main {
             System.out.println("-------------------Clone test---------------------");
 
             System.out.println(misty);
-            Trainer jitjav = (Trainer) misty.clone();
+            Trainer mistyClone = (Trainer) misty.clone();
 
-            System.out.println(jitjav);
+            System.out.println(mistyClone);
 
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());

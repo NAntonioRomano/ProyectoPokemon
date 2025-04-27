@@ -71,13 +71,13 @@ public class TrainerPrepared {
 			return null;
 
 		int randomIndex = (int) (Math.random() * livePokemons.size());
-		Pokemon choicePokemon = livePokemons.get(randomIndex);
+		Pokemon choosenPokemon = livePokemons.get(randomIndex);
 		System.out
-				.println(choicePokemon != null
-						? "✅ " + this.getName() + ": Chose " + choicePokemon.getName()
+				.println(choosenPokemon != null
+						? "✅ " + this.getName() + ": Choose " + choosenPokemon.getName()
 								+ " for battle!"
 						: "No more pokemons for " + this.getName());
-		return choicePokemon;
+		return choosenPokemon;
 	}
 
 	/**
