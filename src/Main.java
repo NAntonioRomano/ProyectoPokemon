@@ -1,6 +1,8 @@
-import models.Arena;
 import models.Trainer;
 import models.TrainerPrepared;
+import models.arenas.Arena;
+import models.arenas.ArenaWithLevel;
+import models.arenas.ArenaWithType;
 import models.pokemons.FirePokemon;
 import models.pokemons.IcePokemon;
 import models.pokemons.Pokemon;
@@ -50,9 +52,12 @@ public class Main {
             spell.bewitch(charmander);
 
             Arena arena = new Arena("Pewter City");
+            ArenaWithType arenaWithType = new ArenaWithType(arena, "Forest");
+            ArenaWithLevel arenaWithLevel = new ArenaWithLevel(arenaWithType, "Easy");
 
-            Trainer winner = arena.startBattle(new TrainerPrepared(misty), new TrainerPrepared(ash));
+            Trainer winner = arenaWithLevel.startBattle(new TrainerPrepared(misty), new TrainerPrepared(ash));
             System.out.println("The winner in " + arena.getName() + " is: " + winner);
+            System.out.println("Credits for the winner: " + arenaWithLevel.getCredditsForWinner() + "\n");
 
             System.out.println();
             System.out.println("-------------------Clone test---------------------");

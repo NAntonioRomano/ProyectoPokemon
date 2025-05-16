@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import exceptions.TrainerWithoutPokemonsException;
+import models.arenas.Arena;
 
 public class Gym {
 	private List<Trainer> trainers = new ArrayList<>();

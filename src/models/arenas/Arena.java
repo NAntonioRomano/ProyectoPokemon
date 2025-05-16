@@ -1,11 +1,14 @@
-package models;
+package models.arenas;
 
+import models.Trainer;
+import models.TrainerPrepared;
 import models.pokemons.*;
+import interfaces.InterfaceArena;
 
-public class Arena {
+public class Arena implements InterfaceArena {
 
-    private String name;
-    private final double creditsForWinner;
+    protected String name;
+    protected double creditsForWinner;
 
     /**
      * Constructor for Arena class.
@@ -31,14 +34,22 @@ public class Arena {
         this.creditsForWinner = creditsForWinner;
     }
 
+
+
     /**
-     * Returns the name of the arena.
+     * Abstract method that returns a string with the details of the arena.
+     * The details include:
+     * - The name of the arena
+     * - The credits for the winner
+     * - The type of the arena
+     * @return A string with the details of the arena.
      * 
-     * @return The name of the arena.
      */
-    public String getName() {
-        return name;
+    
+    public void setCreditsForWinner(double creditsForWinner){
+        this.creditsForWinner = creditsForWinner;
     }
+
 
     /**
      * Starts a battle between two trainers.
@@ -52,6 +63,7 @@ public class Arena {
      * @param TP2 The second TrainerPrepared object representing the second trainer.
      * @return The Trainer object representing the winner of the battle.
      */
+    @Override
     public Trainer startBattle(TrainerPrepared TP1, TrainerPrepared TP2) {
 
         System.out.println();
@@ -82,6 +94,22 @@ public class Arena {
         System.out.println();
 
         return winner;
+    }
+
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getDetails() {
+        return "Arena: " + getName() + "\n";
+    }
+
+    @Override
+    public int getCredditsForWinner() {
+        return (int) creditsForWinner;
     }
 
 }
