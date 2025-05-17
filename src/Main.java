@@ -1,6 +1,6 @@
 import models.Trainer;
 import models.TrainerPrepared;
-import models.arenas.Arena;
+import models.arenas.BaseArena;
 import models.arenas.ArenaWithLevel;
 import models.arenas.ArenaWithType;
 import models.pokemons.FirePokemon;
@@ -51,10 +51,12 @@ public class Main {
             Spell spell = new WindSpell();
             spell.bewitch(charmander);
 
-            Arena arena = new Arena("Pewter City");
+            BaseArena arena = new BaseArena("Pewter City");
             ArenaWithType arenaWithType = new ArenaWithType(arena, "Forest");
             ArenaWithLevel arenaWithLevel = new ArenaWithLevel(arenaWithType, "Easy");
-
+            System.out.println(misty.getBalance());
+            System.out.println(ash.getBalance());
+            System.out.println(arenaWithLevel.getDetails());
             Trainer winner = arenaWithLevel.startBattle(new TrainerPrepared(misty), new TrainerPrepared(ash));
             System.out.println("The winner in " + arena.getName() + " is: " + winner);
             System.out.println("Credits for the winner: " + arenaWithLevel.getCredditsForWinner() + "\n");

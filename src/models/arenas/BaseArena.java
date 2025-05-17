@@ -3,12 +3,14 @@ package models.arenas;
 import models.Trainer;
 import models.TrainerPrepared;
 import models.pokemons.*;
-import interfaces.InterfaceArena;
+import exceptions.TrainerWithoutPokemonsException;
+import interfaces.Arena;
 
-public class Arena implements InterfaceArena {
+public class BaseArena implements Arena {
 
-    protected String name;
-    protected double creditsForWinner;
+    private String name;
+    private int creditsForWinner;
+    private boolean inBattle;
 
     /**
      * Constructor for Arena class.
@@ -16,7 +18,7 @@ public class Arena implements InterfaceArena {
      * 
      * @param name The name of the arena.
      */
-    public Arena(String name) {
+    public BaseArena(String name) {
         this.name = name;
         this.creditsForWinner = 500;
     }
@@ -29,46 +31,16 @@ public class Arena implements InterfaceArena {
      * @param creditsForWinner The amount of credits to be given to the winner.
      *
      */
-    public Arena(String name, double creditsForWinner) {
+    public BaseArena(String name, int creditsForWinner) {
         this.name = name;
         this.creditsForWinner = creditsForWinner;
     }
-
-
-
-    /**
-     * Abstract method that returns a string with the details of the arena.
-     * The details include:
-     * - The name of the arena
-     * - The credits for the winner
-     * - The type of the arena
-     * @return A string with the details of the arena.
-     * 
-     */
     
-    public void setCreditsForWinner(double creditsForWinner){
-        this.creditsForWinner = creditsForWinner;
-    }
 
 
-    /**
-     * Starts a battle between two trainers.
-     * The trainers are represented by TrainerPrepared objects,
-     * which contain the trainers and their respective Pokemon.
-     * The battle continues until one of the trainers has all their Pokemon
-     * defeated.
-     * preconditions: TP1 != null, TP2 != null
-     * 
-     * @param TP1 The first TrainerPrepared object representing the first trainer.
-     * @param TP2 The second TrainerPrepared object representing the second trainer.
-     * @return The Trainer object representing the winner of the battle.
-     */
+
     @Override
-    public Trainer startBattle(TrainerPrepared TP1, TrainerPrepared TP2) {
-
-        System.out.println();
-        System.out.println("Starting battle in " + this.name + " between " + TP1.getTrainer().getName() + " and "
-                + TP2.getTrainer().getName());
+    public Trainer startBattle(TrainerPrepared TP1, TrainerPrepared TP2){
 
         Pokemon pokemonInBattleTP1 = TP1.getRandomPokemon();
         Pokemon pokemonInBattleTP2 = TP2.getRandomPokemon();
@@ -89,11 +61,9 @@ public class Arena implements InterfaceArena {
         }
 
         Trainer winner = pokemonInBattleTP1 != null ? TP1.getTrainer() : TP2.getTrainer();
-        winner.addCredits(creditsForWinner);
-        System.out.println("🏅 " + winner.getName() + " won the battle!");
-        System.out.println();
 
         return winner;
+        
     }
 
 
@@ -110,6 +80,16 @@ public class Arena implements InterfaceArena {
     @Override
     public int getCredditsForWinner() {
         return (int) creditsForWinner;
+    }
+
+    @Override
+    public boolean isBusy() {
+        return this.inBattle;
+    }
+
+    @Override
+    public void setBusy(boolean busy) {
+        this.inBattle = busy;
     }
 
 }

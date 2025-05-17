@@ -1,15 +1,15 @@
 package models.arenas;
 
-import interfaces.InterfaceArena;
+import interfaces.Arena;
 
-public abstract class ArenaDecorator implements InterfaceArena {
-    private InterfaceArena arena;
+public abstract class ArenaDecorator implements Arena {
+    private Arena arena;
 
-    public ArenaDecorator(InterfaceArena arena){
+    public ArenaDecorator(Arena arena){
         this.arena = arena;
     }
 
-    protected InterfaceArena getArena(){
+    protected Arena getArena(){
         return this.arena;
     }
 }

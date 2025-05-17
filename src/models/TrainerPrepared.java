@@ -19,12 +19,10 @@ public class TrainerPrepared {
 	 * @param trainer Trainer object to be prepared.
 	 * @throws TrainerWithoutPokemonsException if the trainer has no pokemons.
 	 */
-	public TrainerPrepared(Trainer trainer) throws TrainerWithoutPokemonsException {
+	public TrainerPrepared(Trainer trainer){
 		this.name = trainer.getName();
 		List<Pokemon> trainerPokemons = trainer.getPokemons();
 
-		if (trainerPokemons.size() == 0)
-			throw new TrainerWithoutPokemonsException(trainer);
 
 		int length = Math.min(maxPokemonsPerFigth, trainerPokemons.size());
 		pokemons = new Pokemon[length];

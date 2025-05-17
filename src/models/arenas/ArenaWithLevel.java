@@ -1,13 +1,14 @@
 package models.arenas;
 
-import interfaces.InterfaceArena;
+import exceptions.TrainerWithoutPokemonsException;
+import interfaces.Arena;
 import models.Trainer;
 import models.TrainerPrepared;
 
 public class ArenaWithLevel extends ArenaDecorator {
     private String level;
 
-    public ArenaWithLevel(InterfaceArena arena, String level){
+    public ArenaWithLevel(Arena arena, String level){
         super(arena);
         this.level = level;
     }
@@ -37,8 +38,16 @@ public class ArenaWithLevel extends ArenaDecorator {
     }
 
     @Override
-    public Trainer startBattle(TrainerPrepared trainer1, TrainerPrepared trainer2) throws Exception {
+    public Trainer startBattle(TrainerPrepared trainer1, TrainerPrepared trainer2){
         return getArena().startBattle(trainer1,trainer2);
+    }
+    @Override
+    public boolean isBusy() {
+        return getArena().isBusy();
+    }
+    @Override
+    public void setBusy(boolean busy) {
+        getArena().setBusy(busy);
     }
 
 }
