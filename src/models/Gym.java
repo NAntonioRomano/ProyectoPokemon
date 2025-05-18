@@ -32,6 +32,9 @@ public class Gym {
 			notifyAll();
 		}
 	}
+	public ArrayList<Trainer> getTrainers() {
+		return trainers;
+	}
 
 	public void addTrainer(Trainer trainer){
 		if(trainer != null){
@@ -39,9 +42,25 @@ public class Gym {
 		}
 	}
 
+	public void removeTrainer(Trainer trainer){
+		if(trainer != null){
+			trainers.remove(trainer);
+		}
+	}
+
+	public ArrayList<Arena> getArenas() {
+		return arenas;
+	}
+
 	public void addArena(Arena arena){
 		if(arena != null){
 			arenas.add(arena);
+		}
+	}
+
+	public void removeArena(Arena arena){
+		if(arena != null){
+			arenas.remove(arena);
 		}
 	}
 
