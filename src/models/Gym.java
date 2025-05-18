@@ -2,7 +2,6 @@ package models;
 
 import java.util.ArrayList;
 
-import exceptions.TrainerWithoutPokemonsException;
 import interfaces.Arena;
 
 public class Gym {
@@ -22,9 +21,16 @@ public class Gym {
 	 * @param arena    The arena where the trainer will battle.
 	 */
 	public void Arena_Battle(Arena arena, Trainer trainer1, Trainer trainer2){
-		arena.startBattle(new TrainerPrepared(trainer1), new TrainerPrepared(trainer2));
-		arena.setBusy(false);
-		notifyAll();
+		Trainer winner;
+		winner = arena.startBattle(new TrainerPrepared(trainer1), new TrainerPrepared(trainer2));
+		System.out.println("Winner: " + winner.getName() + " in arena: " + arena.getName() + "\n" +
+				"Credits for winner: " + arena.getCredditsForWinner() + "\n" +
+				"Details: " + arena.getDetails() + "\n"
+		);
+		synchronized(this){
+			arena.setBusy(false);
+			notifyAll();
+		}
 	}
 
 	public void addTrainer(Trainer trainer){

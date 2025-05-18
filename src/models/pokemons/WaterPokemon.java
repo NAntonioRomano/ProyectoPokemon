@@ -51,4 +51,9 @@ public class WaterPokemon extends Pokemon {
 		this.shield *= 0.1;
 	}
 
+	@Override
+	public Object clone() throws CloneNotSupportedException{
+		return super.clone();
+	}
+
 }

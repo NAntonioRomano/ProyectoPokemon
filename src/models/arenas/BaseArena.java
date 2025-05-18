@@ -3,7 +3,6 @@ package models.arenas;
 import models.Trainer;
 import models.TrainerPrepared;
 import models.pokemons.*;
-import exceptions.TrainerWithoutPokemonsException;
 import interfaces.Arena;
 
 public class BaseArena implements Arena {

@@ -2,7 +2,9 @@ package models.pokemons;
 
 import models.weapons.Weapon;
 
-public class StonePokemon extends FirePokemon {
+public class StonePokemon extends Pokemon {
+
+	protected double rechargeRate;
 
 	protected Weapon weapon;
 
@@ -31,6 +33,22 @@ public class StonePokemon extends FirePokemon {
 	@Override
 	protected double getAttack() {
 		return this.damage * 0.15;
+	}
+
+	@Override
+	public void afterAttack(){
+		this.damage -= this.damage * 0.05;
+	}
+	
+	@Override
+	protected void getReceiveDamage(double damage) {
+		if (this.shield > 0) {
+			this.shield -= damage * 0.75;
+			if (this.shield < 0)
+				this.health += this.shield;
+			this.health -= damage * 0.25;
+		} else
+			this.health -= damage;
 	}
 
 	@Override

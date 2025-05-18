@@ -1,6 +1,5 @@
 package models.arenas;
 
-import exceptions.TrainerWithoutPokemonsException;
 import interfaces.Arena;
 import models.Trainer;
 import models.TrainerPrepared;
@@ -29,7 +28,7 @@ public class ArenaWithLevel extends ArenaDecorator {
         int credits = getArena().getCredditsForWinner();
         if(level.equalsIgnoreCase("Easy")){
             credits *= 0.9;
-        }else if(level.equalsIgnoreCase("")){
+        }else if(level.equalsIgnoreCase("Intermediate")){
             credits *= 1.2;
         }else if(level.equalsIgnoreCase("Difficult")){
             credits *= 1.5;

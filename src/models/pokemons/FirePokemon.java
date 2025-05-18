@@ -2,7 +2,7 @@ package models.pokemons;
 
 public class FirePokemon extends Pokemon {
 
-	protected double rechargeRate = 0.05;
+	protected double rechargeRate;
 
 	/**
 	 * Constructor for FirePokemon with a name.
@@ -12,6 +12,7 @@ public class FirePokemon extends Pokemon {
 	 */
 	public FirePokemon(String name) {
 		super(name, 0, 200, 530, 80, 120);
+		this.rechargeRate = 0.05;
 	}
 
 	/**

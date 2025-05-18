@@ -8,7 +8,6 @@ import capabilities.WeaponCapability;
 import interfaces.Buyer;
 import interfaces.Classifiable;
 import models.pokemons.Pokemon;
-import models.pokemons.StonePokemon;
 import models.weapons.Weapon;
 
 public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCapability, Cloneable {

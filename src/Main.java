@@ -1,3 +1,5 @@
+import models.Battle;
+import models.Gym;
 import models.Trainer;
 import models.TrainerPrepared;
 import models.arenas.BaseArena;
@@ -15,7 +17,7 @@ import models.weapons.Weapon;
 
 public class Main {
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         try {
 
@@ -73,6 +75,115 @@ public class Main {
             System.out.println("An error occurred: " + e.getMessage());
         }
 
+    }
+    */
+
+    public static void main(String[] args){
+        try {
+            Gym gym  = new Gym();
+            Pokemon charmander = new FirePokemon("Charmander");
+            Pokemon squirtle = new WaterPokemon("Squirtle");
+            Pokemon bulbasaur = new FirePokemon("Bulbasaur");
+            Pokemon pikachu = new IcePokemon("Pikachu");
+            Pokemon mewtwo = new StonePokemon("Mewtwo");
+            Pokemon snorlax = new StonePokemon("Snorlax");
+            Pokemon eevee = new WaterPokemon("Eevee");
+            Pokemon jigglypuff = new IcePokemon("Jigglypuff");
+            Pokemon onix = new StonePokemon("Onix");
+            Pokemon growlithe = new FirePokemon("Growlithe");
+            Pokemon psyduck = new WaterPokemon("Psyduck");
+            Pokemon vulpix = new FirePokemon("Vulpix");
+            Pokemon lapras = new IcePokemon("Lapras");
+            Pokemon geodude = new StonePokemon("Geodude");
+            Pokemon magikarp = new WaterPokemon("Magikarp");
+            Pokemon flareon = new FirePokemon("Flareon");
+            Pokemon articuno = new IcePokemon("Articuno");
+            Pokemon graveler = new StonePokemon("Graveler");
+
+
+            Trainer ash = new Trainer("Ash");
+            Trainer misty = new Trainer("Misty");
+            Trainer brock = new Trainer("Brock");
+            Trainer gary = new Trainer("Gary");
+            Trainer james = new Trainer("James");
+            Trainer rick = new Trainer("Rick");
+
+            ash.addCredits(1000);
+            misty.addCredits(1000);
+            brock.addCredits(1000);
+            gary.addCredits(1000);
+            james.addCredits(1000);
+            rick.addCredits(1000);
+
+            ash.purchase(charmander);
+            ash.purchase(squirtle);
+            ash.purchase(bulbasaur);
+
+            misty.purchase(pikachu);
+            misty.purchase(mewtwo);
+            misty.purchase(snorlax);
+
+            brock.purchase(eevee);
+            brock.purchase(jigglypuff);
+            brock.purchase(onix);
+
+            gary.purchase(growlithe);
+            gary.purchase(psyduck);
+            gary.purchase(vulpix);
+
+            james.purchase(lapras);
+            james.purchase(geodude);
+            james.purchase(magikarp);
+
+            rick.purchase(flareon);
+            rick.purchase(articuno);
+            rick.purchase(graveler);
+
+
+
+            // Ash purchases a Pokemon that already exists in his collection. Should not
+            // duplicate
+            ash.purchase(charmander);
+
+            Weapon sword = new Sword();
+            misty.purchase(sword);
+            snorlax.setWeapon(sword);
+            mewtwo.setWeapon(sword);
+            onix.setWeapon(sword);
+            geodude.setWeapon(sword);
+            graveler.setWeapon(sword);
+
+            
+
+            BaseArena a1 = new BaseArena("Pewter City");
+            ArenaWithType arenatipo1 = new ArenaWithType(a1, "Forest");
+            ArenaWithLevel arena1 = new ArenaWithLevel(arenatipo1, "Easy");
+
+            BaseArena a2= new BaseArena("Cerulean City");
+            ArenaWithType arenatipo2 = new ArenaWithType(a2, "Forest");
+            ArenaWithLevel arena2 = new ArenaWithLevel(arenatipo2, "Easy");
+
+            gym.addArena(arena1);
+            gym.addArena(arena2);
+
+
+
+            
+            Battle battle1 = new Battle(gym, misty,ash);
+            Battle battle2 = new Battle(gym, brock, gary);
+            Battle battle3 = new Battle(gym, james, rick);
+
+            Thread t1 = new Thread(battle1);
+            Thread t2 = new Thread(battle2);
+            Thread t3 = new Thread(battle3);
+
+            t1.start();
+            t2.start();
+            t3.start();
+
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
     }
 
 }

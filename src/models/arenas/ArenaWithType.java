@@ -1,6 +1,5 @@
 package models.arenas;
 
-import exceptions.TrainerWithoutPokemonsException;
 import interfaces.Arena;
 import models.Trainer;
 import models.TrainerPrepared;
@@ -21,7 +20,7 @@ public class ArenaWithType extends ArenaDecorator{
 
     @Override
     public String getDetails() {
-        return getArena().getDetails() + "\n" +
+        return getArena().getDetails() +
                 "Type: " + this.type + "\n";
     }
 
