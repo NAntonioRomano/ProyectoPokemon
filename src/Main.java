@@ -1,19 +1,19 @@
-import models.Battle;
-import models.Gym;
-import models.Trainer;
-import models.TrainerPrepared;
-import models.arenas.BaseArena;
-import models.arenas.ArenaWithLevel;
-import models.arenas.ArenaWithType;
-import models.pokemons.FirePokemon;
-import models.pokemons.IcePokemon;
-import models.pokemons.Pokemon;
-import models.pokemons.StonePokemon;
-import models.pokemons.WaterPokemon;
-import models.spells.Spell;
-import models.spells.WindSpell;
-import models.weapons.Sword;
-import models.weapons.Weapon;
+import model.models.Battle;
+import model.models.Gym;
+import model.models.Trainer;
+import model.models.TrainerPrepared;
+import model.models.arenas.ArenaWithLevel;
+import model.models.arenas.ArenaWithType;
+import model.models.arenas.BaseArena;
+import model.models.pokemons.FirePokemon;
+import model.models.pokemons.IcePokemon;
+import model.models.pokemons.Pokemon;
+import model.models.pokemons.StonePokemon;
+import model.models.pokemons.WaterPokemon;
+import model.models.spells.Spell;
+import model.models.spells.WindSpell;
+import model.models.weapons.Sword;
+import model.models.weapons.Weapon;
 
 public class Main {
 
