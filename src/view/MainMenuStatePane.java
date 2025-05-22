@@ -15,7 +15,6 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import java.awt.Dimension;
-import view.FocusTraversalOnArray;
 import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -198,6 +197,8 @@ public class MainMenuStatePane extends JPanel implements ActionListener {
 		this.addArenaButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		this.addArenaButton.setAlignmentX(0.5f);
 		this.addArenaButtonPane.add(this.addArenaButton);
+		
+		
 		
 
 	}

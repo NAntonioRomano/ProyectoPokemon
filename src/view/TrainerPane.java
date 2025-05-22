@@ -42,8 +42,7 @@ public class TrainerPane extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public TrainerPane(ImageIcon icon, Trainer trainer) {
-		this.trainer = trainer;
+	public TrainerPane() {
 		this.setForeground(new Color(255, 255, 0));
 		this.setBackground(new Color(255, 255, 0));
 		this.setLayout(new BorderLayout(0, 0));
@@ -68,7 +67,6 @@ public class TrainerPane extends JPanel {
 		
 		this.ImgTrainerLabel = new JLabel("");
 		this.ImgTrainerLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		this.TrainerIcon = icon;
 		this.ImgTrainerLabel.setIcon(TrainerIcon);
 		this.WestPaneData.add(this.ImgTrainerLabel);
 		
@@ -77,7 +75,7 @@ public class TrainerPane extends JPanel {
 		this.CenterPaneData.setLayout(new BorderLayout(0, 0));
 		this.CenterPaneData.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 		
-		this.TrainerNameLabel = new JLabel(trainer.getName());
+		this.TrainerNameLabel = new JLabel("TRAINER NAME");
 		this.TrainerNameLabel.setPreferredSize(new Dimension(75, 20));
 		this.TrainerNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		this.CenterPaneData.add(this.TrainerNameLabel, BorderLayout.NORTH);
@@ -91,14 +89,14 @@ public class TrainerPane extends JPanel {
 		this.TrainerLevel.setHorizontalAlignment(SwingConstants.CENTER);
 		this.InfoTrainerPane.add(this.TrainerLevel);
 		
-		this.TrainerLevelData = new JLabel(Integer.toString(trainer.getCategory()));
+		this.TrainerLevelData = new JLabel("1000");
 		this.InfoTrainerPane.add(this.TrainerLevelData);
 		
 		this.TrainerCredits = new JLabel("Creditos:");
 		this.TrainerCredits.setHorizontalAlignment(SwingConstants.CENTER);
 		this.InfoTrainerPane.add(this.TrainerCredits);
 		
-		this.TrainerCreditsData = new JLabel(Integer.toString((int)trainer.getBalance()));
+		this.TrainerCreditsData = new JLabel("1000");
 		this.InfoTrainerPane.add(this.TrainerCreditsData);
 		
 		this.SouthPane = new JPanel();
