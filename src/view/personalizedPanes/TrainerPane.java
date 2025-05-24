@@ -1,4 +1,4 @@
-package view;
+package view.personalizedPanes;
 
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
@@ -41,19 +41,19 @@ public class TrainerPane extends JPanel implements ItemListener {
     private JLabel TrainerCreditsData;
     private ImageIcon TrainerIcon;
     private Trainer trainer;
-	private final Color COLOR_SELECCIONADO = Color.ORANGE;
-    private final Color COLOR_NO_SELECCIONADO = Color.YELLOW;
+	private final Color SELECT_COLOR = Color.ORANGE;
+    private final Color NO_SELECT_COLOR = Color.YELLOW;
 
     /**
      * Create the panel.
      */
-    public TrainerPane() {
+    public TrainerPane(Trainer trainer) {
         this.setForeground(new Color(255, 255, 0));
         this.setBackground(new Color(255, 255, 0));
         this.setLayout(new BorderLayout(0, 0));
         this.setBorder(BorderFactory.createLineBorder(getBackground(), 3));
 
-        Dimension prefered_size = new Dimension(350, 150);
+        Dimension prefered_size = new Dimension(250, 150);
 
         this.setPreferredSize(prefered_size);
         this.setMinimumSize(prefered_size);
@@ -64,7 +64,7 @@ public class TrainerPane extends JPanel implements ItemListener {
         this.CenterPaneButton.setLayout(new BorderLayout(10, 0));
         this.CenterPaneButton.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 
-        this.CenterPaneButton.setBackground(COLOR_NO_SELECCIONADO);
+        this.CenterPaneButton.setBackground(NO_SELECT_COLOR);
         this.CenterPaneButton.setOpaque(true); 
 
 
@@ -86,7 +86,7 @@ public class TrainerPane extends JPanel implements ItemListener {
         this.CenterPaneData.setLayout(new BorderLayout(0, 0));
         this.CenterPaneData.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 
-        this.TrainerNameLabel = new JLabel("TRAINER NAME");
+        this.TrainerNameLabel = new JLabel(trainer.getName());
         this.TrainerNameLabel.setPreferredSize(new Dimension(75, 20));
         this.TrainerNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
         this.CenterPaneData.add(this.TrainerNameLabel, BorderLayout.NORTH);
@@ -100,15 +100,16 @@ public class TrainerPane extends JPanel implements ItemListener {
         this.TrainerLevel.setHorizontalAlignment(SwingConstants.CENTER);
         this.InfoTrainerPane.add(this.TrainerLevel);
 
-        this.TrainerLevelData = new JLabel("1000");
+        this.TrainerLevelData = new JLabel(Integer.toString(trainer.getCategory()));
         this.InfoTrainerPane.add(this.TrainerLevelData);
 
         this.TrainerCredits = new JLabel("Creditos:");
         this.TrainerCredits.setHorizontalAlignment(SwingConstants.CENTER);
-        this.InfoTrainerPane.add(this.TrainerCredits);
+		this.InfoTrainerPane.add(this.TrainerCredits);
 
-        this.TrainerCreditsData = new JLabel("1000");
-        this.InfoTrainerPane.add(this.TrainerCreditsData);
+        this.TrainerCreditsData = new JLabel(Integer.toString((int)trainer.getBalance()));
+		this.InfoTrainerPane.add(this.TrainerCreditsData);
+		
 
         this.SouthPane = new JPanel();
         add(this.SouthPane, BorderLayout.SOUTH);
@@ -133,10 +134,10 @@ public class TrainerPane extends JPanel implements ItemListener {
     public void itemStateChanged(ItemEvent e) {
         if (e.getSource() == CenterPaneButton) {
             if (e.getStateChange() == ItemEvent.SELECTED) {
-                CenterPaneButton.setBackground(COLOR_SELECCIONADO);
+                CenterPaneButton.setBackground(SELECT_COLOR);
                 System.out.println("TrainerPane: CenterPaneButton seleccionado.");
             } else {
-                CenterPaneButton.setBackground(COLOR_NO_SELECCIONADO);
+                CenterPaneButton.setBackground(NO_SELECT_COLOR);
                 System.out.println("TrainerPane: CenterPaneButton deseleccionado.");
             }
         }

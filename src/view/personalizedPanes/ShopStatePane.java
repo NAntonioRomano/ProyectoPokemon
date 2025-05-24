@@ -1,4 +1,4 @@
-package view;
+package view.personalizedPanes;
 
 import javax.swing.JPanel;
 import java.awt.Dimension;
@@ -19,7 +19,7 @@ import java.awt.Font;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 
-public class ShopStatePane extends JPanel implements ActionListener{
+public class ShopStatePane extends StatePane implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel PokemonPurchasePane;
@@ -161,6 +161,64 @@ public class ShopStatePane extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 	
 		
+	}
+
+	@Override
+	public void setActionListener(ActionListener listener){
+		this.addPokemonBtn.setActionCommand("ADD_POKEMON");
+		this.addPokemonBtn.addActionListener(listener);
+		
+		this.addWeaponBtn.setActionCommand("ADD_WEAPON");
+		this.addWeaponBtn.addActionListener(listener);
+		
+		this.FirePokemonButton.setActionCommand("FIRE_POKEMON");
+		this.FirePokemonButton.addActionListener(listener);
+		
+		this.StonePokemonButton.setActionCommand("STONE_POKEMON");
+		this.StonePokemonButton.addActionListener(listener);
+		
+		this.IcePokemonButton.setActionCommand("ICE_POKEMON");
+		this.IcePokemonButton.addActionListener(listener);
+		
+		this.WaterPokemonButton.setActionCommand("WATER_POKEMON");
+		this.WaterPokemonButton.addActionListener(listener);
+		
+		this.SwordRdioBtn.setActionCommand("SWORD");
+		this.SwordRdioBtn.addActionListener(listener);
+		
+		this.AxisRdioBtn.setActionCommand("AXIS");
+		this.AxisRdioBtn.addActionListener(listener);
+	}
+
+	@Override
+	public String getPokemonName(){
+		String pokemonName = this.NamePokemonTF.getText();
+		if(pokemonName.isEmpty()){
+			return null;
+		}
+		return pokemonName;
+	}
+	@Override
+    public String getPokemonType(){
+		if(this.FirePokemonButton.isSelected()){
+			return FirePokemonButton.getActionCommand();
+		}else if(this.StonePokemonButton.isSelected()){
+			return StonePokemonButton.getActionCommand();
+		}else if(this.IcePokemonButton.isSelected()){
+			return IcePokemonButton.getActionCommand();
+		}else if(this.WaterPokemonButton.isSelected()){
+			return WaterPokemonButton.getActionCommand();
+		}
+
+		return null;
+	}
+    public String getWeaponType(){
+		if(this.SwordRdioBtn.isSelected()){
+			return SwordRdioBtn.getActionCommand();
+		}else if(this.AxisRdioBtn.isSelected()){
+			return AxisRdioBtn.getActionCommand();
+		}
+		return null;
 	}
 
 }

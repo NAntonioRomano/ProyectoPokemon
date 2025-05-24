@@ -1,4 +1,4 @@
-package view;
+package view.personalizedPanes;
 
 import javax.swing.JPanel;
 import java.awt.GridLayout;
@@ -22,7 +22,7 @@ import javax.swing.JRadioButton;
 import java.awt.Container;
 import javax.swing.ButtonGroup;
 
-public class MainMenuStatePane extends JPanel implements ActionListener {
+public class MainMenuStatePane extends StatePane implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel addTrainerPane;
@@ -103,6 +103,7 @@ public class MainMenuStatePane extends JPanel implements ActionListener {
 		this.addTrainerButtonPane.setLayout(new BoxLayout(this.addTrainerButtonPane, BoxLayout.Y_AXIS));
 		
 		this.addTrainerButton = new JButton("AGREGAR AL GIMNASIO\r\n");
+		this.addTrainerButton.setActionCommand("ADD_TRAINER");
 		this.addTrainerButton.setMaximumSize(new Dimension(300, 23));
 		this.addTrainerButton.setMinimumSize(new Dimension(100, 23));
 		this.addTrainerButton.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -204,5 +205,62 @@ public class MainMenuStatePane extends JPanel implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+	}
+
+	@Override
+	public void setActionListener(ActionListener actionListener) {
+		
+		this.addTrainerButton.addActionListener(actionListener);
+		this.addArenaButton.addActionListener(actionListener);
+		
+		this.ForestRdioBtn.addActionListener(actionListener);
+		this.DesertRdioBtn.addActionListener(actionListener);
+		this.JungleRdioBtn.addActionListener(actionListener);
+		
+		this.EasyRdioBtn.addActionListener(actionListener);
+		this.IntermediateRdioBtn.addActionListener(actionListener);
+		this.DifficultRdioBtn.addActionListener(actionListener);
+	}
+
+	@Override
+	public String getTrainerName() {
+		String trainerName = this.textField.getText();
+		if(trainerName.isEmpty()) {
+			return null;
+		}
+		return trainerName;
+	}
+
+	@Override
+	public String getArenaName() {
+		String arenaName = this.nameArenaTxfld.getText();
+		if(arenaName.isEmpty()) {
+			return null;
+		}
+		return arenaName;
+	}
+
+	@Override
+	public String getArenaType() {
+		if(this.ForestRdioBtn.isSelected()) {
+			return "FOREST";
+		}else if(this.DesertRdioBtn.isSelected()) {
+			return "DESERT";
+		}else if(this.JungleRdioBtn.isSelected()) {
+			return "JUNGLE";
+		}
+		return null;
+	}
+
+	@Override
+	public String getArenaLevel() {
+		if(this.EasyRdioBtn.isSelected()) {
+			return "EASY";
+		}else if(this.IntermediateRdioBtn.isSelected()) {
+			return "INTERMEDIATE";
+		}else if(this.DifficultRdioBtn.isSelected()) {
+			return "DIFFICULT";
+		}
+		return null;
 	}
 }

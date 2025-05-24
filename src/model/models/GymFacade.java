@@ -15,6 +15,16 @@ public class GymFacade {
         gym.addTrainer(trainer);
     }
 
+    public Trainer getTrainer(String name){
+        for (Trainer trainer : gym.getTrainers()){
+            if(trainer.getName().equalsIgnoreCase(name)){
+                return trainer;
+            }
+        }
+        return null;
+    }
+
+
     public void removeTrainer(String name){
         for (Trainer trainer : gym.getTrainers()){
             if(trainer.getName().equalsIgnoreCase(name)){
@@ -45,4 +55,6 @@ public class GymFacade {
     public void removeArena(Arena arena){
         gym.removeArena(arena);
     }
+
+
 }

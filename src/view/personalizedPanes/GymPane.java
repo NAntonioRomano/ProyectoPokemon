@@ -1,4 +1,4 @@
-package view;
+package view.personalizedPanes;
 
 import javax.swing.JPanel;
 import java.awt.GridLayout;
@@ -7,11 +7,16 @@ import java.awt.event.ActionListener;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
+
+import model.models.Trainer;
+import view.interfaces.GymView;
+
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 
-public class GymPane extends JPanel implements ActionListener {
+public class GymPane extends JPanel implements ActionListener,GymView {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel TrainersArenasPane;
@@ -23,9 +28,12 @@ public class GymPane extends JPanel implements ActionListener {
 	private JButton ShopButton;
 	private JButton TournamentButton;
 	private JButton ExitButton;
-	private JPanel StatePanel;
+	private CardPane StatePanel;
 	private JPanel TrainerContainer;
 	private JPanel ArenasContainer;
+
+	private MainMenuStatePane MainMenuStatePane;
+	private ShopStatePane ShopStatePane;
 
 	/**
 	 * Create the panel.
@@ -40,7 +48,6 @@ public class GymPane extends JPanel implements ActionListener {
 		
 		this.TrainersScrollPane = new JScrollPane();
 		this.TrainersArenasPane.add(this.TrainersScrollPane);
-		//this.TrainersScrollPane.setLayout(new GridLayout(0,1,1,1));
 		
 		this.TrainerContainer = new JPanel();
 		this.TrainersScrollPane.setViewportView(this.TrainerContainer);
@@ -49,7 +56,6 @@ public class GymPane extends JPanel implements ActionListener {
 		
 		this.ArenasScrollPane = new JScrollPane();
 		this.TrainersArenasPane.add(this.ArenasScrollPane);
-		//this.ArenasScrollPane.setLayout(new GridLayout(0,1,1,1));
 		
 		this.ArenasContainer = new JPanel();
 		this.ArenasScrollPane.setViewportView(this.ArenasContainer);
@@ -86,16 +92,9 @@ public class GymPane extends JPanel implements ActionListener {
 		this.ButtonsPane.add(this.ExitButton);
 		
 	
-		this.StatePanel = new MainMenuStatePane();
+		this.StatePanel = new CardPane();
 		this.InteractivePane.add(StatePanel,BorderLayout.CENTER);
-		
-		
-		
-		this.TrainerContainer.add(new TrainerPane());
-		this.TrainerContainer.add(new TrainerPane());
-		this.TrainerContainer.add(new TrainerPane());
-		this.TrainerContainer.add(new TrainerPane());
-		this.TrainerContainer.add(new TrainerPane());
+
 		
 		
 	}
@@ -110,9 +109,9 @@ public class GymPane extends JPanel implements ActionListener {
 		}
 		
 		if(action.equals("MAINMENU")) {
-			this.StatePanel = new MainMenuStatePane();
+			this.StatePanel.setStatePane(new MainMenuStatePane());
 		}else if(action.equals("SHOP")) {
-			this.StatePanel = new ShopStatePane();
+			this.StatePanel.setStatePane(new ShopStatePane());
 		}else {
 			this.StatePanel = null;
 		}
@@ -120,6 +119,53 @@ public class GymPane extends JPanel implements ActionListener {
 		this.InteractivePane.add(StatePanel,BorderLayout.CENTER);
 		this.InteractivePane.revalidate();
 		this.InteractivePane.repaint();
+		
+	}
+
+	@Override
+	public Trainer getTrainer(ActionEvent e) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getTrainer'");
+	}
+
+	@Override
+	public void addTrainer(Trainer trainer) {
+		TrainerPane trainerPane = new TrainerPane(trainer);
+		this.TrainerContainer.add(trainerPane);
+	}
+
+	@Override
+	public String getTrainerName() {
+		return this.StatePanel.getTrainerName();
+	}
+
+	@Override
+	public String getArenaName() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getArenaName'");
+	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getType'");
+	}
+
+	@Override
+	public ImageIcon getIcon() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getIcon'");
+	}
+	@Override
+	public void setActionListener(ActionListener actionListener) {
+		this.MainMenuButton.addActionListener(actionListener);
+		this.ShopButton.addActionListener(actionListener);
+		this.TournamentButton.addActionListener(actionListener);
+		this.ExitButton.addActionListener(actionListener);
+		
+		if(this.StatePanel != null) {
+			this.StatePanel.setActionListener(actionListener);
+		}
 		
 	}
 
