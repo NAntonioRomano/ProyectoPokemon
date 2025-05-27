@@ -4,7 +4,9 @@ import javax.swing.JPanel;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 
@@ -12,8 +14,12 @@ import model.models.Trainer;
 import view.interfaces.GymView;
 
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 
 public class GymPane extends JPanel implements ActionListener,GymView {
@@ -31,9 +37,9 @@ public class GymPane extends JPanel implements ActionListener,GymView {
 	private CardPane StatePanel;
 	private JPanel TrainerContainer;
 	private JPanel ArenasContainer;
-
-	private MainMenuStatePane MainMenuStatePane;
-	private ShopStatePane ShopStatePane;
+	private ArrayList<TrainerPane> TrainerPanes;
+	private ButtonGroup TrainerButtonGroup;
+	private ActionListener actionListener;
 
 	/**
 	 * Create the panel.
@@ -51,7 +57,7 @@ public class GymPane extends JPanel implements ActionListener,GymView {
 		
 		this.TrainerContainer = new JPanel();
 		this.TrainersScrollPane.setViewportView(this.TrainerContainer);
-		this.TrainerContainer.setLayout(new GridLayout(0, 1, 0, 0));
+		this.TrainerContainer.setLayout(new BoxLayout(TrainerContainer, BoxLayout.Y_AXIS));
 		this.TrainerContainer.setBorder(BorderFactory.createTitledBorder("Entrenadores del gimnasio"));
 		
 		this.ArenasScrollPane = new JScrollPane();
@@ -95,6 +101,9 @@ public class GymPane extends JPanel implements ActionListener,GymView {
 		this.StatePanel = new CardPane();
 		this.InteractivePane.add(StatePanel,BorderLayout.CENTER);
 
+		this.TrainerButtonGroup = new ButtonGroup();
+		this.TrainerPanes = new ArrayList<TrainerPane>();
+
 		
 		
 	}
@@ -123,15 +132,30 @@ public class GymPane extends JPanel implements ActionListener,GymView {
 	}
 
 	@Override
-	public Trainer getTrainer(ActionEvent e) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getTrainer'");
+	public Trainer toRemove(ActionEvent e) {
+		for(TrainerPane trainerPane : this.TrainerPanes){
+			if(e.getSource() == trainerPane.getDeleteButton()){
+				this.TrainerContainer.remove(trainerPane);
+				this.TrainerButtonGroup.remove(trainerPane.getCenterPaneButton());
+				this.TrainerPanes.remove(trainerPane);
+				this.TrainerContainer.revalidate();
+				this.TrainerContainer.repaint();
+				return trainerPane.getTrainer();
+			}
+		}
+		return null;
 	}
 
 	@Override
 	public void addTrainer(Trainer trainer) {
 		TrainerPane trainerPane = new TrainerPane(trainer);
+		trainerPane.getDeleteButton().addActionListener(this.actionListener);
+		trainerPane.getInventoryButton().addActionListener(this);
 		this.TrainerContainer.add(trainerPane);
+		this.TrainerButtonGroup.add(trainerPane.getCenterPaneButton());
+		this.TrainerPanes.add(trainerPane);
+		this.TrainerContainer.revalidate();
+		this.TrainerContainer.repaint();
 	}
 
 	@Override
@@ -158,6 +182,7 @@ public class GymPane extends JPanel implements ActionListener,GymView {
 	}
 	@Override
 	public void setActionListener(ActionListener actionListener) {
+		this.actionListener = actionListener;
 		this.MainMenuButton.addActionListener(actionListener);
 		this.ShopButton.addActionListener(actionListener);
 		this.TournamentButton.addActionListener(actionListener);
@@ -168,5 +193,12 @@ public class GymPane extends JPanel implements ActionListener,GymView {
 		}
 		
 	}
+
+	@Override
+	public void ShowErrorMessage(String message) {
+		JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE, null);
+	}
+
+	
 
 }

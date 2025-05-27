@@ -6,6 +6,8 @@ import javax.swing.JToggleButton;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Desktop.Action;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent; // Necesario para ItemEvent
 import java.awt.event.ItemListener; // Necesario para ItemListener
 
@@ -13,9 +15,13 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
+import model.models.Gym;
 import model.models.Trainer;
+import view.interfaces.GymView;
 
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -29,8 +35,8 @@ public class TrainerPane extends JPanel implements ItemListener {
     private JPanel WestPaneData;
     private JPanel CenterPaneData;
     private JLabel TrainerNameLabel;
-    private JButton DETALLE;
-    private JButton ELIMINAR;
+    private JButton INVENTORY;
+    private JButton DELETE;
     private JPanel panelDetalle;
     private JPanel panelEliminarButton;
     private JLabel ImgTrainerLabel;
@@ -48,6 +54,7 @@ public class TrainerPane extends JPanel implements ItemListener {
      * Create the panel.
      */
     public TrainerPane(Trainer trainer) {
+        this.setAlignmentX(Component.LEFT_ALIGNMENT);
         this.setForeground(new Color(255, 255, 0));
         this.setBackground(new Color(255, 255, 0));
         this.setLayout(new BorderLayout(0, 0));
@@ -57,7 +64,7 @@ public class TrainerPane extends JPanel implements ItemListener {
 
         this.setPreferredSize(prefered_size);
         this.setMinimumSize(prefered_size);
-        this.setMaximumSize(prefered_size);
+        this.setMaximumSize(new Dimension(Integer.MAX_VALUE,150));
 
         this.CenterPaneButton = new JToggleButton();
         add(this.CenterPaneButton, BorderLayout.CENTER);
@@ -120,14 +127,16 @@ public class TrainerPane extends JPanel implements ItemListener {
         this.panelDetalle = new JPanel();
         this.SouthPane.add(this.panelDetalle);
 
-        this.DETALLE = new JButton("DETALLE");
-        this.panelDetalle.add(this.DETALLE);
+        this.INVENTORY = new JButton("INVENTARIO");
+        this.INVENTORY.setActionCommand("INVENTORY");
+        this.panelDetalle.add(this.INVENTORY);
 
         this.panelEliminarButton = new JPanel();
         this.SouthPane.add(this.panelEliminarButton);
 
-        this.ELIMINAR = new JButton("ELIMINAR");
-        this.panelEliminarButton.add(this.ELIMINAR);
+        this.DELETE = new JButton("ELIMINAR");
+        this.DELETE.setActionCommand(GymView.RMV_TRAINER);
+        this.panelEliminarButton.add(this.DELETE);
     }
 
     @Override
@@ -143,17 +152,20 @@ public class TrainerPane extends JPanel implements ItemListener {
         }
     }
 
+    public Trainer getTrainer(){
+        return this.trainer;
+    }
 
 
     public JToggleButton getCenterPaneButton() {
         return CenterPaneButton;
     }
 
-    public JButton getDetalleButton() {
-        return DETALLE;
+    public JButton getInventoryButton() {
+        return INVENTORY;
     }
 
-    public JButton getEliminarButton() {
-        return ELIMINAR;
+    public JButton getDeleteButton() {
+        return DELETE;
     }
 }

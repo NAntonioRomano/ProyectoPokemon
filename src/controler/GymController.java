@@ -7,11 +7,11 @@ import java.awt.event.ActionListener;
 import model.models.*;
 import view.interfaces.GymView;
 
-public class GymControler implements ActionListener {
+public class GymController implements ActionListener {
     private GymView gymview;
     private GymFacade gymFacade;
 
-    public GymControler(GymView gymview, GymFacade gymFacade) {
+    public GymController(GymView gymview, GymFacade gymFacade) {
         this.gymview = gymview;
         this.gymFacade = gymFacade;
     }
@@ -22,9 +22,9 @@ public class GymControler implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
 
-        if(command.equals("ADD_TRAINER")){
+        if(command.equals(GymView.ADD_TRAINER)){
             addTrainer();
-        }else if(command.equals("RMV_TRAINER")){
+        }else if(command.equals(GymView.RMV_TRAINER)){
             removeTrainer(e);
         }
     }
@@ -40,7 +40,7 @@ public class GymControler implements ActionListener {
     }
 
     private void removeTrainer(ActionEvent e){
-        Trainer trainer = gymview.getTrainer(e);
+        Trainer trainer = gymview.toRemove(e);
         gymFacade.removeTrainer(trainer);
     }
 

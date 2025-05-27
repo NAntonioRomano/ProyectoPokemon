@@ -7,6 +7,9 @@ import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import view.interfaces.GymView;
+
 import javax.swing.JTextField;
 import java.awt.FlowLayout;
 
@@ -103,7 +106,7 @@ public class MainMenuStatePane extends StatePane implements ActionListener {
 		this.addTrainerButtonPane.setLayout(new BoxLayout(this.addTrainerButtonPane, BoxLayout.Y_AXIS));
 		
 		this.addTrainerButton = new JButton("AGREGAR AL GIMNASIO\r\n");
-		this.addTrainerButton.setActionCommand("ADD_TRAINER");
+		this.addTrainerButton.setActionCommand(GymView.ADD_TRAINER);
 		this.addTrainerButton.setMaximumSize(new Dimension(300, 23));
 		this.addTrainerButton.setMinimumSize(new Dimension(100, 23));
 		this.addTrainerButton.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -193,6 +196,7 @@ public class MainMenuStatePane extends StatePane implements ActionListener {
 		this.addArenaButtonPane.add(Box.createVerticalStrut(70));
 		
 		this.addArenaButton = new JButton("AGREGAR AL GIMNASIO\r\n");
+		this.addArenaButton.setActionCommand(GymView.ADD_ARENA);
 		this.addArenaButton.setMinimumSize(new Dimension(100, 23));
 		this.addArenaButton.setMaximumSize(new Dimension(300, 23));
 		this.addArenaButton.setHorizontalTextPosition(SwingConstants.CENTER);

@@ -7,7 +7,7 @@ import model.models.Gym;
 import model.models.GymFacade;
 import view.personalizedPanes.GymPane;
 import view.interfaces.*;
-import controler.GymControler;
+import controler.GymController;
 
 
 public class MainFrame extends JFrame {
@@ -27,29 +27,23 @@ public class MainFrame extends JFrame {
 
     public static void main(String[] args) {
 
-        // Supongamos que tienes las siguientes clases:
-        // Gym, GymFacade, GymController
-        // y que GymPane puede recibir un GymController
-
         // Crear instancia de Gym
         Gym gym = new Gym();
 
         // Crear instancia de GymFacade
         GymFacade gymFacade = new GymFacade(gym);
 
-        GymView gymView = new GymPane(); // Cambia esto por la implementación correcta de GymView
+        GymView gymView = new GymPane(); 
 
         // Crear instancia de GymController
-        GymControler gymController = new GymControler(gymView, gymFacade);
+        GymController gymController = new GymController(gymView, gymFacade);
 
         gymView.setActionListener(gymController); // Asignar el ActionListener al GymView
 
-        // Si quieres pasar el controller al GymPane, modifica el constructor de GymPane
-        // GymPane gymPanel = new GymPane(gymController);
 
         // Crear la ventana principal
         SwingUtilities.invokeLater(() -> {
-            new MainFrame((GymPane) gymView); // Cambia esto por la implementación correcta de GymView
+            new MainFrame((GymPane) gymView);
         });
     }
 }

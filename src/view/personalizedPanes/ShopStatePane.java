@@ -10,6 +10,9 @@ import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.BorderFactory;
 import javax.swing.border.BevelBorder;
+
+import view.interfaces.GymView;
+
 import javax.swing.Box;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
@@ -61,21 +64,25 @@ public class ShopStatePane extends StatePane implements ActionListener{
 		this.TypeBtnsPane.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 		
 		this.FirePokemonButton = new JRadioButton("FUEGO");
+		this.FirePokemonButton.setActionCommand("FIRE_POKEMON");
 		buttonGroup.add(this.FirePokemonButton);
 		this.FirePokemonButton.setHorizontalAlignment(SwingConstants.CENTER);
 		this.TypeBtnsPane.add(this.FirePokemonButton);
 		
 		this.StonePokemonButton = new JRadioButton("PIEDRA");
+		this.StonePokemonButton.setActionCommand("STONE_POKEMON");
 		buttonGroup.add(this.StonePokemonButton);
 		this.StonePokemonButton.setHorizontalAlignment(SwingConstants.CENTER);
 		this.TypeBtnsPane.add(this.StonePokemonButton);
 		
 		this.IcePokemonButton = new JRadioButton("HIELO");
+		this.IcePokemonButton.setActionCommand("ICE_POKEMON");
 		buttonGroup.add(this.IcePokemonButton);
 		this.IcePokemonButton.setHorizontalAlignment(SwingConstants.CENTER);
 		this.TypeBtnsPane.add(this.IcePokemonButton);
 		
 		this.WaterPokemonButton = new JRadioButton("AGUA");
+		this.WaterPokemonButton.setActionCommand("WATER_POKEMON");
 		buttonGroup.add(this.WaterPokemonButton);
 		this.WaterPokemonButton.setHorizontalAlignment(SwingConstants.CENTER);
 		this.TypeBtnsPane.add(this.WaterPokemonButton);
@@ -113,6 +120,7 @@ public class ShopStatePane extends StatePane implements ActionListener{
 		this.addPokemonButtonPane.add(Box.createVerticalStrut(70));
 		
 		this.addPokemonBtn = new JButton("COMPRAR");
+		this.addPokemonBtn.setActionCommand(GymView.ADD_POKEMON_TO_TRAINER);
 		this.addPokemonBtn.setAlignmentX(CENTER_ALIGNMENT);
 		
 		this.addPokemonBtn.setMaximumSize(fixedSize);
@@ -131,10 +139,12 @@ public class ShopStatePane extends StatePane implements ActionListener{
 		this.RdioBtnsWeaponPane.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 		
 		this.SwordRdioBtn = new JRadioButton("ESPADA");
+		this.SwordRdioBtn.setActionCommand("SWORD");
 		this.SwordRdioBtn.setHorizontalAlignment(SwingConstants.CENTER);
 		this.RdioBtnsWeaponPane.add(this.SwordRdioBtn);
 		
 		this.AxisRdioBtn = new JRadioButton("HACHA");
+		this.AxisRdioBtn.setActionCommand("AXIS");
 		this.AxisRdioBtn.setHorizontalAlignment(SwingConstants.CENTER);
 		this.RdioBtnsWeaponPane.add(this.AxisRdioBtn);
 		
@@ -145,6 +155,7 @@ public class ShopStatePane extends StatePane implements ActionListener{
 		this.addWeaponButtonPane.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 		
 		this.addWeaponBtn = new JButton("COMPRAR");
+		this.addWeaponBtn.setActionCommand(GymView.ADD_ITEM);
 		this.addWeaponBtn.setAlignmentX(CENTER_ALIGNMENT);
 		
 		
@@ -165,28 +176,13 @@ public class ShopStatePane extends StatePane implements ActionListener{
 
 	@Override
 	public void setActionListener(ActionListener listener){
-		this.addPokemonBtn.setActionCommand("ADD_POKEMON");
 		this.addPokemonBtn.addActionListener(listener);
-		
-		this.addWeaponBtn.setActionCommand("ADD_WEAPON");
 		this.addWeaponBtn.addActionListener(listener);
-		
-		this.FirePokemonButton.setActionCommand("FIRE_POKEMON");
 		this.FirePokemonButton.addActionListener(listener);
-		
-		this.StonePokemonButton.setActionCommand("STONE_POKEMON");
 		this.StonePokemonButton.addActionListener(listener);
-		
-		this.IcePokemonButton.setActionCommand("ICE_POKEMON");
 		this.IcePokemonButton.addActionListener(listener);
-		
-		this.WaterPokemonButton.setActionCommand("WATER_POKEMON");
 		this.WaterPokemonButton.addActionListener(listener);
-		
-		this.SwordRdioBtn.setActionCommand("SWORD");
 		this.SwordRdioBtn.addActionListener(listener);
-		
-		this.AxisRdioBtn.setActionCommand("AXIS");
 		this.AxisRdioBtn.addActionListener(listener);
 	}
 
