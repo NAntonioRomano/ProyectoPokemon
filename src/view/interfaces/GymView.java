@@ -7,24 +7,28 @@ import javax.swing.ImageIcon;
 
 import model.models.Trainer;
 
-public interface GymView {
+public interface GymView extends ActionListener {
     String ADD_TRAINER = "ADD_TRAINER";
     String RMV_TRAINER = "RMV_TRAINER";
     String ADD_ARENA = "ADD_ARENA";
     String RMV_ARENA = "RMV_ARENA";
-    String ADD_ITEM = "ADD_ITEM";
     String RMV_ITEM = "RMV_ITEM";
-    String ADD_POKEMON_TO_TRAINER = "ADD_POKEMON_TO_TRAINER";
+    String PURCHASE_POKEMON = "PURCHASE_POKEMON";
     String RMV_POKEMON_FROM_TRAINER = "RMV_POKEMON_FROM_TRAINER";
+    String PURCHASE_WEAPON = "PURCHASE_WEAPON";
 
 
 
     void setActionListener(ActionListener listener);
-    Trainer toRemove(ActionEvent e);
-    void addTrainer(Trainer trainer);
+    void addTrainer(Trainer trainer);  
+    void ShowErrorMessage(String message);
+    void updateTrainerData(Trainer trainer);
+    public Trainer getSelectedTrainer();
     String getTrainerName();
     String getArenaName();
-    String getType();
-    ImageIcon getIcon();   
-    void ShowErrorMessage(String message); 
+    String getArenaType();
+    String getArenaLevel();
+    String getPokemonName();
+    String getPokemonType();
+    String getWeaponType();
 }

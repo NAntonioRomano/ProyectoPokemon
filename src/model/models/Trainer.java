@@ -26,6 +26,7 @@ public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCa
 		this.name = name;
 		this.pokemons = new ArrayList<>();
 		this.weapons = new ArrayList<>();
+		this.credits = 600;
 	}
 
 	public String getName() {

@@ -5,6 +5,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
@@ -12,7 +14,10 @@ import javax.swing.JScrollPane;
 
 import model.models.Trainer;
 import view.interfaces.GymView;
+import view.personalizedComponents.ButtonWithTrainer;
+import view.personalizedComponents.ToggleButtonWithTrainer;
 
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
@@ -22,7 +27,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.Color;
 
-public class GymPane extends JPanel implements ActionListener,GymView {
+public class GymPane extends JPanel implements GymView {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel TrainersArenasPane;
@@ -37,7 +42,7 @@ public class GymPane extends JPanel implements ActionListener,GymView {
 	private CardPane StatePanel;
 	private JPanel TrainerContainer;
 	private JPanel ArenasContainer;
-	private ArrayList<TrainerPane> TrainerPanes;
+	private HashMap<Trainer,TrainerPane> TrainerPanes;
 	private ButtonGroup TrainerButtonGroup;
 	private ActionListener actionListener;
 
@@ -102,9 +107,18 @@ public class GymPane extends JPanel implements ActionListener,GymView {
 		this.InteractivePane.add(StatePanel,BorderLayout.CENTER);
 
 		this.TrainerButtonGroup = new ButtonGroup();
-		this.TrainerPanes = new ArrayList<TrainerPane>();
+		this.TrainerPanes = new HashMap<Trainer, TrainerPane>();
 
 		
+		
+	}
+
+	@Override
+	public void setActionListener(ActionListener actionListener) {
+		this.actionListener = actionListener;
+		if(this.StatePanel != null) {
+			this.StatePanel.setActionListener(actionListener);
+		}
 		
 	}
 
@@ -112,15 +126,21 @@ public class GymPane extends JPanel implements ActionListener,GymView {
 	public void actionPerformed(ActionEvent e) {
 		String action = e.getActionCommand();
 		
-		
-		if(this.StatePanel != null) {
+		if(action.equals(GymView.RMV_TRAINER)){
+			ButtonWithTrainer button = (ButtonWithTrainer) e.getSource();
+			this.actionListener.actionPerformed(new ActionEvent(button.getTrainer(), ActionEvent.ACTION_PERFORMED, GymView.RMV_TRAINER));
+			toRemove(button.getTrainer());
+
+		}else if(action.equals("MAINMENU")) {
 			this.InteractivePane.remove(this.StatePanel);
-		}
-		
-		if(action.equals("MAINMENU")) {
 			this.StatePanel.setStatePane(new MainMenuStatePane());
 		}else if(action.equals("SHOP")) {
+			this.InteractivePane.remove(this.StatePanel);
 			this.StatePanel.setStatePane(new ShopStatePane());
+		}else if(action.equals("INVENTORY")){
+			ButtonWithTrainer button = (ButtonWithTrainer) e.getSource();
+			this.InteractivePane.remove(this.StatePanel);
+			this.StatePanel.setStatePane(new InventoryStatePane(button.getTrainer()));
 		}else {
 			this.StatePanel = null;
 		}
@@ -132,28 +152,31 @@ public class GymPane extends JPanel implements ActionListener,GymView {
 	}
 
 	@Override
-	public Trainer toRemove(ActionEvent e) {
-		for(TrainerPane trainerPane : this.TrainerPanes){
-			if(e.getSource() == trainerPane.getDeleteButton()){
-				this.TrainerContainer.remove(trainerPane);
-				this.TrainerButtonGroup.remove(trainerPane.getCenterPaneButton());
-				this.TrainerPanes.remove(trainerPane);
-				this.TrainerContainer.revalidate();
-				this.TrainerContainer.repaint();
-				return trainerPane.getTrainer();
-			}
+	public void ShowErrorMessage(String message) {
+		JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE, null);
+	}
+
+	public void toRemove(Trainer trainer) {
+		TrainerPane trainerPane = this.TrainerPanes.get(trainer);
+		if (trainerPane != null) {
+			this.TrainerContainer.remove(trainerPane);
+			this.TrainerButtonGroup.remove(trainerPane.getCenterPaneButton());
+			this.TrainerPanes.remove(trainer);
+			this.TrainerContainer.revalidate();
+			this.TrainerContainer.repaint();
+		} else {
+			ShowErrorMessage("Trainer not found.");
 		}
-		return null;
 	}
 
 	@Override
 	public void addTrainer(Trainer trainer) {
 		TrainerPane trainerPane = new TrainerPane(trainer);
-		trainerPane.getDeleteButton().addActionListener(this.actionListener);
+		trainerPane.getDeleteButton().addActionListener(this);
 		trainerPane.getInventoryButton().addActionListener(this);
 		this.TrainerContainer.add(trainerPane);
 		this.TrainerButtonGroup.add(trainerPane.getCenterPaneButton());
-		this.TrainerPanes.add(trainerPane);
+		this.TrainerPanes.put(trainer, trainerPane);
 		this.TrainerContainer.revalidate();
 		this.TrainerContainer.repaint();
 	}
@@ -165,38 +188,52 @@ public class GymPane extends JPanel implements ActionListener,GymView {
 
 	@Override
 	public String getArenaName() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getArenaName'");
+		return this.StatePanel.getArenaName();
 	}
 
 	@Override
-	public String getType() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getType'");
+	public String getArenaType() {
+		return this.StatePanel.getArenaType();
 	}
 
 	@Override
-	public ImageIcon getIcon() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getIcon'");
+	public String getPokemonType() {
+		return this.StatePanel.getPokemonType();
 	}
+
 	@Override
-	public void setActionListener(ActionListener actionListener) {
-		this.actionListener = actionListener;
-		this.MainMenuButton.addActionListener(actionListener);
-		this.ShopButton.addActionListener(actionListener);
-		this.TournamentButton.addActionListener(actionListener);
-		this.ExitButton.addActionListener(actionListener);
-		
-		if(this.StatePanel != null) {
-			this.StatePanel.setActionListener(actionListener);
+	public String getArenaLevel() {
+		return this.StatePanel.getArenaLevel();
+	}
+
+	@Override
+	public String getPokemonName() {
+		return this.StatePanel.getPokemonName();
+	}
+
+	@Override
+	public String getWeaponType() {
+		return this.StatePanel.getWeaponType();
+	}
+
+	@Override
+	public Trainer getSelectedTrainer() {
+		Enumeration<AbstractButton> buttons = this.TrainerButtonGroup.getElements();
+		while (buttons.hasMoreElements()) {
+			ToggleButtonWithTrainer button = (ToggleButtonWithTrainer) buttons.nextElement();
+			if (button.isSelected()) {
+				return button.getTrainer();
+			}
 		}
-		
+		return null;
 	}
 
 	@Override
-	public void ShowErrorMessage(String message) {
-		JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE, null);
+	public void updateTrainerData(Trainer trainer) {
+		TrainerPane trainerPane = TrainerPanes.get(trainer);
+		trainerPane.updateTrainerData();
+		this.revalidate();
+		this.repaint();
 	}
 
 	

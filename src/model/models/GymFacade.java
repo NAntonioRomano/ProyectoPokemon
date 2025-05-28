@@ -1,7 +1,13 @@
 package model.models;
 
+import model.exceptions.ImpossiblePurchaseException;
 import model.interfaces.Arena;
+import model.interfaces.Valuable;
 import model.models.arenas.*;
+import model.models.pokemons.Pokemon;
+import model.models.pokemons.PokemonFactory;
+import model.models.weapons.Weapon;
+import model.models.weapons.WeaponFactory;
 
 public class GymFacade {
     private Gym gym;
@@ -10,29 +16,19 @@ public class GymFacade {
         this.gym = gym;
     }
 
-    public void addTrainer(String name){
-        Trainer trainer = new Trainer(name);
+    public Weapon newWeapon(String type){
+        return WeaponFactory.newWeapon(type);
+    }
+    public Pokemon newPokemon(String name, String type){
+        return PokemonFactory.newPokemon(name, type);
+    }
+    public Trainer newTrainer(String name){
+        return new Trainer(name);
+    }
+    public void addTrainer(Trainer trainer){
         gym.addTrainer(trainer);
     }
 
-    public Trainer getTrainer(String name){
-        for (Trainer trainer : gym.getTrainers()){
-            if(trainer.getName().equalsIgnoreCase(name)){
-                return trainer;
-            }
-        }
-        return null;
-    }
-
-
-    public void removeTrainer(String name){
-        for (Trainer trainer : gym.getTrainers()){
-            if(trainer.getName().equalsIgnoreCase(name)){
-                gym.removeTrainer(trainer);
-                break;
-            }
-        }
-    }
 
     public void removeTrainer(Trainer trainer){
         gym.removeTrainer(trainer);
@@ -43,17 +39,13 @@ public class GymFacade {
         gym.addArena(arena);
     }
 
-    public void removeArena(String name){
-        for (Arena arena : gym.getArenas()){
-            if(arena.getName().equalsIgnoreCase(name)){
-                gym.removeArena(arena);
-                break;
-            }
-        }
-    }
 
     public void removeArena(Arena arena){
         gym.removeArena(arena);
+    }
+
+    public void purchaseValuable(Trainer trainer, Valuable valuable) throws ImpossiblePurchaseException{
+        trainer.purchase(valuable);
     }
 
 

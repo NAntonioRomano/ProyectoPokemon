@@ -13,6 +13,8 @@ public class CardPane extends JPanel {
     public CardPane(){
         this.setLayout(new BorderLayout());
         this.statePane = new MainMenuStatePane();
+        this.revalidate();
+        this.repaint();
     }
 
     public void setStatePane(StatePane statePane) {

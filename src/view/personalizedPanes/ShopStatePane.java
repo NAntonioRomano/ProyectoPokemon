@@ -34,6 +34,7 @@ public class ShopStatePane extends StatePane implements ActionListener{
 	private JRadioButton IcePokemonButton;
 	private JRadioButton WaterPokemonButton;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup buttonGrouptype = new ButtonGroup();
 	private JLabel NamePokemonLabel;
 	private JTextField NamePokemonTF;
 	private JPanel NameFieldPane;
@@ -43,9 +44,10 @@ public class ShopStatePane extends StatePane implements ActionListener{
 	private JPanel RdioBtnsWeaponPane;
 	private JPanel addWeaponButtonPane;
 	private JRadioButton SwordRdioBtn;
-	private JRadioButton AxisRdioBtn;
+	private JRadioButton AxeRdioBtn;
 	private JButton btnNewButton;
 	private JButton addWeaponBtn;
+
 
 	/**
 	 * Create the panel.
@@ -120,7 +122,7 @@ public class ShopStatePane extends StatePane implements ActionListener{
 		this.addPokemonButtonPane.add(Box.createVerticalStrut(70));
 		
 		this.addPokemonBtn = new JButton("COMPRAR");
-		this.addPokemonBtn.setActionCommand(GymView.ADD_POKEMON_TO_TRAINER);
+		this.addPokemonBtn.setActionCommand(GymView.PURCHASE_POKEMON);
 		this.addPokemonBtn.setAlignmentX(CENTER_ALIGNMENT);
 		
 		this.addPokemonBtn.setMaximumSize(fixedSize);
@@ -140,13 +142,15 @@ public class ShopStatePane extends StatePane implements ActionListener{
 		
 		this.SwordRdioBtn = new JRadioButton("ESPADA");
 		this.SwordRdioBtn.setActionCommand("SWORD");
+		buttonGrouptype.add(SwordRdioBtn);
 		this.SwordRdioBtn.setHorizontalAlignment(SwingConstants.CENTER);
 		this.RdioBtnsWeaponPane.add(this.SwordRdioBtn);
 		
-		this.AxisRdioBtn = new JRadioButton("HACHA");
-		this.AxisRdioBtn.setActionCommand("AXIS");
-		this.AxisRdioBtn.setHorizontalAlignment(SwingConstants.CENTER);
-		this.RdioBtnsWeaponPane.add(this.AxisRdioBtn);
+		this.AxeRdioBtn = new JRadioButton("HACHA");
+		this.AxeRdioBtn.setActionCommand("AXE");
+		buttonGrouptype.add(AxeRdioBtn);
+		this.AxeRdioBtn.setHorizontalAlignment(SwingConstants.CENTER);
+		this.RdioBtnsWeaponPane.add(this.AxeRdioBtn);
 		
 		this.addWeaponButtonPane = new JPanel();
 		this.WeaponPurchasePane.add(this.addWeaponButtonPane);
@@ -155,7 +159,7 @@ public class ShopStatePane extends StatePane implements ActionListener{
 		this.addWeaponButtonPane.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 		
 		this.addWeaponBtn = new JButton("COMPRAR");
-		this.addWeaponBtn.setActionCommand(GymView.ADD_ITEM);
+		this.addWeaponBtn.setActionCommand(GymView.PURCHASE_WEAPON);
 		this.addWeaponBtn.setAlignmentX(CENTER_ALIGNMENT);
 		
 		
@@ -178,12 +182,6 @@ public class ShopStatePane extends StatePane implements ActionListener{
 	public void setActionListener(ActionListener listener){
 		this.addPokemonBtn.addActionListener(listener);
 		this.addWeaponBtn.addActionListener(listener);
-		this.FirePokemonButton.addActionListener(listener);
-		this.StonePokemonButton.addActionListener(listener);
-		this.IcePokemonButton.addActionListener(listener);
-		this.WaterPokemonButton.addActionListener(listener);
-		this.SwordRdioBtn.addActionListener(listener);
-		this.AxisRdioBtn.addActionListener(listener);
 	}
 
 	@Override
@@ -211,8 +209,8 @@ public class ShopStatePane extends StatePane implements ActionListener{
     public String getWeaponType(){
 		if(this.SwordRdioBtn.isSelected()){
 			return SwordRdioBtn.getActionCommand();
-		}else if(this.AxisRdioBtn.isSelected()){
-			return AxisRdioBtn.getActionCommand();
+		}else if(this.AxeRdioBtn.isSelected()){
+			return AxeRdioBtn.getActionCommand();
 		}
 		return null;
 	}

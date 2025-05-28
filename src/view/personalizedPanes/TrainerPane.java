@@ -18,6 +18,8 @@ import javax.swing.border.BevelBorder;
 import model.models.Gym;
 import model.models.Trainer;
 import view.interfaces.GymView;
+import view.personalizedComponents.ButtonWithTrainer;
+import view.personalizedComponents.ToggleButtonWithTrainer;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -30,13 +32,13 @@ import javax.swing.JButton;
 public class TrainerPane extends JPanel implements ItemListener {
 
     private static final long serialVersionUID = 1L;
-    private JToggleButton CenterPaneButton;
+    private ToggleButtonWithTrainer CenterPaneButton;
     private JPanel SouthPane;
     private JPanel WestPaneData;
     private JPanel CenterPaneData;
     private JLabel TrainerNameLabel;
-    private JButton INVENTORY;
-    private JButton DELETE;
+    private ButtonWithTrainer INVENTORY;
+    private ButtonWithTrainer DELETE;
     private JPanel panelDetalle;
     private JPanel panelEliminarButton;
     private JLabel ImgTrainerLabel;
@@ -54,9 +56,8 @@ public class TrainerPane extends JPanel implements ItemListener {
      * Create the panel.
      */
     public TrainerPane(Trainer trainer) {
+        this.trainer = trainer;
         this.setAlignmentX(Component.LEFT_ALIGNMENT);
-        this.setForeground(new Color(255, 255, 0));
-        this.setBackground(new Color(255, 255, 0));
         this.setLayout(new BorderLayout(0, 0));
         this.setBorder(BorderFactory.createLineBorder(getBackground(), 3));
 
@@ -66,15 +67,11 @@ public class TrainerPane extends JPanel implements ItemListener {
         this.setMinimumSize(prefered_size);
         this.setMaximumSize(new Dimension(Integer.MAX_VALUE,150));
 
-        this.CenterPaneButton = new JToggleButton();
+        this.CenterPaneButton = new ToggleButtonWithTrainer(trainer);
         add(this.CenterPaneButton, BorderLayout.CENTER);
-        this.CenterPaneButton.setLayout(new BorderLayout(10, 0));
+        this.CenterPaneButton.setLayout(new BorderLayout(0, 0));
         this.CenterPaneButton.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
-
-        this.CenterPaneButton.setBackground(NO_SELECT_COLOR);
         this.CenterPaneButton.setOpaque(true); 
-
-
         this.CenterPaneButton.addItemListener(this); 
         
         this.WestPaneData = new JPanel();
@@ -127,14 +124,14 @@ public class TrainerPane extends JPanel implements ItemListener {
         this.panelDetalle = new JPanel();
         this.SouthPane.add(this.panelDetalle);
 
-        this.INVENTORY = new JButton("INVENTARIO");
+        this.INVENTORY = new ButtonWithTrainer("INVENTARIO", trainer);
         this.INVENTORY.setActionCommand("INVENTORY");
         this.panelDetalle.add(this.INVENTORY);
 
         this.panelEliminarButton = new JPanel();
         this.SouthPane.add(this.panelEliminarButton);
 
-        this.DELETE = new JButton("ELIMINAR");
+        this.DELETE = new ButtonWithTrainer("ELIMINAR", trainer);
         this.DELETE.setActionCommand(GymView.RMV_TRAINER);
         this.panelEliminarButton.add(this.DELETE);
     }
@@ -144,12 +141,17 @@ public class TrainerPane extends JPanel implements ItemListener {
         if (e.getSource() == CenterPaneButton) {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 CenterPaneButton.setBackground(SELECT_COLOR);
-                System.out.println("TrainerPane: CenterPaneButton seleccionado.");
             } else {
-                CenterPaneButton.setBackground(NO_SELECT_COLOR);
-                System.out.println("TrainerPane: CenterPaneButton deseleccionado.");
+                CenterPaneButton.setBackground(null);
             }
         }
+    }
+
+        public void updateTrainerData() {
+            TrainerLevelData.setText(Integer.toString(this.trainer.getCategory()));
+            TrainerCreditsData.setText(Integer.toString((int)this.trainer.getBalance()));
+            this.revalidate();
+            this.repaint();
     }
 
     public Trainer getTrainer(){
@@ -167,5 +169,13 @@ public class TrainerPane extends JPanel implements ItemListener {
 
     public JButton getDeleteButton() {
         return DELETE;
+    }
+
+    public JLabel getCreditsLabel() {
+        return TrainerCreditsData;
+    }
+
+    public JLabel getLevelLabel() {
+        return TrainerLevelData;
     }
 }
