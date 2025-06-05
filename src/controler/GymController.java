@@ -18,8 +18,6 @@ public class GymController implements ActionListener {
         this.gymFacade = gymFacade;
     }
 
-    
-
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
@@ -51,8 +49,6 @@ public class GymController implements ActionListener {
         }
     }
 
-
-
     private void purchaseWeapon() {
         try{
             Trainer selected = gymview.getSelectedTrainer();
@@ -61,10 +57,10 @@ public class GymController implements ActionListener {
 
         }catch(ImpossiblePurchaseException e){
             gymview.ShowErrorMessage(e.getMessage());
+        }catch(IllegalArgumentException e){
+            gymview.ShowErrorMessage(e.getMessage());
         }
     }
-
-
 
     private void purchasePokemon() {
         try{
@@ -76,18 +72,16 @@ public class GymController implements ActionListener {
             gymview.updateTrainerData(selected);
         }catch(ImpossiblePurchaseException e){
             gymview.ShowErrorMessage(e.getMessage());
+        }catch(IllegalArgumentException e){
+            gymview.ShowErrorMessage(e.getMessage());
         }
         
     }
-
-
 
     private void removeArena(ActionEvent e) {
         Arena arena = (Arena) e.getSource();
         gymFacade.removeArena(arena);
     }
-
-
 
     private void addArena() {
         String name = gymview.getArenaName();
@@ -96,8 +90,6 @@ public class GymController implements ActionListener {
 
         gymFacade.addArena(name, type, level);
     }
-
-
 
     private void addTrainer(){
         Trainer trainer = gymFacade.newTrainer(gymview.getTrainerName());

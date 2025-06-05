@@ -1,7 +1,7 @@
 package model.models.pokemons;
 
 public class PokemonFactory {
-    public static Pokemon newPokemon(String name, String type) {
+    public static Pokemon newPokemon(String name, String type) throws IllegalArgumentException {
         switch (type) {
             case "FIRE_POKEMON":
                 return new FirePokemon(name);
@@ -13,6 +13,6 @@ public class PokemonFactory {
                 return new IcePokemon(name);
         }
 
-        return null;
+        throw new IllegalArgumentException("Unknown pokemon type: " + type);
     }
 }

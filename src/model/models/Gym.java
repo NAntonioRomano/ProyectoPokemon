@@ -8,10 +8,11 @@ public class Gym {
 	private ArrayList<Trainer> trainers;
 	private ArrayList<Arena> arenas;
 
-	public Gym(){
+	public Gym() {
 		this.trainers = new ArrayList<Trainer>();
 		this.arenas = new ArrayList<Arena>();
 	}
+
 	/**
 	 * Adds a trainer to the gym.
 	 * preconditions: Arena != null, trainer1 != null, trainer2 != null
@@ -20,30 +21,29 @@ public class Gym {
 	 * @param trainer2 The trainer to be added.
 	 * @param arena    The arena where the trainer will battle.
 	 */
-	public void Arena_Battle(Arena arena, Trainer trainer1, Trainer trainer2){
-		Trainer winner;
-		winner = arena.startBattle(new TrainerPrepared(trainer1), new TrainerPrepared(trainer2));
-		System.out.println("Winner: " + winner.getName() + " in arena: " + arena.getName() + "\n" +
-				"Credits for winner: " + arena.getCredditsForWinner() + "\n" +
-				"Details: " + arena.getDetails() + "\n"
-		);
+	
+	public Trainer Arena_Battle(Arena arena, Trainer trainer1, Trainer trainer2){
+		Trainer winner = arena.startBattle(new TrainerPrepared(trainer1), new TrainerPrepared(trainer2));
 		synchronized(this){
 			arena.setBusy(false);
 			notifyAll();
 		}
+
+		return winner;
 	}
+
 	public ArrayList<Trainer> getTrainers() {
 		return trainers;
 	}
 
-	public void addTrainer(Trainer trainer){
-		if(trainer != null){
+	public void addTrainer(Trainer trainer) {
+		if (trainer != null) {
 			trainers.add(trainer);
 		}
 	}
 
-	public void removeTrainer(Trainer trainer){
-		if(trainer != null){
+	public void removeTrainer(Trainer trainer) {
+		if (trainer != null) {
 			trainers.remove(trainer);
 		}
 	}
@@ -52,40 +52,41 @@ public class Gym {
 		return arenas;
 	}
 
-	public void addArena(Arena arena){
-		if(arena != null){
+	public void addArena(Arena arena) {
+		if (arena != null) {
 			arenas.add(arena);
 		}
 	}
 
-	public void removeArena(Arena arena){
-		if(arena != null){
+	public void removeArena(Arena arena) {
+		if (arena != null) {
 			arenas.remove(arena);
 		}
 	}
 
-	synchronized public Arena getFreeArena(){
-		while(allBusyArenas()){
-			try{
+	synchronized public Arena getFreeArena() {
+		while (allBusyArenas()) {
+			try {
 				wait();
-			}catch(InterruptedException e){}
+			} catch (InterruptedException e) {
+			}
 		}
-		for(Arena arena : arenas){
-			if(!arena.isBusy()){
+		for (Arena arena : arenas) {
+			if (!arena.isBusy()) {
 				arena.setBusy(true);
 				return arena;
 			}
 		}
 		return null;
 	}
+
 	private boolean allBusyArenas() {
-		for(Arena arena : arenas){
-			if(!arena.isBusy()){
+		for (Arena arena : arenas) {
+			if (!arena.isBusy()) {
 				return false;
 			}
 		}
 		return true;
 	}
 
-	
 }

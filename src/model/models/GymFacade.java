@@ -16,10 +16,10 @@ public class GymFacade {
         this.gym = gym;
     }
 
-    public Weapon newWeapon(String type){
+    public Weapon newWeapon(String type) throws IllegalArgumentException{
         return WeaponFactory.newWeapon(type);
     }
-    public Pokemon newPokemon(String name, String type){
+    public Pokemon newPokemon(String name, String type) throws IllegalArgumentException{
         return PokemonFactory.newPokemon(name, type);
     }
     public Trainer newTrainer(String name){
