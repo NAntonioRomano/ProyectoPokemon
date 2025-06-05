@@ -2,8 +2,12 @@ package view.personalizedPanes;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JPanel;
+
+import model.models.pokemons.Pokemon;
+import model.models.weapons.Weapon;
 
 public class CardPane extends JPanel {
 
@@ -13,6 +17,7 @@ public class CardPane extends JPanel {
     public CardPane(){
         this.setLayout(new BorderLayout());
         this.statePane = new MainMenuStatePane();
+        this.add(statePane);
         this.revalidate();
         this.repaint();
     }
@@ -40,5 +45,9 @@ public class CardPane extends JPanel {
     public String getPokemonName(){return statePane.getPokemonName();}
     public String getPokemonType(){return statePane.getPokemonType();}
     public String getWeaponType(){return statePane.getWeaponType();}
+    public Pokemon getSelectedPokemon(){return statePane.getSelectedPokemon();}
+    public Weapon getSelectedWeapon(){return statePane.getSelectedWeapon();}
+    public void updatePokemonList(){statePane.updatePokemonList();}
+    public void updateWeaponList(){statePane.updateWeaponList();}
 
 }

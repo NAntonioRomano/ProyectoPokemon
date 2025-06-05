@@ -20,4 +20,9 @@ public class Axe extends Weapon {
         throw new CloneNotSupportedException("Axe cannot be cloned");
     }
 
+    @Override
+    public String toString() {
+        return "Axe [Min Attack: " + 50 + " Max Attack: " + 150 + " Cost: " + getCost() + "]";
+    }
+
 }

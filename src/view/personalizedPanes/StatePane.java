@@ -1,7 +1,12 @@
 package view.personalizedPanes;
 
 import javax.swing.JPanel;
+
+import model.models.pokemons.Pokemon;
+import model.models.weapons.Weapon;
+
 import java.awt.event.ActionListener;
+import java.util.List;
 
 
 public abstract class StatePane extends JPanel{
@@ -14,6 +19,10 @@ public abstract class StatePane extends JPanel{
     public String getPokemonName(){return null;}
     public String getPokemonType(){return null;}
     public String getWeaponType(){return null;}
+    public Pokemon getSelectedPokemon(){return null;}
+    public Weapon getSelectedWeapon(){return null;}
+    public void updatePokemonList(){}
+    public void updateWeaponList(){}
 
 
 }

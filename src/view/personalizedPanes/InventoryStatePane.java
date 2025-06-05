@@ -18,6 +18,7 @@ import javax.swing.event.ListSelectionEvent;
 import model.models.Trainer;
 import model.models.pokemons.Pokemon;
 import model.models.weapons.Weapon;
+import view.interfaces.GymView;
 
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
@@ -37,11 +38,13 @@ public class InventoryStatePane extends StatePane {
 	private JPanel WrapperAddButton;
     private DefaultListModel<Pokemon> pokemonListModel;
     private DefaultListModel<Weapon> weaponListModel;
+	private Trainer trainer;
 
 	/**
 	 * Create the panel.
 	 */
 	public InventoryStatePane(Trainer trainer) {
+		this.trainer = trainer;
 		Dimension ButtonDimension = new Dimension(300,20);
 		setLayout(new GridLayout(1, 3, 0, 0));
 		
@@ -76,6 +79,7 @@ public class InventoryStatePane extends StatePane {
 		this.WrapperAddButton.add(Box.createVerticalStrut(60));
 		
 		this.addToPokemon = new JButton("<--- AGREGAR ");
+		this.addToPokemon.setActionCommand(GymView.ADD_WEAPON_TO_POKEMON);
 		this.addToPokemon.setAlignmentX(CENTER_ALIGNMENT);
 		this.addToPokemon.setAlignmentY(CENTER_ALIGNMENT);
 		this.addToPokemon.setMinimumSize(ButtonDimension);
@@ -90,8 +94,8 @@ public class InventoryStatePane extends StatePane {
 		this.WeaponsScrollPane.setViewportView(this.WeaponList);
         this.WeaponList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        this.updatePokemonList(trainer.getPokemons());
-        this.updateWeaponList(trainer.getWeapons());
+        this.updatePokemonList();
+        this.updateWeaponList();
 
 	}
 
@@ -100,18 +104,31 @@ public class InventoryStatePane extends StatePane {
         this.SellButton.addActionListener(listener);
         this.addToPokemon.addActionListener(listener);
     }
-	public void updatePokemonList(List<Pokemon> newPokemos){
+	@Override
+	public void updatePokemonList(){
 		this.pokemonListModel.clear();
-		for (Pokemon p : newPokemos) {
+		for (Pokemon p : trainer.getPokemons()) {
 			this.pokemonListModel.addElement(p);
 		}
+		this.revalidate();
+		this.repaint();
 	}
-
-    public void updateWeaponList(List<Weapon> newWeapons){
+	@Override
+    public void updateWeaponList(){
 		this.weaponListModel.clear();
-		for (Weapon w : newWeapons) {
+		for (Weapon w : trainer.getWeapons()) {
 			this.weaponListModel.addElement(w);
 		}
+		this.revalidate();
+		this.repaint();
+	}
+	@Override
+	public Pokemon getSelectedPokemon(){
+		return PokemonList.getSelectedValue();
+	}
+	@Override
+	public Weapon getSelectedWeapon(){
+		return WeaponList.getSelectedValue();
 	}
     
 }

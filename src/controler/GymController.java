@@ -37,8 +37,21 @@ public class GymController implements ActionListener {
         }else if(command.equals(GymView.RMV_POKEMON_FROM_TRAINER)) {
         }else if(command.equals(GymView.PURCHASE_WEAPON)) {
             purchaseWeapon();
+        }else if(command.equals(GymView.ADD_WEAPON_TO_POKEMON)){
+            addWeaponToPokemon();
         }
     }
+
+    private void addWeaponToPokemon() {
+        try{
+            gymview.getSelectedPokemon().setWeapon(gymview.getSelectedWeapon());
+            gymview.updateTrainerData(null);
+        }catch(UnsupportedOperationException e){
+            gymview.ShowErrorMessage(e.getMessage());
+        }
+    }
+
+
 
     private void purchaseWeapon() {
         try{

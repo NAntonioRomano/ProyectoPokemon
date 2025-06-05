@@ -13,6 +13,8 @@ import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 
 import model.models.Trainer;
+import model.models.pokemons.Pokemon;
+import model.models.weapons.Weapon;
 import view.interfaces.GymView;
 import view.personalizedComponents.ButtonWithTrainer;
 import view.personalizedComponents.ToggleButtonWithTrainer;
@@ -108,6 +110,9 @@ public class GymPane extends JPanel implements GymView {
 
 		this.TrainerButtonGroup = new ButtonGroup();
 		this.TrainerPanes = new HashMap<Trainer, TrainerPane>();
+
+		this.revalidate();
+		this.repaint();
 
 		
 		
@@ -230,10 +235,35 @@ public class GymPane extends JPanel implements GymView {
 
 	@Override
 	public void updateTrainerData(Trainer trainer) {
-		TrainerPane trainerPane = TrainerPanes.get(trainer);
-		trainerPane.updateTrainerData();
-		this.revalidate();
-		this.repaint();
+		if(trainer != null){
+			TrainerPane trainerPane = TrainerPanes.get(trainer);
+			trainerPane.updateTrainerData();
+			this.revalidate();
+			this.repaint();
+		}
+		this.StatePanel.updatePokemonList();
+		this.StatePanel.updateWeaponList();
+	}
+
+	@Override
+	public Pokemon getSelectedPokemon() {
+		if(this.StatePanel.getSelectedPokemon() != null)
+			return this.StatePanel.getSelectedPokemon();
+		else{
+			ShowErrorMessage("Debe seleccionar un pokemon de la lista");
+			return null;
+		}
+		
+	}
+
+	@Override
+	public Weapon getSelectedWeapon() {
+		if(this.StatePanel.getSelectedWeapon() != null)
+			return this.StatePanel.getSelectedWeapon();
+		else{
+			ShowErrorMessage("Debe seleccionar un arma de la lista");
+			return null;
+		}
 	}
 
 	

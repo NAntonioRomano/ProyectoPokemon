@@ -62,6 +62,7 @@ public class StonePokemon extends Pokemon {
 
 	@Override
 	public void setWeapon(Weapon weapon) {
+		System.out.println("Se agrego el arma al pokemon " + weapon.toString());
 		this.weapon = weapon;
 	}
 

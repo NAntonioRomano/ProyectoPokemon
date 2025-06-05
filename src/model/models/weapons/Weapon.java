@@ -35,4 +35,7 @@ public abstract class Weapon implements Hostile, Valuable, Cloneable {
 		return super.clone();
 	}
 
+
+
+
 }
