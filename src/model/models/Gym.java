@@ -3,6 +3,8 @@ package model.models;
 import java.util.ArrayList;
 
 import model.interfaces.Arena;
+import model.models.trainers.Trainer;
+import model.models.trainers.TrainerPrepared;
 
 public class Gym {
 	private ArrayList<Trainer> trainers;
@@ -24,6 +26,7 @@ public class Gym {
 	
 	public Trainer Arena_Battle(Arena arena, Trainer trainer1, Trainer trainer2){
 		Trainer winner = arena.startBattle(new TrainerPrepared(trainer1), new TrainerPrepared(trainer2));
+		winner.addCredits(arena.getCredditsForWinner());
 		synchronized(this){
 			arena.setBusy(false);
 			notifyAll();

@@ -1,4 +1,4 @@
-package model.models;
+package model.models.trainers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +43,20 @@ public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCa
 
 	public void addCredits(double credits) {
 		this.credits += credits;
+	}
+
+	public void removePokemon(Pokemon pokemon) {
+		pokemons.removeIf(p -> p.getName().equals(pokemon.getName()));
+	}
+
+	public void sellPokemon(Pokemon pokemon) {
+		boolean canSell = pokemons.stream()
+				.anyMatch(p -> p.getName().equals(pokemon.getName()));
+
+		if (canSell) {
+			removePokemon(pokemon);
+			credits += pokemon.getCost();
+		}
 	}
 
 	@Override

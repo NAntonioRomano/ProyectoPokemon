@@ -7,6 +7,7 @@ import model.exceptions.ImpossiblePurchaseException;
 import model.interfaces.Arena;
 import model.models.*;
 import model.models.pokemons.Pokemon;
+import model.models.trainers.Trainer;
 import view.interfaces.GymView;
 
 public class GymController implements ActionListener {
@@ -22,60 +23,64 @@ public class GymController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
 
-        if(command.equals(GymView.ADD_TRAINER)){
+        if (command.equals(GymView.ADD_TRAINER)) {
             addTrainer();
-        }else if(command.equals(GymView.RMV_TRAINER)){
+        } else if (command.equals(GymView.RMV_TRAINER)) {
             removeTrainer(e);
-        }else if(command.equals(GymView.ADD_ARENA)) {
+        } else if (command.equals(GymView.ADD_ARENA)) {
             addArena();
-        }else if(command.equals(GymView.RMV_ARENA)) {
+        } else if (command.equals(GymView.RMV_ARENA)) {
             removeArena(e);
-        }else if(command.equals(GymView.PURCHASE_POKEMON)) {
+        } else if (command.equals(GymView.PURCHASE_POKEMON)) {
             purchasePokemon();
-        }else if(command.equals(GymView.RMV_POKEMON_FROM_TRAINER)) {
-        }else if(command.equals(GymView.PURCHASE_WEAPON)) {
+        } else if (command.equals(GymView.RMV_POKEMON_FROM_TRAINER)) {
+            removePokemonFromTrainer();
+        }
+        else if (command.equals(GymView.SELL_POKEMON)) {
+            sellPokemon();
+        } else if (command.equals(GymView.PURCHASE_WEAPON)) {
+
             purchaseWeapon();
-        }else if(command.equals(GymView.ADD_WEAPON_TO_POKEMON)){
+        } else if (command.equals(GymView.ADD_WEAPON_TO_POKEMON)) {
             addWeaponToPokemon();
         }
     }
 
     private void addWeaponToPokemon() {
-        try{
+        try {
             gymview.getSelectedPokemon().setWeapon(gymview.getSelectedWeapon());
             gymview.updateTrainerData(null);
-        }catch(UnsupportedOperationException e){
+        } catch (UnsupportedOperationException e) {
             gymview.ShowErrorMessage(e.getMessage());
         }
     }
 
     private void purchaseWeapon() {
-        try{
+        try {
             Trainer selected = gymview.getSelectedTrainer();
             gymFacade.purchaseValuable(selected, gymFacade.newWeapon(gymview.getWeaponType()));
             gymview.updateTrainerData(selected);
 
-        }catch(ImpossiblePurchaseException e){
+        } catch (ImpossiblePurchaseException e) {
             gymview.ShowErrorMessage(e.getMessage());
-        }catch(IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             gymview.ShowErrorMessage(e.getMessage());
         }
     }
 
     private void purchasePokemon() {
-        try{
+        try {
             Trainer selected = gymview.getSelectedTrainer();
             gymFacade.purchaseValuable(
-                selected,
-                gymFacade.newPokemon(gymview.getPokemonName(), gymview.getPokemonType())
-            );
+                    selected,
+                    gymFacade.newPokemon(gymview.getPokemonName(), gymview.getPokemonType()));
             gymview.updateTrainerData(selected);
-        }catch(ImpossiblePurchaseException e){
+        } catch (ImpossiblePurchaseException e) {
             gymview.ShowErrorMessage(e.getMessage());
-        }catch(IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             gymview.ShowErrorMessage(e.getMessage());
         }
-        
+
     }
 
     private void removeArena(ActionEvent e) {
@@ -91,15 +96,29 @@ public class GymController implements ActionListener {
         gymFacade.addArena(name, type, level);
     }
 
-    private void addTrainer(){
+    private void addTrainer() {
         Trainer trainer = gymFacade.newTrainer(gymview.getTrainerName());
         gymFacade.addTrainer(trainer);
         gymview.addTrainer(trainer);
     }
 
-    private void removeTrainer(ActionEvent e){
+    private void removeTrainer(ActionEvent e) {
         Trainer trainer = (Trainer) e.getSource();
         gymFacade.removeTrainer(trainer);
+    }
+
+    private void removePokemonFromTrainer() {
+        Trainer selected = gymview.getSelectedTrainer();
+        Pokemon pokemon = gymview.getSelectedPokemon();
+        gymFacade.removePokemonFromTrainer(selected, pokemon);
+        gymview.updateTrainerData(selected);
+    }
+
+    private void sellPokemon() {
+        Trainer selected = gymview.getSelectedTrainer();
+        Pokemon pokemon = gymview.getSelectedPokemon();
+        gymFacade.sellPokemon(selected, pokemon);
+        gymview.updateTrainerData(selected);
     }
 
 }

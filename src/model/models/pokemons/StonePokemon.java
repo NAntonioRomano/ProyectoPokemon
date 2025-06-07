@@ -22,9 +22,6 @@ public class StonePokemon extends Pokemon {
 	@Override
 	public void attack(Pokemon other) {
 		if (this.weapon != null) {
-			System.out.println(
-					"⚔️ " + name + " attacks " + other.getName() + " with a weapon with " + damage
-							+ " damage!");
 			weapon.attack(other);
 		} else
 			super.attack(other);
@@ -36,10 +33,11 @@ public class StonePokemon extends Pokemon {
 	}
 
 	@Override
-	public void afterAttack(){
+	public void afterAttack() {
 		this.damage -= this.damage * 0.05;
+		this.damage = Math.max(this.damage, 1);
 	}
-	
+
 	@Override
 	protected void getReceiveDamage(double damage) {
 		if (this.shield > 0) {
@@ -62,7 +60,6 @@ public class StonePokemon extends Pokemon {
 
 	@Override
 	public void setWeapon(Weapon weapon) {
-		System.out.println("Se agrego el arma al pokemon " + weapon.toString());
 		this.weapon = weapon;
 	}
 

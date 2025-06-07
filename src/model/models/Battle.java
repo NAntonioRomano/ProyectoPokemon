@@ -1,6 +1,7 @@
 package model.models;
 
 import model.exceptions.TrainerWithoutPokemonsException;
+import model.models.trainers.Trainer;
 
 public class Battle implements Runnable {
     private Tournament tournament;

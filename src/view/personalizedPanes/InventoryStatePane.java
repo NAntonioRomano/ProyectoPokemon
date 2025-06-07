@@ -15,8 +15,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionEvent;
 
-import model.models.Trainer;
 import model.models.pokemons.Pokemon;
+import model.models.trainers.Trainer;
 import model.models.weapons.Weapon;
 import view.interfaces.GymView;
 
@@ -66,6 +66,7 @@ public class InventoryStatePane extends StatePane {
 		this.WrapperSellButton.add(Box.createVerticalStrut(60));
 		
 		this.SellButton = new JButton("VENDER");
+		this.SellButton.setActionCommand(GymView.SELL_POKEMON);
 		this.SellButton.setAlignmentX(CENTER_ALIGNMENT);
 		this.SellButton.setAlignmentY(CENTER_ALIGNMENT);
 		this.SellButton.setMinimumSize(ButtonDimension);

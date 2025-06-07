@@ -1,4 +1,4 @@
-package model.models;
+package model.models.trainers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +19,9 @@ public class TrainerPrepared {
 	 * @param trainer Trainer object to be prepared.
 	 * @throws TrainerWithoutPokemonsException if the trainer has no pokemons.
 	 */
-	public TrainerPrepared(Trainer trainer){
+	public TrainerPrepared(Trainer trainer) {
 		this.name = trainer.getName();
 		List<Pokemon> trainerPokemons = trainer.getPokemons();
-
 
 		int length = Math.min(maxPokemonsPerFigth, trainerPokemons.size());
 		pokemons = new Pokemon[length];
@@ -69,13 +68,7 @@ public class TrainerPrepared {
 			return null;
 
 		int randomIndex = (int) (Math.random() * livePokemons.size());
-		Pokemon choosenPokemon = livePokemons.get(randomIndex);
-		System.out
-				.println(choosenPokemon != null
-						? "✅ " + this.getName() + ": Choose " + choosenPokemon.getName()
-								+ " for battle!"
-						: "No more pokemons for " + this.getName());
-		return choosenPokemon;
+		return livePokemons.get(randomIndex);
 	}
 
 	/**

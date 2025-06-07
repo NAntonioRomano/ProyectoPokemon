@@ -71,7 +71,7 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 	/**
 	 * Recharge the pokemon
 	 */
-	protected abstract void recharge();
+	public abstract void recharge();
 
 	/**
 	 * Set the weapon of the pokemon
@@ -93,14 +93,6 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		getReceiveDamage(damage);
 		this.shield = Math.max(0, this.shield);
 		this.health = Math.max(0, this.health);
-
-		if (this.isDead())
-			System.out.println("❌ " + this.getName() + " has died!");
-		else {
-			System.out.println(this.getName() + " has received " + damage + " damage! - Stats "
-					+ this.getName() + ": Health: " + this.health + ", Shield: "
-					+ this.shield);
-		}
 	}
 
 	@Override
@@ -113,8 +105,11 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 	// This method is called from hostile
 	@Override
 	public void attack(Pokemon other) {
-		System.out.println("⚔️ " + this.getName() + " is attacking " + other.getName() + " with " + damage
-				+ " damage!");
+		try {
+			Thread.sleep(5);
+		} catch (Exception e) {
+		}
+
 		other.receiveDamage(getAttack());
 
 		if (other.isDead())

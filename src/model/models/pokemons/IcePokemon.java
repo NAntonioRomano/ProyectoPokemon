@@ -20,6 +20,7 @@ public class IcePokemon extends Pokemon {
 	@Override
 	public void afterAttack() {
 		this.damage *= 0.95;
+		this.damage = Math.max(this.damage, 1);
 	}
 
 	@Override

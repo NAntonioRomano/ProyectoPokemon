@@ -3,6 +3,7 @@ package model.models;
 import java.util.ArrayList;
 
 import model.exceptions.TrainerWithoutPokemonsException;
+import model.models.trainers.Trainer;
 
 public class Tournament {
 
@@ -20,7 +21,9 @@ public class Tournament {
     }
 
     public void startTournament() throws TrainerWithoutPokemonsException, InterruptedException {
-        System.out.println("Comienza el torneo nashei");
+        System.out.println("============================");
+        System.out.println("====== Torneo iniciado =====");
+        System.out.println("============================");
         runQuarterfinals();
         runSemifinals();
         runFinal();
@@ -57,18 +60,18 @@ public class Tournament {
 
     public void setWinner(Trainer winner) {
         this.winner = winner;
-        System.out.println("Ganador del torneo: " + winner.getName());
+        System.out.println("Ganador del torneo: " + winner.getName() + " (" + winner.getBalance() + " credits)");
     }
 
     synchronized public void setFinalTrainer(Trainer winner) {
         finalTrainers.add(winner);
         notifyAll();
-        System.out.println("Ganador de semifinal: " + winner.getName());
+        System.out.println("Ganador de semifinal: " + winner.getName() + " (" + winner.getBalance() + " credits)");
     }
 
     synchronized public void setSemifinalTrainer(Trainer winner) {
         semifinalTrainers.add(winner);
         notifyAll();
-        System.out.println("Ganador de cuartos: " + winner.getName());
+        System.out.println("Ganador de cuartos: " + winner.getName() + " (" + winner.getBalance() + " credits)");
     }
 }

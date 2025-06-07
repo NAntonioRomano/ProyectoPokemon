@@ -1,9 +1,9 @@
 package model.models.arenas;
 
 import model.interfaces.Arena;
-import model.models.Trainer;
-import model.models.TrainerPrepared;
 import model.models.pokemons.*;
+import model.models.trainers.Trainer;
+import model.models.trainers.TrainerPrepared;
 
 public class BaseArena implements Arena {
 
@@ -35,20 +35,14 @@ public class BaseArena implements Arena {
         this.creditsForWinner = creditsForWinner;
     }
     
-
-
-
     @Override
     public Trainer startBattle(TrainerPrepared TP1, TrainerPrepared TP2){
-
         Pokemon pokemonInBattleTP1 = TP1.getRandomPokemon();
         Pokemon pokemonInBattleTP2 = TP2.getRandomPokemon();
 
         while (pokemonInBattleTP1 != null && pokemonInBattleTP2 != null) {
-
             // TP1 have adventage over TP2 always
             pokemonInBattleTP1.attack(pokemonInBattleTP2);
-
             if (pokemonInBattleTP2.isDead()) {
                 pokemonInBattleTP2 = TP2.getRandomPokemon();
             } else {
@@ -59,12 +53,13 @@ public class BaseArena implements Arena {
             }
         }
 
-        Trainer winner = pokemonInBattleTP1 != null ? TP1.getTrainer() : TP2.getTrainer();
+        TrainerPrepared winner =  pokemonInBattleTP1 != null ? TP1 : TP2;
 
-        return winner;
-        
+        for (Pokemon pokemon : winner.getPokemons())
+            pokemon.recharge();
+
+        return winner.getTrainer();
     }
-
 
     @Override
     public String getName() {

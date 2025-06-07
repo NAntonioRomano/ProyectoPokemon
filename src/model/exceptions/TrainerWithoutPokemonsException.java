@@ -1,6 +1,6 @@
 package model.exceptions;
 
-import model.models.Trainer;
+import model.models.trainers.Trainer;
 
 /**
  * TrainerWithoutPokemonsException is thrown when a trainer has no available

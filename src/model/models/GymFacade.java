@@ -6,6 +6,7 @@ import model.interfaces.Valuable;
 import model.models.arenas.*;
 import model.models.pokemons.Pokemon;
 import model.models.pokemons.PokemonFactory;
+import model.models.trainers.Trainer;
 import model.models.weapons.Weapon;
 import model.models.weapons.WeaponFactory;
 
@@ -39,7 +40,6 @@ public class GymFacade {
         gym.addArena(arena);
     }
 
-
     public void removeArena(Arena arena){
         gym.removeArena(arena);
     }
@@ -48,5 +48,11 @@ public class GymFacade {
         trainer.purchase(valuable);
     }
 
+    public void removePokemonFromTrainer(Trainer trainer, Pokemon pokemon) {
+        trainer.removePokemon(pokemon);
+    }
 
+    public void sellPokemon(Trainer trainer, Pokemon pokemon) {
+        trainer.sellPokemon(pokemon);
+    }
 }

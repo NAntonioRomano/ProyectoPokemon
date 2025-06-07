@@ -12,8 +12,8 @@ import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 
-import model.models.Trainer;
 import model.models.pokemons.Pokemon;
+import model.models.trainers.Trainer;
 import model.models.weapons.Weapon;
 import view.interfaces.GymView;
 import view.personalizedComponents.ButtonWithTrainer;

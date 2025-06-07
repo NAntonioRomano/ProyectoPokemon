@@ -1,8 +1,6 @@
 package model.models.arenas;
 
 import model.interfaces.Arena;
-import model.models.Trainer;
-import model.models.TrainerPrepared;
 
 public class ArenaWithType extends ArenaDecorator{
 
@@ -36,20 +34,6 @@ public class ArenaWithType extends ArenaDecorator{
         }
 
         return credits;
-    }
-
-    @Override
-    public Trainer startBattle(TrainerPrepared trainer1, TrainerPrepared trainer2){
-        return getArena().startBattle(trainer1,trainer2);
-    }
-
-    @Override
-    public boolean isBusy() {
-        return getArena().isBusy();
-    }
-    @Override
-    public void setBusy(boolean busy) {
-        getArena().setBusy(busy);
     }
 
 }

@@ -1,8 +1,8 @@
 package model.interfaces;
 
 
-import model.models.Trainer;
-import model.models.TrainerPrepared;
+import model.models.trainers.Trainer;
+import model.models.trainers.TrainerPrepared;
 
 public interface Arena {
     /**

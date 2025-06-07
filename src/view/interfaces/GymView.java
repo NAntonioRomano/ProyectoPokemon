@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 
-import model.models.Trainer;
 import model.models.pokemons.Pokemon;
+import model.models.trainers.Trainer;
 import model.models.weapons.Weapon;
 
 public interface GymView extends ActionListener {
@@ -19,6 +19,7 @@ public interface GymView extends ActionListener {
     String RMV_POKEMON_FROM_TRAINER = "RMV_POKEMON_FROM_TRAINER";
     String PURCHASE_WEAPON = "PURCHASE_WEAPON";
     String ADD_WEAPON_TO_POKEMON = "ADD_WEAPON_TO_POKEMON";
+    String SELL_POKEMON = "SELL_POKEMON";
 
 
 
