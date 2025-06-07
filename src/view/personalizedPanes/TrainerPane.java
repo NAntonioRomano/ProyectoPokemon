@@ -15,8 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
-import model.models.Gym;
-import model.models.trainers.Trainer;
+import model.entities.Gym;
+import model.entities.trainers.Trainer;
 import view.interfaces.GymView;
 import view.personalizedComponents.ButtonWithTrainer;
 import view.personalizedComponents.ToggleButtonWithTrainer;

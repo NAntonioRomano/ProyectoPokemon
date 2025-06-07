@@ -1,6 +1,6 @@
 package model.interfaces;
 
-import model.models.pokemons.Pokemon;
+import model.entities.pokemons.Pokemon;
 
 public interface Hostile {
 

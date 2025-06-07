@@ -1,6 +1,6 @@
 package model.capabilities;
 
-import model.models.weapons.Weapon;
+import model.entities.weapons.Weapon;
 
 /**
  * This interface defines the capability to handle weapons.

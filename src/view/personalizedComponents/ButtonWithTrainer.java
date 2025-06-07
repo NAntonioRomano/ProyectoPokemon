@@ -2,7 +2,7 @@ package view.personalizedComponents;
 
 import javax.swing.JButton;
 
-import model.models.trainers.Trainer;
+import model.entities.trainers.Trainer;
 
 public class ButtonWithTrainer extends JButton {
     private Trainer trainer;

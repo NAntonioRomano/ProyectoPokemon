@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="21.0.6" class="java.beans.XMLDecoder">
+ <object class="model.dto.GymDTO">
+  <void property="arenas">
+   <object class="java.util.ArrayList"/>
+  </void>
+  <void property="trainers">
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="model.dto.TrainerDTO">
+      <void property="credits">
+       <double>480.0</double>
+      </void>
+      <void property="name">
+       <string>Valen</string>
+      </void>
+      <void property="pokemons">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="model.dto.PokemonDTO">
+          <void property="cost">
+           <double>120.0</double>
+          </void>
+          <void property="damage">
+           <double>80.0</double>
+          </void>
+          <void property="health">
+           <double>530.0</double>
+          </void>
+          <void property="name">
+           <string>Pikachu</string>
+          </void>
+          <void property="shield">
+           <double>200.0</double>
+          </void>
+          <void property="type">
+           <string>FirePokemon</string>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="weapons">
+       <object class="java.util.ArrayList"/>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

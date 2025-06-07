@@ -2,8 +2,8 @@ package view.personalizedPanes;
 
 import javax.swing.JPanel;
 
-import model.models.pokemons.Pokemon;
-import model.models.weapons.Weapon;
+import model.entities.pokemons.Pokemon;
+import model.entities.weapons.Weapon;
 
 import java.awt.event.ActionListener;
 import java.util.List;

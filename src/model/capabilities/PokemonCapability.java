@@ -1,6 +1,6 @@
 package model.capabilities;
 
-import model.models.pokemons.Pokemon;
+import model.entities.pokemons.Pokemon;
 
 /**
  * This interface defines the capabilities related to pokemon.

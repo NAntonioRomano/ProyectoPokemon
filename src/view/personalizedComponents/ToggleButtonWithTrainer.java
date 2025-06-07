@@ -2,7 +2,7 @@ package view.personalizedComponents;
 
 import javax.swing.JToggleButton;
 
-import model.models.trainers.Trainer;
+import model.entities.trainers.Trainer;
 
 public class ToggleButtonWithTrainer extends JToggleButton {
     private Trainer trainer;

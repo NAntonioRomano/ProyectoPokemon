@@ -15,9 +15,9 @@ import javax.swing.DefaultListModel;
 import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionEvent;
 
-import model.models.pokemons.Pokemon;
-import model.models.trainers.Trainer;
-import model.models.weapons.Weapon;
+import model.entities.pokemons.Pokemon;
+import model.entities.trainers.Trainer;
+import model.entities.weapons.Weapon;
 import view.interfaces.GymView;
 
 import java.awt.FlowLayout;

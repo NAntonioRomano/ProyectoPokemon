@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import model.models.pokemons.Pokemon;
-import model.models.weapons.Weapon;
+import model.entities.pokemons.Pokemon;
+import model.entities.weapons.Weapon;
 
 public class CardPane extends JPanel {
 
