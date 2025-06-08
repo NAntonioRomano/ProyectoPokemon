@@ -1,9 +1,13 @@
 package model.entities.arenas;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import model.entities.pokemons.*;
 import model.entities.trainers.Trainer;
 import model.entities.trainers.TrainerPrepared;
 import model.interfaces.Arena;
+import model.interfaces.Observer;
 
 public class BaseArena implements Arena {
 
@@ -11,16 +15,7 @@ public class BaseArena implements Arena {
     private int creditsForWinner;
     private boolean inBattle;
 
-    /**
-     * Constructor for Arena class.
-     * preconditions: name != null
-     * 
-     * @param name The name of the arena.
-     */
-    public BaseArena(String name) {
-        this.name = name;
-        this.creditsForWinner = 500;
-    }
+    private List<Observer> observers;
 
     /**
      * Constructor for Arena class.
@@ -33,10 +28,21 @@ public class BaseArena implements Arena {
     public BaseArena(String name, int creditsForWinner) {
         this.name = name;
         this.creditsForWinner = creditsForWinner;
+        this.observers = new ArrayList<>();
     }
-    
+
+    /**
+     * Constructor for Arena class.
+     * preconditions: name != null
+     * 
+     * @param name The name of the arena.
+     */
+    public BaseArena(String name) {
+        this(name, 500);
+    }
+
     @Override
-    public Trainer startBattle(TrainerPrepared TP1, TrainerPrepared TP2){
+    public Trainer startBattle(TrainerPrepared TP1, TrainerPrepared TP2) {
         Pokemon pokemonInBattleTP1 = TP1.getRandomPokemon();
         Pokemon pokemonInBattleTP2 = TP2.getRandomPokemon();
 
@@ -53,7 +59,7 @@ public class BaseArena implements Arena {
             }
         }
 
-        TrainerPrepared winner =  pokemonInBattleTP1 != null ? TP1 : TP2;
+        TrainerPrepared winner = pokemonInBattleTP1 != null ? TP1 : TP2;
 
         for (Pokemon pokemon : winner.getPokemons())
             pokemon.recharge();

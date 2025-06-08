@@ -30,4 +30,6 @@ public abstract class ArenaDecorator implements Arena {
         getArena().setBusy(busy);
     }
 
+    
+
 }

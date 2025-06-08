@@ -1,12 +1,16 @@
 package model.entities;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
 import model.entities.trainers.Trainer;
 import model.exceptions.TrainerWithoutPokemonsException;
+import model.interfaces.Observable;
+import model.interfaces.Observer;
+import model.messages.BattleWinner;
 
-public class Tournament {
+public class Tournament implements Observable {
 
     private Gym gym;
     private Trainer winner;
@@ -14,17 +18,17 @@ public class Tournament {
     private ArrayList<Trainer> finalTrainers;
     private ArrayList<Trainer> quarterfinalTrainers;
 
+    private List<Observer> observers;
+
     public Tournament(Gym gym, ArrayList<Trainer> quarterfinalTrainers) {
         this.gym = gym;
-        this.semifinalTrainers = new ArrayList<Trainer>();
-        this.finalTrainers = new ArrayList<Trainer>();
         this.quarterfinalTrainers = quarterfinalTrainers;
+        this.semifinalTrainers = new ArrayList<>();
+        this.finalTrainers = new ArrayList<>();
+        this.observers = new ArrayList<>();
     }
 
     public void startTournament() throws TrainerWithoutPokemonsException, InterruptedException {
-        System.out.println("===========================");
-        System.out.println("===== Torneo iniciado =====");
-        System.out.println("===========================");
         runQuarterfinals();
         runSemifinals();
         runFinal();
@@ -67,18 +71,33 @@ public class Tournament {
 
     public void setWinner(Trainer winner) {
         this.winner = winner;
-        System.out.println("Ganador del torneo: " + winner.getName() + " (" + winner.getBalance() + " credits)");
+        notifyObservers(new BattleWinner(winner, "Final"));
+
+        // recharge all
+        quarterfinalTrainers
+                .forEach(trainer -> trainer.getPokemons()
+                        .forEach(pokemon -> pokemon.recharge()));
     }
 
     synchronized public void setFinalTrainer(Trainer winner) {
         finalTrainers.add(winner);
         notifyAll();
-        System.out.println("Ganador de semifinal: " + winner.getName() + " (" + winner.getBalance() + " credits)");
+        notifyObservers(new BattleWinner(winner, "Semi Final"));
     }
 
     synchronized public void setSemifinalTrainer(Trainer winner) {
         semifinalTrainers.add(winner);
         notifyAll();
-        System.out.println("Ganador de cuartos: " + winner.getName() + " (" + winner.getBalance() + " credits)");
+        notifyObservers(new BattleWinner(winner, "Quarter Final"));
+    }
+
+    @Override
+    public void addObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    synchronized public void notifyObservers(Object args) {
+        observers.forEach(item -> item.update(this, args));
     }
 }

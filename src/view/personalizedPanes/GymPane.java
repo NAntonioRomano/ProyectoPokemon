@@ -12,11 +12,13 @@ import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 
 import model.interfaces.Arena;
+import model.entities.Tournament;
 import model.entities.pokemons.Pokemon;
 import model.entities.trainers.Trainer;
 import model.entities.weapons.Weapon;
 
 import view.StatePaneFactory;
+import view.TournamentFrame;
 import view.interfaces.GymView;
 import view.personalizedComponents.ButtonWithObject;
 import view.personalizedComponents.ToggleButtonWithTrainer;
@@ -45,8 +47,8 @@ public class GymPane extends JPanel implements GymView {
 	private CardPane StatePanel;
 	private JPanel TrainerContainer;
 	private JPanel ArenasContainer;
-	private HashMap<Trainer,TrainerPane> TrainerPanes;
-	private HashMap<Arena,ArenaPane> ArenaPanes;
+	private HashMap<Trainer, TrainerPane> TrainerPanes;
+	private HashMap<Arena, ArenaPane> ArenaPanes;
 	private ButtonGroup TrainerButtonGroup;
 	private ActionListener actionListener;
 
@@ -56,70 +58,67 @@ public class GymPane extends JPanel implements GymView {
 	public GymPane() {
 		setMinimumSize(new Dimension(1400, 1400));
 		setLayout(new GridLayout(1, 2, 1, 1));
-		
+
 		this.TrainersArenasPane = new JPanel();
 		add(this.TrainersArenasPane);
 		this.TrainersArenasPane.setLayout(new GridLayout(1, 2, 1, 1));
-		
+
 		this.TrainersScrollPane = new JScrollPane();
 		this.TrainersArenasPane.add(this.TrainersScrollPane);
-		
+
 		this.TrainerContainer = new JPanel();
 		this.TrainersScrollPane.setViewportView(this.TrainerContainer);
 		this.TrainerContainer.setLayout(new BoxLayout(TrainerContainer, BoxLayout.Y_AXIS));
 		this.TrainerContainer.setBorder(BorderFactory.createTitledBorder("Entrenadores del gimnasio"));
-		
+
 		this.ArenasScrollPane = new JScrollPane();
 		this.TrainersArenasPane.add(this.ArenasScrollPane);
-		
+
 		this.ArenasContainer = new JPanel();
 		this.ArenasScrollPane.setViewportView(this.ArenasContainer);
 		this.ArenasContainer.setLayout(new BoxLayout(ArenasContainer, BoxLayout.Y_AXIS));
 		this.ArenasContainer.setBorder(BorderFactory.createTitledBorder("Arenas del gimnasio"));
-		
+
 		this.InteractivePane = new JPanel();
 		add(this.InteractivePane);
 		this.InteractivePane.setLayout(new BorderLayout(0, 0));
-		
+
 		this.ButtonsPane = new JPanel();
 		this.InteractivePane.add(this.ButtonsPane, BorderLayout.NORTH);
 		this.ButtonsPane.setLayout(new GridLayout(1, 4, 1, 1));
-		
+
 		this.MainMenuButton = new JButton("MENU PRINCIPAL");
 		this.MainMenuButton.setActionCommand("MAINMENU");
 		this.MainMenuButton.addActionListener(this);
 		this.ButtonsPane.add(this.MainMenuButton);
-		
+
 		this.ShopButton = new JButton("TIENDA");
 		this.ShopButton.setActionCommand("SHOP");
 		this.ShopButton.addActionListener(this);
 		this.ButtonsPane.add(this.ShopButton);
-		
+
 		this.TournamentButton = new JButton("TORNEO");
 		this.TournamentButton.setActionCommand("TOURNAMENT");
 		this.TournamentButton.addActionListener(this);
 		this.ButtonsPane.add(this.TournamentButton);
-		
+
 		this.ExitButton = new JButton("SALIR");
 		this.ExitButton.setActionCommand("EXIT");
 		this.ExitButton.addActionListener(this);
 		this.ExitButton.setBackground(new Color(255, 255, 255));
 		this.ButtonsPane.add(this.ExitButton);
-		
-	
+
 		this.StatePanel = new CardPane();
 		this.StatePanel.setActionListener(this);
-		this.InteractivePane.add(StatePanel,BorderLayout.CENTER);
+		this.InteractivePane.add(StatePanel, BorderLayout.CENTER);
 
 		this.TrainerButtonGroup = new ButtonGroup();
 		this.TrainerPanes = new HashMap<Trainer, TrainerPane>();
-		this.ArenaPanes = new HashMap<Arena,ArenaPane>();
+		this.ArenaPanes = new HashMap<Arena, ArenaPane>();
 
 		this.revalidate();
 		this.repaint();
 
-		
-		
 	}
 
 	@Override
@@ -130,44 +129,47 @@ public class GymPane extends JPanel implements GymView {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String action = e.getActionCommand();
-		
-		if(action.equals(GymView.RMV_TRAINER)){
+
+		if (action.equals(GymView.RMV_TRAINER)) {
 			ButtonWithObject button = (ButtonWithObject) e.getSource();
-			this.actionListener.actionPerformed(new ActionEvent((Trainer)button.getObject(), ActionEvent.ACTION_PERFORMED, GymView.RMV_TRAINER));
-			toRemove((Trainer)button.getObject());
-		}else if(action.equals(GymView.ADD_TRAINER)){
+			this.actionListener.actionPerformed(
+					new ActionEvent((Trainer) button.getObject(), ActionEvent.ACTION_PERFORMED, GymView.RMV_TRAINER));
+			toRemove((Trainer) button.getObject());
+		} else if (action.equals(GymView.ADD_TRAINER)) {
 			this.actionListener.actionPerformed(e);
-		}else if(action.equals(GymView.ADD_ARENA)){
+		} else if (action.equals(GymView.ADD_ARENA)) {
 			this.actionListener.actionPerformed(e);
-		}else if(action.equals(GymView.RMV_ARENA)){
+		} else if (action.equals(GymView.RMV_ARENA)) {
 			ButtonWithObject button = (ButtonWithObject) e.getSource();
-			this.actionListener.actionPerformed(new ActionEvent((Arena)button.getObject(), ActionEvent.ACTION_PERFORMED, GymView.RMV_ARENA));
-			toRemove((Arena)button.getObject());
-		}else if(action.equals(GymView.ADD_WEAPON_TO_POKEMON)){
+			this.actionListener.actionPerformed(
+					new ActionEvent((Arena) button.getObject(), ActionEvent.ACTION_PERFORMED, GymView.RMV_ARENA));
+			toRemove((Arena) button.getObject());
+		} else if (action.equals(GymView.ADD_WEAPON_TO_POKEMON)) {
 			this.actionListener.actionPerformed(e);
-		}else if(action.equals(GymView.PURCHASE_POKEMON)){
+		} else if (action.equals(GymView.PURCHASE_POKEMON)) {
 			this.actionListener.actionPerformed(e);
 			this.updateTrainerData();
-		}else if(action.equals(GymView.PURCHASE_WEAPON)){
+		} else if (action.equals(GymView.PURCHASE_WEAPON)) {
 			this.actionListener.actionPerformed(e);
 			this.updateTrainerData();
-		}else if(action.equals(GymView.ADD_WEAPON_TO_POKEMON)){
+		} else if (action.equals(GymView.ADD_WEAPON_TO_POKEMON)) {
 			this.actionListener.actionPerformed(e);
-		}else if(action.equals(GymView.START_TOURNAMENT)){
+		} else if (action.equals(GymView.START_TOURNAMENT)) {
 			this.actionListener.actionPerformed(e);
-		}else if(action.equals("MAINMENU")) {
+		} else if (action.equals("MAINMENU")) {
 			this.changeStatePane(action, e.getSource());
-		}else if(action.equals("SHOP")) {
+		} else if (action.equals("SHOP")) {
 			this.changeStatePane(action, e.getSource());
-		}else if(action.equals("INVENTORY")){
+		} else if (action.equals("INVENTORY")) {
 			this.changeStatePane(action, e.getSource());
-		}else if(action.equals("TOURNAMENT")) {
-			this.changeStatePane(action,e.getSource());
-		}else{
+		} else if (action.equals("TOURNAMENT")) {
+			this.changeStatePane(action, e.getSource());
+		} else if (action.equals("UPDATE")) {
+			updateTrainerData((Trainer) e.getSource());
+		} else {
 			return;
 		}
-		
-		
+
 	}
 
 	@Override
@@ -184,12 +186,16 @@ public class GymPane extends JPanel implements GymView {
 				return button.getTrainer();
 			}
 		}
+		ShowErrorMessage("Debe seleccionar un entrenador");
 		return null;
 	}
 
 	public void updateTrainerData() {
+		updateTrainerData(this.getSelectedTrainer());
+	}
 
-		TrainerPane trainerPane = TrainerPanes.get(this.getSelectedTrainer());
+	public void updateTrainerData(Trainer trainer) {
+		TrainerPane trainerPane = TrainerPanes.get(trainer);
 		trainerPane.updateTrainerData();
 		this.revalidate();
 		this.repaint();
@@ -200,26 +206,26 @@ public class GymPane extends JPanel implements GymView {
 
 	@Override
 	public Pokemon getSelectedPokemon() {
-		if(this.StatePanel.getSelectedPokemon() != null)
+		if (this.StatePanel.getSelectedPokemon() != null)
 			return this.StatePanel.getSelectedPokemon();
-		else{
+		else {
 			ShowErrorMessage("Debe seleccionar un pokemon de la lista");
 			return null;
 		}
-		
+
 	}
 
 	@Override
 	public Weapon getSelectedWeapon() {
-		if(this.StatePanel.getSelectedWeapon() != null)
+		if (this.StatePanel.getSelectedWeapon() != null)
 			return this.StatePanel.getSelectedWeapon();
-		else{
+		else {
 			ShowErrorMessage("Debe seleccionar un arma de la lista");
 			return null;
 		}
 	}
 
-		@Override
+	@Override
 	public String getTrainerName() {
 		return this.StatePanel.getTrainerName();
 	}
@@ -255,13 +261,18 @@ public class GymPane extends JPanel implements GymView {
 	}
 
 	@Override
-	public ArrayList<Trainer> getSelectedTrainers(){
-		return this.StatePanel.getSelectedTrainers();
+	public ArrayList<Trainer> getSelectedTrainers() {
+		ArrayList<Trainer> trainers = StatePanel.getSelectedTrainers();
+		if (trainers.size() != 8) {
+			ShowErrorMessage("Debe selccionar 8 entrenadores");
+			return null;
+		}
+		return trainers;
 	}
 
 	public void toRemove(Trainer trainer) {
 		TrainerPane trainerPane = this.TrainerPanes.get(trainer);
-	
+
 		this.TrainerContainer.remove(trainerPane);
 		this.TrainerButtonGroup.remove(trainerPane.getCenterPaneButton());
 		this.TrainerPanes.remove(trainer);
@@ -270,7 +281,7 @@ public class GymPane extends JPanel implements GymView {
 
 	}
 
-	public void toRemove(Arena arena){
+	public void toRemove(Arena arena) {
 		ArenaPane arenaPane = this.ArenaPanes.get(arena);
 
 		this.ArenasContainer.remove(arenaPane);
@@ -279,18 +290,18 @@ public class GymPane extends JPanel implements GymView {
 		this.ArenasContainer.repaint();
 	}
 
-	private void changeStatePane(String type, Object arg) throws IllegalArgumentException{
+	private void changeStatePane(String type, Object arg) throws IllegalArgumentException {
 		StatePane statepane = StatePaneFactory.createStatePane(type);
 		this.StatePanel.setStatePane(statepane);
 
 		switch (type) {
 			case "TOURNAMENT":
-				TournamentStatePane tp = (TournamentStatePane)statepane;
+				TournamentStatePane tp = (TournamentStatePane) statepane;
 				tp.setTrainers(new ArrayList<Trainer>(TrainerPanes.keySet()));
 				break;
 			case "INVENTORY":
-				InventoryStatePane ip = (InventoryStatePane)statepane;
-				ip.setTrainer((Trainer)((ButtonWithObject)arg).getObject());
+				InventoryStatePane ip = (InventoryStatePane) statepane;
+				ip.setTrainer((Trainer) ((ButtonWithObject) arg).getObject());
 				break;
 			default:
 				break;
@@ -315,21 +326,25 @@ public class GymPane extends JPanel implements GymView {
 	public void addArena(Arena arena) {
 		ArenaPane arenaPane = new ArenaPane(arena);
 		this.ArenasContainer.add(arenaPane);
-		this.ArenaPanes.put(arena,arenaPane);
+		this.ArenaPanes.put(arena, arenaPane);
 		arenaPane.setActionListener(this);
 		this.revalidate();
 		this.repaint();
 	}
 
-	public void restoreView(ArrayList<Trainer> trainers, ArrayList<Arena> arenas){
-		for (int i = 0; i < trainers.size(); i++){
+	public void restoreView(ArrayList<Trainer> trainers, ArrayList<Arena> arenas) {
+		for (int i = 0; i < trainers.size(); i++) {
 			addTrainer(trainers.get(i));
 		}
-		for(int i = 0; i < arenas.size(); i++){
+		for (int i = 0; i < arenas.size(); i++) {
 			addArena(arenas.get(i));
 		}
 	}
 
-	
+	@Override
+	public void startTournament(Tournament tournament) {
+		TournamentFrame tf = new TournamentFrame(tournament);
+		tf.setActionListener(this);
+	}
 
 }

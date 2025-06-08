@@ -1,10 +1,9 @@
 package model.interfaces;
 
-
 import model.entities.trainers.Trainer;
 import model.entities.trainers.TrainerPrepared;
 
-public interface Arena {
+public interface Arena{
     /**
      * Starts a battle between two trainers.
      * The trainers are represented by TrainerPrepared objects,
@@ -21,6 +20,7 @@ public interface Arena {
 
     /**
      * Method that returns the name of the arena.
+     * 
      * @return A string with the name of the arena.
      */
     String getName();
@@ -32,6 +32,7 @@ public interface Arena {
      * - The credits for the winner
      * - The type of the arena
      * - The difficulty level of the arena
+     * 
      * @return A string with the details of the arena.
      * 
      */
@@ -39,6 +40,7 @@ public interface Arena {
 
     /**
      * Method that returns the credits for the winner of the arena.
+     * 
      * @return An integer with the credits for winner of the battle.
      */
     int getCredditsForWinner();
@@ -48,6 +50,7 @@ public interface Arena {
     void setBusy(boolean busy);
 
     String getType();
+
     String getLevel();
 
 }

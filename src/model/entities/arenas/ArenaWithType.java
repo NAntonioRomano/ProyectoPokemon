@@ -1,6 +1,7 @@
 package model.entities.arenas;
 
 import model.interfaces.Arena;
+import model.interfaces.Observer;
 
 public class ArenaWithType extends ArenaDecorator {
 

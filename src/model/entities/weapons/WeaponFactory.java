@@ -3,9 +3,9 @@ package model.entities.weapons;
 public class WeaponFactory {
     public static Weapon newWeapon(String type) throws IllegalArgumentException {
         switch (type) {
-            case "SWORD":
+            case "Sword":
                 return new Sword();
-            case "AXE":
+            case "Axe":
                 return new Axe();
         }
 

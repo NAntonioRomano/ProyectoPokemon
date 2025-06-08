@@ -106,14 +106,8 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 				+ damage + ", cost=" + cost + "]";
 	}
 
-	// This method is called from hostile
 	@Override
 	public void attack(Pokemon other) {
-		try {
-			Thread.sleep(5);
-		} catch (Exception e) {
-		}
-
 		other.receiveDamage(getAttack());
 
 		if (other.isDead())
@@ -122,13 +116,11 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		afterAttack();
 	}
 
-	// this method is called from Valuable
 	@Override
 	public double getCost() {
 		return this.cost;
 	}
 
-	// this method is called from Valuable
 	@Override
 	public void deliverTo(Buyer buyer) {
 		PokemonCapability capability = (PokemonCapability) buyer;
@@ -139,33 +131,26 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 			System.out.println("Already have " + name + "!");
 	}
 
-	// this method is called from Classifiable
 	@Override
 	public int getCategory() {
 		return this.xp;
 	}
 
-	
-
-	// this method is called from Cloneable
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
 	}
 
-	// this method is called from Witchable
 	@Override
 	public void bewitchFog() {
 		throw new UnsupportedOperationException("Pokemon cannot bewitch fog");
 	}
 
-	// this method is called from Witchable
 	@Override
 	public void bewitchWind() {
 		throw new UnsupportedOperationException("Pokemon cannot bewitch wind");
 	}
 
-	// this method is called from Witchable
 	@Override
 	public void bewitchStorm() {
 		throw new UnsupportedOperationException("Pokemon cannot bewitch storm");
@@ -187,29 +172,28 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		return damage;
 	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setXp(int xp) {
-        this.xp = xp;
-    }
+	public void setXp(int xp) {
+		this.xp = xp;
+	}
 
-    public void setShield(double shield) {
-        this.shield = shield;
-    }
+	public void setShield(double shield) {
+		this.shield = shield;
+	}
 
-    public void setHealth(double health) {
-        this.health = health;
-    }
+	public void setHealth(double health) {
+		this.health = health;
+	}
 
-    public void setDamage(double damage) {
-        this.damage = damage;
-    }
+	public void setDamage(double damage) {
+		this.damage = damage;
+	}
 
-    public void setCost(double cost) {
-        this.cost = cost;
-    }
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
 
-	
 }

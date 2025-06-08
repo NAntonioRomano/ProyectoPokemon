@@ -1,14 +1,16 @@
 package model.entities.arenas;
 
 import model.interfaces.Arena;
+import model.interfaces.Observer;
 
 public class ArenaWithLevel extends ArenaDecorator {
     private String level;
 
-    public ArenaWithLevel(Arena arena, String level){
+    public ArenaWithLevel(Arena arena, String level) {
         super(arena);
         this.level = level;
     }
+
     @Override
     public String getName() {
         return getArena().getName();
@@ -17,18 +19,18 @@ public class ArenaWithLevel extends ArenaDecorator {
     @Override
     public String getDetails() {
         return getArena().getDetails() + "\n" +
-                "Level: " + this.level + "\n" + 
+                "Level: " + this.level + "\n" +
                 "Credits: " + getCredditsForWinner() + "\n";
     }
 
     @Override
     public int getCredditsForWinner() {
         int credits = getArena().getCredditsForWinner();
-        if(level.equalsIgnoreCase("Easy")){
+        if (level.equalsIgnoreCase("Easy")) {
             credits *= 0.9;
-        }else if(level.equalsIgnoreCase("Intermediate")){
+        } else if (level.equalsIgnoreCase("Intermediate")) {
             credits *= 1.2;
-        }else if(level.equalsIgnoreCase("Difficult")){
+        } else if (level.equalsIgnoreCase("Difficult")) {
             credits *= 1.5;
         }
         return credits;
@@ -37,6 +39,7 @@ public class ArenaWithLevel extends ArenaDecorator {
     public String getLevel() {
         return level;
     }
+
     @Override
     public String getType() {
         return getArena().getType();

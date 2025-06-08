@@ -3,6 +3,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import model.interfaces.Arena;
+import model.entities.Tournament;
+import model.entities.Tournament;
 import model.entities.pokemons.Pokemon;
 import model.entities.trainers.Trainer;
 import model.entities.weapons.Weapon;
@@ -20,13 +22,11 @@ public interface GymView extends ActionListener {
     String ADD_WEAPON_TO_POKEMON = "ADD_WEAPON_TO_POKEMON";
     String START_TOURNAMENT = "START_TOURNAMENT";
 
-
-
     void setActionListener(ActionListener listener);
     void addTrainer(Trainer trainer);
     void addArena(Arena arena);
     void ShowErrorMessage(String message);
-    public Trainer getSelectedTrainer();
+    Trainer getSelectedTrainer();
     String getTrainerName();
     String getArenaName();
     String getArenaType();
@@ -36,5 +36,6 @@ public interface GymView extends ActionListener {
     String getWeaponType();
     Pokemon getSelectedPokemon();
     Weapon getSelectedWeapon();
-    public ArrayList<Trainer> getSelectedTrainers();
+    ArrayList<Trainer> getSelectedTrainers();
+    void startTournament(Tournament tournament);
 }

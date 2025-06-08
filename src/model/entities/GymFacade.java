@@ -15,56 +15,54 @@ import model.exceptions.TrainerWithoutPokemonsException;
 import model.interfaces.Arena;
 import model.interfaces.Valuable;
 
-
 public class GymFacade {
     private Gym gym;
 
-    public GymFacade(Gym gym){
+    public GymFacade(Gym gym) {
         this.gym = gym;
     }
 
-	public Gym getGym(){
-		return this.gym;
-	}
+    public Gym getGym() {
+        return this.gym;
+    }
 
-    public Weapon newWeapon(String type) throws IllegalArgumentException{
+    public Weapon newWeapon(String type) throws IllegalArgumentException {
         return WeaponFactory.newWeapon(type);
     }
-    public Pokemon newPokemon(String name, String type) throws IllegalArgumentException{
+
+    public Pokemon newPokemon(String name, String type) throws IllegalArgumentException {
         return PokemonFactory.newPokemon(name, type);
     }
-    public Trainer newTrainer(String name){
+
+    public Trainer newTrainer(String name) {
         return new Trainer(name);
     }
-    public void addTrainer(Trainer trainer){
+
+    public void addTrainer(Trainer trainer) {
         gym.addTrainer(trainer);
     }
 
-
-    public void removeTrainer(Trainer trainer){
+    public void removeTrainer(Trainer trainer) {
         gym.removeTrainer(trainer);
     }
 
-    public Arena addArena(String name, String type, String difficulty){
+    public Arena addArena(String name, String type, String difficulty) {
         Arena arena = new ArenaWithLevel(new ArenaWithType(new BaseArena(name), type), difficulty);
         gym.addArena(arena);
         return arena;
     }
 
-
-    public void removeArena(Arena arena){
+    public void removeArena(Arena arena) {
         gym.removeArena(arena);
     }
 
-    public void purchaseValuable(Trainer trainer, Valuable valuable) throws ImpossiblePurchaseException{
+    public void purchaseValuable(Trainer trainer, Valuable valuable) throws ImpossiblePurchaseException {
         trainer.purchase(valuable);
     }
 
-    public void startTournament(ArrayList <Trainer> trainers) throws TrainerWithoutPokemonsException,InterruptedException{
-        Tournament tournament = new Tournament(gym, trainers);
-        tournament.startTournament();
+    public Tournament getTournament(ArrayList<Trainer> trainers)
+            throws TrainerWithoutPokemonsException, InterruptedException {
+        return new Tournament(gym, trainers);
     }
 
-
 }
-
