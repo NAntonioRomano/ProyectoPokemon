@@ -22,9 +22,9 @@ public class Tournament {
     }
 
     public void startTournament() throws TrainerWithoutPokemonsException, InterruptedException {
-        System.out.println("============================");
-        System.out.println("====== Torneo iniciado =====");
-        System.out.println("============================");
+        System.out.println("===========================");
+        System.out.println("===== Torneo iniciado =====");
+        System.out.println("===========================");
         runQuarterfinals();
         runSemifinals();
         runFinal();
