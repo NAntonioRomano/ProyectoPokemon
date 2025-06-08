@@ -41,7 +41,7 @@ public class TournamentFrame extends JFrame implements Observer {
 
     public TournamentFrame(Tournament tournament, ArrayList<Arena> arenas) {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
+        setBounds(100, 100, 1200, 600);
         this.contentPane = new JPanel();
         this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -50,7 +50,7 @@ public class TournamentFrame extends JFrame implements Observer {
 
         this.TextAreaPane = new JScrollPane();
         this.contentPane.add(this.TextAreaPane, BorderLayout.SOUTH);
-        this.TextAreaPane.setPreferredSize(new Dimension(50, 100));
+        this.TextAreaPane.setPreferredSize(new Dimension(50, 130));
 
         this.TournamentTextArea = new JTextArea();
         this.TextAreaPane.setViewportView(this.TournamentTextArea);
