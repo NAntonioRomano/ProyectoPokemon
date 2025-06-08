@@ -23,6 +23,7 @@ public class MainFrame extends JFrame {
 	private static GymFacade gymFacade;
 
 	public MainFrame(GymPane gymPane) {
+		System.out.println(getClass().getResource("/"));
 		setTitle("Gimnasio Pokémon - Grupocho");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setSize(1200, 700);
@@ -34,7 +35,7 @@ public class MainFrame extends JFrame {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				saveData();
-				dispose();
+				dispose(); 
 				System.exit(0);
 			}
 		});
@@ -67,7 +68,7 @@ public class MainFrame extends JFrame {
 		SwingUtilities.invokeLater(() -> new MainFrame(gymPane));
 	}
 
-	private static void saveData() {
+	public static void saveData() {
 		try {
 			GymConverter gymConverter = new GymConverter();
 			GymDTO dto = gymConverter.fromEntityToDTO(gymFacade.getGym());

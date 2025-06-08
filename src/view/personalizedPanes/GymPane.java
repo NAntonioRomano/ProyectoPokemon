@@ -10,13 +10,14 @@ import java.util.HashMap;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
 
 import model.interfaces.Arena;
 import model.entities.Tournament;
 import model.entities.pokemons.Pokemon;
 import model.entities.trainers.Trainer;
 import model.entities.weapons.Weapon;
-
+import view.MainFrame;
 import view.StatePaneFactory;
 import view.TournamentFrame;
 import view.interfaces.GymView;
@@ -166,6 +167,10 @@ public class GymPane extends JPanel implements GymView {
 			this.changeStatePane(action, e.getSource());
 		} else if (action.equals("UPDATE")) {
 			updateTrainerData((Trainer) e.getSource());
+		} else if (action.equals("EXIT")) {
+			MainFrame.saveData();
+			SwingUtilities.getWindowAncestor(this).dispose();
+			System.exit(0);
 		} else {
 			return;
 		}

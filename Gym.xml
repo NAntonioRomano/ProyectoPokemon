@@ -6,26 +6,13 @@
     <void method="add">
      <object class="model.dto.ArenaDTO">
       <void property="level">
-       <string>DESERT</string>
-      </void>
-      <void property="name">
-       <string>arena 1</string>
-      </void>
-      <void property="type">
-       <string>INTERMEDIATE</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="model.dto.ArenaDTO">
-      <void property="level">
        <string>FOREST</string>
       </void>
       <void property="name">
-       <string>arena 2</string>
+       <string>adasd</string>
       </void>
       <void property="type">
-       <string>DIFFICULT</string>
+       <string>EASY</string>
       </void>
      </object>
     </void>
