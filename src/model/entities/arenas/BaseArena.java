@@ -8,6 +8,9 @@ import model.entities.trainers.Trainer;
 import model.entities.trainers.TrainerPrepared;
 import model.interfaces.Arena;
 import model.interfaces.Observer;
+import model.messages.BattleTrainers;
+import model.messages.DeadPokemon;
+import model.messages.PokemonAttack;
 
 public class BaseArena implements Arena {
 
@@ -43,25 +46,25 @@ public class BaseArena implements Arena {
 
     @Override
     public Trainer startBattle(TrainerPrepared TP1, TrainerPrepared TP2) {
+        notifyObservers(new BattleTrainers(TP1, TP2));
         Pokemon pokemonInBattleTP1 = TP1.getRandomPokemon();
         Pokemon pokemonInBattleTP2 = TP2.getRandomPokemon();
 
         while (pokemonInBattleTP1 != null && pokemonInBattleTP2 != null) {
-            // TP1 have adventage over TP2 always
             pokemonInBattleTP1.attack(pokemonInBattleTP2);
+            notifyObservers(new PokemonAttack(pokemonInBattleTP1, pokemonInBattleTP2));
+            try {Thread.sleep(20);} catch (InterruptedException e) {e.printStackTrace();}
             if (pokemonInBattleTP2.isDead()) {
+                notifyObservers(new DeadPokemon(pokemonInBattleTP2));
                 pokemonInBattleTP2 = TP2.getRandomPokemon();
             } else {
                 pokemonInBattleTP2.attack(pokemonInBattleTP1);
+                notifyObservers(new PokemonAttack(pokemonInBattleTP2, pokemonInBattleTP1));
+                try {Thread.sleep(20);} catch (InterruptedException e) {e.printStackTrace();}
                 if (pokemonInBattleTP1.isDead()) {
+                    notifyObservers(new DeadPokemon(pokemonInBattleTP1));
                     pokemonInBattleTP1 = TP1.getRandomPokemon();
                 }
-            }
-
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
 
