@@ -3,6 +3,7 @@ package view;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -40,6 +41,7 @@ public class MainFrame extends JFrame {
 
 	public static void main(String[] args) {
 		Gym gym;
+        GymPane gymPane = new GymPane();
 
 		try {
 			GymConverter gymConverter = new GymConverter();
@@ -47,6 +49,8 @@ public class MainFrame extends JFrame {
 			GymDTO dto = (GymDTO) persistence.read();
 			gym = gymConverter.fromDTOtoEntity(dto);
 			persistence.closeInput();
+            gymPane.restoreView(gym.getTrainers(),gym.getArenas());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			gym = new Gym();
@@ -54,13 +58,13 @@ public class MainFrame extends JFrame {
 
 		gymFacade = new GymFacade(gym);
 
-		GymView gymView = new GymPane();
 
+        GymView gymView = gymPane;
 		GymController gymController = new GymController(gymView, gymFacade);
 
 		gymView.setActionListener(gymController);
 
-		SwingUtilities.invokeLater(() -> new MainFrame((GymPane) gymView));
+		SwingUtilities.invokeLater(() -> new MainFrame(gymPane));
 	}
 
 	private static void saveData() {
@@ -76,3 +80,4 @@ public class MainFrame extends JFrame {
 	}
 
 }
+

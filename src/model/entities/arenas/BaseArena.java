@@ -86,4 +86,14 @@ public class BaseArena implements Arena {
         this.inBattle = busy;
     }
 
+    @Override
+    public String getType() {
+        return null;
+    }
+
+    @Override
+    public String getLevel() {
+        return null;
+    }
+
 }

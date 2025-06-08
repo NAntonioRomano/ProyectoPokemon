@@ -11,21 +11,16 @@ import javax.swing.SwingConstants;
 import view.interfaces.GymView;
 
 import javax.swing.JTextField;
-import java.awt.FlowLayout;
-
-import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import java.awt.Dimension;
 import java.awt.Component;
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
-import java.awt.Container;
 import javax.swing.ButtonGroup;
 
-public class MainMenuStatePane extends StatePane implements ActionListener {
+public class MainMenuStatePane extends StatePane {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel addTrainerPane;
@@ -110,7 +105,6 @@ public class MainMenuStatePane extends StatePane implements ActionListener {
 		this.addTrainerButton.setMaximumSize(new Dimension(300, 23));
 		this.addTrainerButton.setMinimumSize(new Dimension(100, 23));
 		this.addTrainerButton.setHorizontalTextPosition(SwingConstants.CENTER);
-		this.addTrainerButton.addActionListener(this);
 		this.addTrainerButton.setAlignmentX(Component.CENTER_ALIGNMENT); 
 		this.addTrainerButtonPane.add(this.addTrainerButton);
 		
@@ -208,8 +202,6 @@ public class MainMenuStatePane extends StatePane implements ActionListener {
 
 	}
 
-	public void actionPerformed(ActionEvent e) {
-	}
 
 	@Override
 	public void setActionListener(ActionListener actionListener) {

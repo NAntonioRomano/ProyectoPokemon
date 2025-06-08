@@ -1,27 +1,20 @@
 package view.personalizedPanes;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
-import java.util.List;
 import java.awt.event.ActionListener;
 
 import javax.swing.JScrollPane;
-import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.JList;
 import javax.swing.JButton;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
-import javax.swing.SwingConstants;
-import javax.swing.event.ListSelectionEvent;
 
 import model.entities.pokemons.Pokemon;
 import model.entities.trainers.Trainer;
 import model.entities.weapons.Weapon;
 import view.interfaces.GymView;
-
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 public class InventoryStatePane extends StatePane {
@@ -43,8 +36,7 @@ public class InventoryStatePane extends StatePane {
 	/**
 	 * Create the panel.
 	 */
-	public InventoryStatePane(Trainer trainer) {
-		this.trainer = trainer;
+	public InventoryStatePane() {
 		Dimension ButtonDimension = new Dimension(300,20);
 		setLayout(new GridLayout(1, 3, 0, 0));
 		
@@ -66,7 +58,6 @@ public class InventoryStatePane extends StatePane {
 		this.WrapperSellButton.add(Box.createVerticalStrut(60));
 		
 		this.SellButton = new JButton("VENDER");
-		this.SellButton.setActionCommand(GymView.SELL_POKEMON);
 		this.SellButton.setAlignmentX(CENTER_ALIGNMENT);
 		this.SellButton.setAlignmentY(CENTER_ALIGNMENT);
 		this.SellButton.setMinimumSize(ButtonDimension);
@@ -94,9 +85,6 @@ public class InventoryStatePane extends StatePane {
         this.WeaponList = new JList<>(this.weaponListModel);
 		this.WeaponsScrollPane.setViewportView(this.WeaponList);
         this.WeaponList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        this.updatePokemonList();
-        this.updateWeaponList();
 
 	}
 
@@ -130,6 +118,12 @@ public class InventoryStatePane extends StatePane {
 	@Override
 	public Weapon getSelectedWeapon(){
 		return WeaponList.getSelectedValue();
+	}
+
+	public void setTrainer(Trainer trainer){
+		this.trainer = trainer;
+		this.updatePokemonList();
+		this.updateWeaponList();
 	}
     
 }

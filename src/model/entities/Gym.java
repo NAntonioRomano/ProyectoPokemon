@@ -36,7 +36,7 @@ public class Gym {
 		return winner;
 	}
 
-	public List<Trainer> getTrainers() {
+	public ArrayList<Trainer> getTrainers() {
 		return trainers;
 	}
 
@@ -52,7 +52,7 @@ public class Gym {
 		}
 	}
 
-	public List<Arena> getArenas() {
+	public ArrayList<Arena> getArenas() {
 		return arenas;
 	}
 

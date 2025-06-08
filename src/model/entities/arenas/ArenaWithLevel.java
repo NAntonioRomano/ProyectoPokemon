@@ -37,5 +37,9 @@ public class ArenaWithLevel extends ArenaDecorator {
     public String getLevel() {
         return level;
     }
+    @Override
+    public String getType() {
+        return getArena().getType();
+    }
 
 }

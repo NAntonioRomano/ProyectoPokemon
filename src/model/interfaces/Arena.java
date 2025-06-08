@@ -47,4 +47,7 @@ public interface Arena {
 
     void setBusy(boolean busy);
 
+    String getType();
+    String getLevel();
+
 }

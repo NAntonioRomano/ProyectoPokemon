@@ -6,19 +6,18 @@ import javax.swing.JToggleButton;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Desktop.Action;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent; // Necesario para ItemEvent
-import java.awt.event.ItemListener; // Necesario para ItemListener
+import java.awt.event.ItemEvent; 
+import java.awt.event.ItemListener; 
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
-import model.entities.Gym;
 import model.entities.trainers.Trainer;
+
 import view.interfaces.GymView;
-import view.personalizedComponents.ButtonWithTrainer;
+import view.personalizedComponents.ButtonWithObject;
 import view.personalizedComponents.ToggleButtonWithTrainer;
 
 import java.awt.Color;
@@ -37,8 +36,8 @@ public class TrainerPane extends JPanel implements ItemListener {
     private JPanel WestPaneData;
     private JPanel CenterPaneData;
     private JLabel TrainerNameLabel;
-    private ButtonWithTrainer INVENTORY;
-    private ButtonWithTrainer DELETE;
+    private ButtonWithObject INVENTORY;
+    private ButtonWithObject DELETE;
     private JPanel panelDetalle;
     private JPanel panelEliminarButton;
     private JLabel ImgTrainerLabel;
@@ -50,7 +49,6 @@ public class TrainerPane extends JPanel implements ItemListener {
     private ImageIcon TrainerIcon;
     private Trainer trainer;
 	private final Color SELECT_COLOR = Color.ORANGE;
-    private final Color NO_SELECT_COLOR = Color.YELLOW;
 
     /**
      * Create the panel.
@@ -124,16 +122,21 @@ public class TrainerPane extends JPanel implements ItemListener {
         this.panelDetalle = new JPanel();
         this.SouthPane.add(this.panelDetalle);
 
-        this.INVENTORY = new ButtonWithTrainer("INVENTARIO", trainer);
+        this.INVENTORY = new ButtonWithObject("INVENTARIO", trainer);
         this.INVENTORY.setActionCommand("INVENTORY");
         this.panelDetalle.add(this.INVENTORY);
 
         this.panelEliminarButton = new JPanel();
         this.SouthPane.add(this.panelEliminarButton);
 
-        this.DELETE = new ButtonWithTrainer("ELIMINAR", trainer);
+        this.DELETE = new ButtonWithObject("ELIMINAR", trainer);
         this.DELETE.setActionCommand(GymView.RMV_TRAINER);
         this.panelEliminarButton.add(this.DELETE);
+    }
+
+    public void setActionListener(ActionListener listener){
+        this.DELETE.addActionListener(listener);
+        this.INVENTORY.addActionListener(listener);
     }
 
     @Override
@@ -147,7 +150,7 @@ public class TrainerPane extends JPanel implements ItemListener {
         }
     }
 
-        public void updateTrainerData() {
+    public void updateTrainerData() {
             TrainerLevelData.setText(Integer.toString(this.trainer.getCategory()));
             TrainerCreditsData.setText(Integer.toString((int)this.trainer.getBalance()));
             this.revalidate();
@@ -157,7 +160,6 @@ public class TrainerPane extends JPanel implements ItemListener {
     public Trainer getTrainer(){
         return this.trainer;
     }
-
 
     public JToggleButton getCenterPaneButton() {
         return CenterPaneButton;

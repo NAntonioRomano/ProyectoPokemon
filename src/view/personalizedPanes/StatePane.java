@@ -3,15 +3,16 @@ package view.personalizedPanes;
 import javax.swing.JPanel;
 
 import model.entities.pokemons.Pokemon;
+import model.entities.trainers.Trainer;
 import model.entities.weapons.Weapon;
 
 import java.awt.event.ActionListener;
-import java.util.List;
+import java.util.ArrayList;
 
 
 public abstract class StatePane extends JPanel{
 
-    public void setActionListener(ActionListener actionListener){}
+    abstract public void setActionListener(ActionListener actionListener);
     public String getTrainerName(){return null;}
     public String getArenaName(){return null;}
     public String getArenaType(){return null;}
@@ -23,6 +24,7 @@ public abstract class StatePane extends JPanel{
     public Weapon getSelectedWeapon(){return null;}
     public void updatePokemonList(){}
     public void updateWeaponList(){}
+    public ArrayList<Trainer> getSelectedTrainers(){return null;}
 
 
 }

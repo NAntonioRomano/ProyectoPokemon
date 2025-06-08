@@ -2,12 +2,14 @@ package view.personalizedPanes;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
 import model.entities.pokemons.Pokemon;
+import model.entities.trainers.Trainer;
 import model.entities.weapons.Weapon;
+
 
 public class CardPane extends JPanel {
 
@@ -49,5 +51,6 @@ public class CardPane extends JPanel {
     public Weapon getSelectedWeapon(){return statePane.getSelectedWeapon();}
     public void updatePokemonList(){statePane.updatePokemonList();}
     public void updateWeaponList(){statePane.updateWeaponList();}
+    public ArrayList<Trainer> getSelectedTrainers(){return statePane.getSelectedTrainers();}
 
 }

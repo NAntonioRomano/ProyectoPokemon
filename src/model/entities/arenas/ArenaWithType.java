@@ -40,4 +40,9 @@ public class ArenaWithType extends ArenaDecorator {
         return 0;
     }
 
+    @Override
+    public String getLevel() {
+        return getArena().getType();
+    }
+
 }

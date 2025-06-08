@@ -2,8 +2,6 @@ package model.converters;
 
 import model.dto.ArenaDTO;
 import model.entities.arenas.ArenaFactory;
-import model.entities.arenas.ArenaWithLevel;
-import model.entities.arenas.ArenaWithType;
 import model.interfaces.Arena;
 
 public class ArenaConverter extends Converter<Arena, ArenaDTO> {
@@ -14,18 +12,9 @@ public class ArenaConverter extends Converter<Arena, ArenaDTO> {
             return null;
 
         ArenaDTO dto = new ArenaDTO();
-        dto.setName(entity.getName());
-
-        if (entity instanceof ArenaWithType) {
-            ArenaWithType arenaWithType = (ArenaWithType) entity;
-            dto.setType(arenaWithType.getType());
-        }
-
-        if (entity instanceof ArenaWithLevel) {
-            ArenaWithLevel arenaWithLevel = (ArenaWithLevel) entity;
-            dto.setLevel(arenaWithLevel.getLevel());
-        }
-
+        dto.setName(entity.getName());  
+        dto.setLevel(entity.getLevel());
+        dto.setType(entity.getType());
         dto.setCreditsForWinner(entity.getCredditsForWinner());
         return dto;
     }
