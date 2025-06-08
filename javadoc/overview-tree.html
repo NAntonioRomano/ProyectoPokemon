@@ -71,13 +71,24 @@
 <h1 class="title">Hierarchy For All Packages</h1>
 <span class="packageHierarchyLabel">Package Hierarchies:</span>
 <ul class="horizontal">
-<li><a href="capabilities/package-tree.html">capabilities</a>, </li>
-<li><a href="exceptions/package-tree.html">exceptions</a>, </li>
-<li><a href="interfaces/package-tree.html">interfaces</a>, </li>
-<li><a href="models/package-tree.html">models</a>, </li>
-<li><a href="models/pokemons/package-tree.html">models.pokemons</a>, </li>
-<li><a href="models/spells/package-tree.html">models.spells</a>, </li>
-<li><a href="models/weapons/package-tree.html">models.weapons</a></li>
+<li><a href="controller/package-tree.html">controller</a>, </li>
+<li><a href="model/capabilities/package-tree.html">model.capabilities</a>, </li>
+<li><a href="model/converters/package-tree.html">model.converters</a>, </li>
+<li><a href="model/dto/package-tree.html">model.dto</a>, </li>
+<li><a href="model/entities/package-tree.html">model.entities</a>, </li>
+<li><a href="model/entities/arenas/package-tree.html">model.entities.arenas</a>, </li>
+<li><a href="model/entities/pokemons/package-tree.html">model.entities.pokemons</a>, </li>
+<li><a href="model/entities/spells/package-tree.html">model.entities.spells</a>, </li>
+<li><a href="model/entities/trainers/package-tree.html">model.entities.trainers</a>, </li>
+<li><a href="model/entities/weapons/package-tree.html">model.entities.weapons</a>, </li>
+<li><a href="model/exceptions/package-tree.html">model.exceptions</a>, </li>
+<li><a href="model/interfaces/package-tree.html">model.interfaces</a>, </li>
+<li><a href="model/messages/package-tree.html">model.messages</a>, </li>
+<li><a href="model/persistence/package-tree.html">model.persistence</a>, </li>
+<li><a href="view/package-tree.html">view</a>, </li>
+<li><a href="view/interfaces/package-tree.html">view.interfaces</a>, </li>
+<li><a href="view/personalizedComponents/package-tree.html">view.personalizedComponents</a>, </li>
+<li><a href="view/personalizedPanes/package-tree.html">view.personalizedPanes</a></li>
 </ul>
 </div>
 <div class="contentContainer">
@@ -85,57 +96,159 @@
 <ul>
 <li type="circle">java.lang.Object
 <ul>
-<li type="circle">models.<a href="models/Arena.html" title="class in models"><span class="typeNameLink">Arena</span></a></li>
-<li type="circle">models.<a href="models/Gym.html" title="class in models"><span class="typeNameLink">Gym</span></a></li>
+<li type="circle">model.entities.arenas.<a href="model/entities/arenas/ArenaDecorator.html" title="class in model.entities.arenas"><span class="typeNameLink">ArenaDecorator</span></a> (implements model.interfaces.<a href="model/interfaces/Arena.html" title="interface in model.interfaces">Arena</a>)
+<ul>
+<li type="circle">model.entities.arenas.<a href="model/entities/arenas/ArenaWithLevel.html" title="class in model.entities.arenas"><span class="typeNameLink">ArenaWithLevel</span></a></li>
+<li type="circle">model.entities.arenas.<a href="model/entities/arenas/ArenaWithType.html" title="class in model.entities.arenas"><span class="typeNameLink">ArenaWithType</span></a></li>
+</ul>
+</li>
+<li type="circle">model.dto.<a href="model/dto/ArenaDTO.html" title="class in model.dto"><span class="typeNameLink">ArenaDTO</span></a> (implements java.io.Serializable)</li>
+<li type="circle">model.entities.arenas.<a href="model/entities/arenas/ArenaFactory.html" title="class in model.entities.arenas"><span class="typeNameLink">ArenaFactory</span></a></li>
+<li type="circle">model.entities.arenas.<a href="model/entities/arenas/BaseArena.html" title="class in model.entities.arenas"><span class="typeNameLink">BaseArena</span></a> (implements model.interfaces.<a href="model/interfaces/Arena.html" title="interface in model.interfaces">Arena</a>)</li>
+<li type="circle">model.entities.<a href="model/entities/Battle.html" title="class in model.entities"><span class="typeNameLink">Battle</span></a> (implements java.lang.Runnable)</li>
+<li type="circle">model.messages.<a href="model/messages/BattleWinner.html" title="class in model.messages"><span class="typeNameLink">BattleWinner</span></a></li>
+<li type="circle">java.awt.Component (implements java.awt.image.ImageObserver, java.awt.MenuContainer, java.io.Serializable)
+<ul>
+<li type="circle">java.awt.Container
+<ul>
+<li type="circle">javax.swing.JComponent (implements java.io.Serializable)
+<ul>
+<li type="circle">javax.swing.AbstractButton (implements java.awt.ItemSelectable, javax.swing.SwingConstants)
+<ul>
+<li type="circle">javax.swing.JButton (implements javax.accessibility.Accessible)
+<ul>
+<li type="circle">view.personalizedComponents.<a href="view/personalizedComponents/ButtonWithObject.html" title="class in view.personalizedComponents"><span class="typeNameLink">ButtonWithObject</span></a></li>
+</ul>
+</li>
+<li type="circle">javax.swing.JToggleButton (implements javax.accessibility.Accessible)
+<ul>
+<li type="circle">view.personalizedComponents.<a href="view/personalizedComponents/ToggleButtonWithTrainer.html" title="class in view.personalizedComponents"><span class="typeNameLink">ToggleButtonWithTrainer</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li type="circle">javax.swing.JPanel (implements javax.accessibility.Accessible)
+<ul>
+<li type="circle">view.personalizedPanes.<a href="view/personalizedPanes/ArenaPane.html" title="class in view.personalizedPanes"><span class="typeNameLink">ArenaPane</span></a></li>
+<li type="circle">view.personalizedPanes.<a href="view/personalizedPanes/CardPane.html" title="class in view.personalizedPanes"><span class="typeNameLink">CardPane</span></a></li>
+<li type="circle">view.personalizedPanes.<a href="view/personalizedPanes/GymPane.html" title="class in view.personalizedPanes"><span class="typeNameLink">GymPane</span></a> (implements view.interfaces.<a href="view/interfaces/GymView.html" title="interface in view.interfaces">GymView</a>)</li>
+<li type="circle">view.personalizedPanes.<a href="view/personalizedPanes/StatePane.html" title="class in view.personalizedPanes"><span class="typeNameLink">StatePane</span></a>
+<ul>
+<li type="circle">view.personalizedPanes.<a href="view/personalizedPanes/InventoryStatePane.html" title="class in view.personalizedPanes"><span class="typeNameLink">InventoryStatePane</span></a></li>
+<li type="circle">view.personalizedPanes.<a href="view/personalizedPanes/MainMenuStatePane.html" title="class in view.personalizedPanes"><span class="typeNameLink">MainMenuStatePane</span></a></li>
+<li type="circle">view.personalizedPanes.<a href="view/personalizedPanes/ShopStatePane.html" title="class in view.personalizedPanes"><span class="typeNameLink">ShopStatePane</span></a></li>
+<li type="circle">view.personalizedPanes.<a href="view/personalizedPanes/TournamentStatePane.html" title="class in view.personalizedPanes"><span class="typeNameLink">TournamentStatePane</span></a></li>
+</ul>
+</li>
+<li type="circle">view.personalizedPanes.<a href="view/personalizedPanes/TrainerPane.html" title="class in view.personalizedPanes"><span class="typeNameLink">TrainerPane</span></a> (implements java.awt.event.ItemListener)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li type="circle">java.awt.Window (implements javax.accessibility.Accessible)
+<ul>
+<li type="circle">java.awt.Frame (implements java.awt.MenuContainer)
+<ul>
+<li type="circle">javax.swing.JFrame (implements javax.accessibility.Accessible, javax.swing.RootPaneContainer, javax.swing.WindowConstants)
+<ul>
+<li type="circle">view.<a href="view/MainFrame.html" title="class in view"><span class="typeNameLink">MainFrame</span></a></li>
+<li type="circle">view.<a href="view/TournamentFrame.html" title="class in view"><span class="typeNameLink">TournamentFrame</span></a> (implements model.interfaces.<a href="model/interfaces/Observer.html" title="interface in model.interfaces">Observer</a>)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li type="circle">model.converters.<a href="model/converters/Converter.html" title="class in model.converters"><span class="typeNameLink">Converter</span></a>&lt;Entity,DTO&gt;
+<ul>
+<li type="circle">model.converters.<a href="model/converters/ArenaConverter.html" title="class in model.converters"><span class="typeNameLink">ArenaConverter</span></a></li>
+<li type="circle">model.converters.<a href="model/converters/GymConverter.html" title="class in model.converters"><span class="typeNameLink">GymConverter</span></a></li>
+<li type="circle">model.converters.<a href="model/converters/PokemonConverter.html" title="class in model.converters"><span class="typeNameLink">PokemonConverter</span></a></li>
+<li type="circle">model.converters.<a href="model/converters/TrainerConverter.html" title="class in model.converters"><span class="typeNameLink">TrainerConverter</span></a></li>
+<li type="circle">model.converters.<a href="model/converters/WeaponConverter.html" title="class in model.converters"><span class="typeNameLink">WeaponConverter</span></a></li>
+</ul>
+</li>
+<li type="circle">java.awt.FocusTraversalPolicy
+<ul>
+<li type="circle">view.<a href="view/FocusTraversalOnArray.html" title="class in view"><span class="typeNameLink">FocusTraversalOnArray</span></a></li>
+</ul>
+</li>
+<li type="circle">model.entities.<a href="model/entities/Gym.html" title="class in model.entities"><span class="typeNameLink">Gym</span></a></li>
+<li type="circle">controller.<a href="controller/GymController.html" title="class in controller"><span class="typeNameLink">GymController</span></a> (implements java.awt.event.ActionListener)</li>
+<li type="circle">model.dto.<a href="model/dto/GymDTO.html" title="class in model.dto"><span class="typeNameLink">GymDTO</span></a> (implements java.io.Serializable)</li>
+<li type="circle">model.entities.<a href="model/entities/GymFacade.html" title="class in model.entities"><span class="typeNameLink">GymFacade</span></a></li>
 <li type="circle"><a href="Main.html" title="class in &lt;Unnamed&gt;"><span class="typeNameLink">Main</span></a></li>
-<li type="circle">models.pokemons.<a href="models/pokemons/Pokemon.html" title="class in models.pokemons"><span class="typeNameLink">Pokemon</span></a> (implements interfaces.<a href="interfaces/Classifiable.html" title="interface in interfaces">Classifiable</a>, java.lang.Cloneable, interfaces.<a href="interfaces/Hostile.html" title="interface in interfaces">Hostile</a>, interfaces.<a href="interfaces/Valuable.html" title="interface in interfaces">Valuable</a>, interfaces.<a href="interfaces/Witchable.html" title="interface in interfaces">Witchable</a>)
+<li type="circle">model.entities.pokemons.<a href="model/entities/pokemons/Pokemon.html" title="class in model.entities.pokemons"><span class="typeNameLink">Pokemon</span></a> (implements model.interfaces.<a href="model/interfaces/Classifiable.html" title="interface in model.interfaces">Classifiable</a>, java.lang.Cloneable, model.interfaces.<a href="model/interfaces/Hostile.html" title="interface in model.interfaces">Hostile</a>, model.interfaces.<a href="model/interfaces/Valuable.html" title="interface in model.interfaces">Valuable</a>, model.interfaces.<a href="model/interfaces/Witchable.html" title="interface in model.interfaces">Witchable</a>)
 <ul>
-<li type="circle">models.pokemons.<a href="models/pokemons/FirePokemon.html" title="class in models.pokemons"><span class="typeNameLink">FirePokemon</span></a>
-<ul>
-<li type="circle">models.pokemons.<a href="models/pokemons/StonePokemon.html" title="class in models.pokemons"><span class="typeNameLink">StonePokemon</span></a></li>
+<li type="circle">model.entities.pokemons.<a href="model/entities/pokemons/FirePokemon.html" title="class in model.entities.pokemons"><span class="typeNameLink">FirePokemon</span></a></li>
+<li type="circle">model.entities.pokemons.<a href="model/entities/pokemons/IcePokemon.html" title="class in model.entities.pokemons"><span class="typeNameLink">IcePokemon</span></a></li>
+<li type="circle">model.entities.pokemons.<a href="model/entities/pokemons/StonePokemon.html" title="class in model.entities.pokemons"><span class="typeNameLink">StonePokemon</span></a></li>
+<li type="circle">model.entities.pokemons.<a href="model/entities/pokemons/WaterPokemon.html" title="class in model.entities.pokemons"><span class="typeNameLink">WaterPokemon</span></a></li>
 </ul>
 </li>
-<li type="circle">models.pokemons.<a href="models/pokemons/IcePokemon.html" title="class in models.pokemons"><span class="typeNameLink">IcePokemon</span></a></li>
-<li type="circle">models.pokemons.<a href="models/pokemons/WaterPokemon.html" title="class in models.pokemons"><span class="typeNameLink">WaterPokemon</span></a></li>
-</ul>
-</li>
-<li type="circle">models.spells.<a href="models/spells/Spell.html" title="class in models.spells"><span class="typeNameLink">Spell</span></a>
+<li type="circle">model.dto.<a href="model/dto/PokemonDTO.html" title="class in model.dto"><span class="typeNameLink">PokemonDTO</span></a> (implements java.io.Serializable)</li>
+<li type="circle">model.entities.pokemons.<a href="model/entities/pokemons/PokemonFactory.html" title="class in model.entities.pokemons"><span class="typeNameLink">PokemonFactory</span></a></li>
+<li type="circle">model.entities.spells.<a href="model/entities/spells/Spell.html" title="class in model.entities.spells"><span class="typeNameLink">Spell</span></a>
 <ul>
-<li type="circle">models.spells.<a href="models/spells/FogSpell.html" title="class in models.spells"><span class="typeNameLink">FogSpell</span></a></li>
-<li type="circle">models.spells.<a href="models/spells/StormSpell.html" title="class in models.spells"><span class="typeNameLink">StormSpell</span></a></li>
-<li type="circle">models.spells.<a href="models/spells/WindSpell.html" title="class in models.spells"><span class="typeNameLink">WindSpell</span></a></li>
+<li type="circle">model.entities.spells.<a href="model/entities/spells/FogSpell.html" title="class in model.entities.spells"><span class="typeNameLink">FogSpell</span></a></li>
+<li type="circle">model.entities.spells.<a href="model/entities/spells/StormSpell.html" title="class in model.entities.spells"><span class="typeNameLink">StormSpell</span></a></li>
+<li type="circle">model.entities.spells.<a href="model/entities/spells/WindSpell.html" title="class in model.entities.spells"><span class="typeNameLink">WindSpell</span></a></li>
 </ul>
 </li>
+<li type="circle">view.<a href="view/StatePaneFactory.html" title="class in view"><span class="typeNameLink">StatePaneFactory</span></a></li>
 <li type="circle">java.lang.Throwable (implements java.io.Serializable)
 <ul>
 <li type="circle">java.lang.Exception
 <ul>
-<li type="circle">exceptions.<a href="exceptions/ImpossiblePurchaseException.html" title="class in exceptions"><span class="typeNameLink">ImpossiblePurchaseException</span></a></li>
-<li type="circle">exceptions.<a href="exceptions/TrainerWithoutPokemonsException.html" title="class in exceptions"><span class="typeNameLink">TrainerWithoutPokemonsException</span></a></li>
+<li type="circle">model.exceptions.<a href="model/exceptions/ImpossiblePurchaseException.html" title="class in model.exceptions"><span class="typeNameLink">ImpossiblePurchaseException</span></a></li>
+<li type="circle">model.exceptions.<a href="model/exceptions/TrainerWithoutPokemonsException.html" title="class in model.exceptions"><span class="typeNameLink">TrainerWithoutPokemonsException</span></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li type="circle">models.<a href="models/Trainer.html" title="class in models"><span class="typeNameLink">Trainer</span></a> (implements interfaces.<a href="interfaces/Buyer.html" title="interface in interfaces">Buyer</a>, interfaces.<a href="interfaces/Classifiable.html" title="interface in interfaces">Classifiable</a>, java.lang.Cloneable, capabilities.<a href="capabilities/PokemonCapability.html" title="interface in capabilities">PokemonCapability</a>, capabilities.<a href="capabilities/WeaponCapability.html" title="interface in capabilities">WeaponCapability</a>)</li>
-<li type="circle">models.<a href="models/TrainerPrepared.html" title="class in models"><span class="typeNameLink">TrainerPrepared</span></a></li>
-<li type="circle">models.weapons.<a href="models/weapons/Weapon.html" title="class in models.weapons"><span class="typeNameLink">Weapon</span></a> (implements java.lang.Cloneable, interfaces.<a href="interfaces/Hostile.html" title="interface in interfaces">Hostile</a>, interfaces.<a href="interfaces/Valuable.html" title="interface in interfaces">Valuable</a>)
+<li type="circle">model.entities.<a href="model/entities/Tournament.html" title="class in model.entities"><span class="typeNameLink">Tournament</span></a> (implements model.interfaces.<a href="model/interfaces/Observable.html" title="interface in model.interfaces">Observable</a>)</li>
+<li type="circle">model.entities.trainers.<a href="model/entities/trainers/Trainer.html" title="class in model.entities.trainers"><span class="typeNameLink">Trainer</span></a> (implements model.interfaces.<a href="model/interfaces/Buyer.html" title="interface in model.interfaces">Buyer</a>, model.interfaces.<a href="model/interfaces/Classifiable.html" title="interface in model.interfaces">Classifiable</a>, java.lang.Cloneable, model.capabilities.<a href="model/capabilities/PokemonCapability.html" title="interface in model.capabilities">PokemonCapability</a>, model.capabilities.<a href="model/capabilities/WeaponCapability.html" title="interface in model.capabilities">WeaponCapability</a>)</li>
+<li type="circle">model.dto.<a href="model/dto/TrainerDTO.html" title="class in model.dto"><span class="typeNameLink">TrainerDTO</span></a> (implements java.io.Serializable)</li>
+<li type="circle">model.entities.trainers.<a href="model/entities/trainers/TrainerFactory.html" title="class in model.entities.trainers"><span class="typeNameLink">TrainerFactory</span></a></li>
+<li type="circle">model.entities.trainers.<a href="model/entities/trainers/TrainerPrepared.html" title="class in model.entities.trainers"><span class="typeNameLink">TrainerPrepared</span></a></li>
+<li type="circle">model.entities.weapons.<a href="model/entities/weapons/Weapon.html" title="class in model.entities.weapons"><span class="typeNameLink">Weapon</span></a> (implements java.lang.Cloneable, model.interfaces.<a href="model/interfaces/Hostile.html" title="interface in model.interfaces">Hostile</a>, model.interfaces.<a href="model/interfaces/Valuable.html" title="interface in model.interfaces">Valuable</a>)
 <ul>
-<li type="circle">models.weapons.<a href="models/weapons/Axe.html" title="class in models.weapons"><span class="typeNameLink">Axe</span></a></li>
-<li type="circle">models.weapons.<a href="models/weapons/Sword.html" title="class in models.weapons"><span class="typeNameLink">Sword</span></a></li>
+<li type="circle">model.entities.weapons.<a href="model/entities/weapons/Axe.html" title="class in model.entities.weapons"><span class="typeNameLink">Axe</span></a></li>
+<li type="circle">model.entities.weapons.<a href="model/entities/weapons/Sword.html" title="class in model.entities.weapons"><span class="typeNameLink">Sword</span></a></li>
 </ul>
 </li>
+<li type="circle">model.dto.<a href="model/dto/WeaponDTO.html" title="class in model.dto"><span class="typeNameLink">WeaponDTO</span></a> (implements java.io.Serializable)</li>
+<li type="circle">model.entities.weapons.<a href="model/entities/weapons/WeaponFactory.html" title="class in model.entities.weapons"><span class="typeNameLink">WeaponFactory</span></a></li>
+<li type="circle">model.persistence.<a href="model/persistence/XMLPersistence.html" title="class in model.persistence"><span class="typeNameLink">XMLPersistence</span></a> (implements model.persistence.<a href="model/persistence/Persistence.html" title="interface in model.persistence">Persistence</a>&lt;E&gt;)</li>
 </ul>
 </li>
 </ul>
 <h2 title="Interface Hierarchy">Interface Hierarchy</h2>
 <ul>
-<li type="circle">interfaces.<a href="interfaces/Buyer.html" title="interface in interfaces"><span class="typeNameLink">Buyer</span></a></li>
-<li type="circle">interfaces.<a href="interfaces/Classifiable.html" title="interface in interfaces"><span class="typeNameLink">Classifiable</span></a></li>
-<li type="circle">interfaces.<a href="interfaces/Hostile.html" title="interface in interfaces"><span class="typeNameLink">Hostile</span></a></li>
-<li type="circle">capabilities.<a href="capabilities/PokemonCapability.html" title="interface in capabilities"><span class="typeNameLink">PokemonCapability</span></a></li>
-<li type="circle">interfaces.<a href="interfaces/Valuable.html" title="interface in interfaces"><span class="typeNameLink">Valuable</span></a></li>
-<li type="circle">capabilities.<a href="capabilities/WeaponCapability.html" title="interface in capabilities"><span class="typeNameLink">WeaponCapability</span></a></li>
-<li type="circle">interfaces.<a href="interfaces/Witchable.html" title="interface in interfaces"><span class="typeNameLink">Witchable</span></a></li>
+<li type="circle">model.interfaces.<a href="model/interfaces/Arena.html" title="interface in model.interfaces"><span class="typeNameLink">Arena</span></a></li>
+<li type="circle">model.interfaces.<a href="model/interfaces/Buyer.html" title="interface in model.interfaces"><span class="typeNameLink">Buyer</span></a></li>
+<li type="circle">model.interfaces.<a href="model/interfaces/Classifiable.html" title="interface in model.interfaces"><span class="typeNameLink">Classifiable</span></a></li>
+<li type="circle">java.util.EventListener
+<ul>
+<li type="circle">java.awt.event.ActionListener
+<ul>
+<li type="circle">view.interfaces.<a href="view/interfaces/GymView.html" title="interface in view.interfaces"><span class="typeNameLink">GymView</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li type="circle">model.interfaces.<a href="model/interfaces/Hostile.html" title="interface in model.interfaces"><span class="typeNameLink">Hostile</span></a></li>
+<li type="circle">model.interfaces.<a href="model/interfaces/Observable.html" title="interface in model.interfaces"><span class="typeNameLink">Observable</span></a></li>
+<li type="circle">model.interfaces.<a href="model/interfaces/Observer.html" title="interface in model.interfaces"><span class="typeNameLink">Observer</span></a></li>
+<li type="circle">model.persistence.<a href="model/persistence/Persistence.html" title="interface in model.persistence"><span class="typeNameLink">Persistence</span></a>&lt;E&gt;</li>
+<li type="circle">model.capabilities.<a href="model/capabilities/PokemonCapability.html" title="interface in model.capabilities"><span class="typeNameLink">PokemonCapability</span></a></li>
+<li type="circle">model.interfaces.<a href="model/interfaces/Valuable.html" title="interface in model.interfaces"><span class="typeNameLink">Valuable</span></a></li>
+<li type="circle">model.capabilities.<a href="model/capabilities/WeaponCapability.html" title="interface in model.capabilities"><span class="typeNameLink">WeaponCapability</span></a></li>
+<li type="circle">model.interfaces.<a href="model/interfaces/Witchable.html" title="interface in model.interfaces"><span class="typeNameLink">Witchable</span></a></li>
 </ul>
 </div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->

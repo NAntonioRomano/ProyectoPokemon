@@ -46,21 +46,32 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 		return this.name;
 	}
 
-	public boolean isDead() {
-		return this.health <= 0;
+	public int getXp() {
+		return xp;
 	}
 
-	public void incrementXp(int xp) {
-		this.xp += xp;
+	public double getShield() {
+		return shield;
 	}
 
-	public void incrementXp() {
-		incrementXp(1);
+	public double getHealth() {
+		return health;
 	}
 
-	/**
-	 * Return the amount of attack of this pokemon
-	 */
+	public double getDamage() {
+		return damage;
+	}
+
+	@Override
+	public double getCost() {
+		return this.cost;
+	}
+
+	@Override
+	public int getCategory() {
+		return this.xp;
+	}
+
 	protected abstract double getAttack();
 
 	/**
@@ -72,20 +83,64 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 
 	protected abstract void getReceiveDamage(double damage);
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setXp(int xp) {
+		this.xp = xp;
+	}
+
+	public void setShield(double shield) {
+		this.shield = shield;
+	}
+
+	public void setHealth(double health) {
+		this.health = health;
+	}
+
+	public void setDamage(double damage) {
+		this.damage = damage;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+
+	public void setWeapon(Weapon weapon) {
+		throw new UnsupportedOperationException(name + " cannot use a weapon");
+	}
+
+	/**
+	 * Checks if the pokemon is dead
+	 * 
+	 * @return true if the pokemon is dead, false otherwise
+	 */
+	public boolean isDead() {
+		return this.health <= 0;
+	}
+
+	/**
+	 * Increment the xp of the pokemon
+	 * preconditions: xp >= 0
+	 * 
+	 * @param xp The xp to increment
+	 */
+	public void incrementXp(int xp) {
+		this.xp += xp;
+	}
+
+	/**
+	 * Increment the xp of the pokemon by 1
+	 */
+	public void incrementXp() {
+		incrementXp(1);
+	}
+
 	/**
 	 * Recharge the pokemon
 	 */
 	public abstract void recharge();
-
-	/**
-	 * Set the weapon of the pokemon
-	 * preconditions: weapon != null
-	 * 
-	 * @param weapon The weapon to set
-	 */
-	public void setWeapon(Weapon weapon) {
-		throw new UnsupportedOperationException(name + " cannot use a weapon");
-	}
 
 	/**
 	 * Recieves damage from another pokemon
@@ -117,11 +172,6 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 	}
 
 	@Override
-	public double getCost() {
-		return this.cost;
-	}
-
-	@Override
 	public void deliverTo(Buyer buyer) {
 		PokemonCapability capability = (PokemonCapability) buyer;
 
@@ -129,11 +179,6 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 			capability.onPokemonPurchased(this);
 		else
 			System.out.println("Already have " + name + "!");
-	}
-
-	@Override
-	public int getCategory() {
-		return this.xp;
 	}
 
 	@Override
@@ -154,46 +199,6 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 	@Override
 	public void bewitchStorm() {
 		throw new UnsupportedOperationException("Pokemon cannot bewitch storm");
-	}
-
-	public int getXp() {
-		return xp;
-	}
-
-	public double getShield() {
-		return shield;
-	}
-
-	public double getHealth() {
-		return health;
-	}
-
-	public double getDamage() {
-		return damage;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setXp(int xp) {
-		this.xp = xp;
-	}
-
-	public void setShield(double shield) {
-		this.shield = shield;
-	}
-
-	public void setHealth(double health) {
-		this.health = health;
-	}
-
-	public void setDamage(double damage) {
-		this.damage = damage;
-	}
-
-	public void setCost(double cost) {
-		this.cost = cost;
 	}
 
 }

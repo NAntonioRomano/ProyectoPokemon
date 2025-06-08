@@ -49,10 +49,25 @@ public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCa
 		this.credits += credits;
 	}
 
+	/**
+	 * Removes a pokemon from the trainer's collection with the specified name.
+	 * preconditions: pokemon != null
+	 * 
+	 * @param pokemon the pokemon to be removed
+	 */
+
 	public void removePokemon(Pokemon pokemon) {
 		pokemons.removeIf(p -> p.getName().equals(pokemon.getName()));
 	}
 
+	/**
+	 * Sell a pokemon from the trainer's collection with the specified name.
+	 * The pokemon will be removed from the trainer's collection and the trainer's
+	 * credits will increase by the pokemon's cost.
+	 * preconditions: pokemon != null
+	 * 
+	 * @param pokemon the pokemon to be sold
+	 */
 	public void sellPokemon(Pokemon pokemon) {
 		boolean canSell = pokemons.stream()
 				.anyMatch(p -> p.getName().equals(pokemon.getName()));
@@ -128,11 +143,11 @@ public class Trainer implements Buyer, Classifiable, PokemonCapability, WeaponCa
 	}
 
 	public void setPokemons(List<Pokemon> pokemons) {
-		this.pokemons = (ArrayList) pokemons;
+		this.pokemons = (ArrayList<Pokemon>) pokemons;
 	}
 
 	public void setWeapons(List<Weapon> weapons) {
-		this.weapons = (ArrayList) weapons;
+		this.weapons = (ArrayList<Weapon>) weapons;
 	}
 
 	public double getCredits() {

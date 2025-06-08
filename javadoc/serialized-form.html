@@ -73,12 +73,169 @@
 <div class="serializedFormContainer">
 <ul class="blockList">
 <li class="blockList">
-<h2 title="Package">Package&nbsp;exceptions</h2>
+<h2 title="Package">Package&nbsp;model.dto</h2>
 <ul class="blockList">
-<li class="blockList"><a name="exceptions.ImpossiblePurchaseException">
+<li class="blockList"><a name="model.dto.ArenaDTO">
 <!--   -->
 </a>
-<h3>Class <a href="exceptions/ImpossiblePurchaseException.html" title="class in exceptions">exceptions.ImpossiblePurchaseException</a> extends java.lang.Exception implements Serializable</h3>
+<h3>Class <a href="model/dto/ArenaDTO.html" title="class in model.dto">model.dto.ArenaDTO</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>name</h4>
+<pre>java.lang.String name</pre>
+</li>
+<li class="blockList">
+<h4>type</h4>
+<pre>java.lang.String type</pre>
+</li>
+<li class="blockList">
+<h4>level</h4>
+<pre>java.lang.String level</pre>
+</li>
+<li class="blockListLast">
+<h4>creditsForWinner</h4>
+<pre>int creditsForWinner</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="model.dto.GymDTO">
+<!--   -->
+</a>
+<h3>Class <a href="model/dto/GymDTO.html" title="class in model.dto">model.dto.GymDTO</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>trainers</h4>
+<pre>java.util.List&lt;E&gt; trainers</pre>
+</li>
+<li class="blockListLast">
+<h4>arenas</h4>
+<pre>java.util.List&lt;E&gt; arenas</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="model.dto.PokemonDTO">
+<!--   -->
+</a>
+<h3>Class <a href="model/dto/PokemonDTO.html" title="class in model.dto">model.dto.PokemonDTO</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>name</h4>
+<pre>java.lang.String name</pre>
+</li>
+<li class="blockList">
+<h4>xp</h4>
+<pre>int xp</pre>
+</li>
+<li class="blockList">
+<h4>shield</h4>
+<pre>double shield</pre>
+</li>
+<li class="blockList">
+<h4>health</h4>
+<pre>double health</pre>
+</li>
+<li class="blockList">
+<h4>damage</h4>
+<pre>double damage</pre>
+</li>
+<li class="blockList">
+<h4>cost</h4>
+<pre>double cost</pre>
+</li>
+<li class="blockListLast">
+<h4>type</h4>
+<pre>java.lang.String type</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="model.dto.TrainerDTO">
+<!--   -->
+</a>
+<h3>Class <a href="model/dto/TrainerDTO.html" title="class in model.dto">model.dto.TrainerDTO</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>name</h4>
+<pre>java.lang.String name</pre>
+</li>
+<li class="blockList">
+<h4>credits</h4>
+<pre>double credits</pre>
+</li>
+<li class="blockList">
+<h4>pokemons</h4>
+<pre>java.util.List&lt;E&gt; pokemons</pre>
+</li>
+<li class="blockListLast">
+<h4>weapons</h4>
+<pre>java.util.List&lt;E&gt; weapons</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="model.dto.WeaponDTO">
+<!--   -->
+</a>
+<h3>Class <a href="model/dto/WeaponDTO.html" title="class in model.dto">model.dto.WeaponDTO</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>cost</h4>
+<pre>double cost</pre>
+</li>
+<li class="blockListLast">
+<h4>type</h4>
+<pre>java.lang.String type</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList">
+<h2 title="Package">Package&nbsp;model.exceptions</h2>
+<ul class="blockList">
+<li class="blockList"><a name="model.exceptions.ImpossiblePurchaseException">
+<!--   -->
+</a>
+<h3>Class <a href="model/exceptions/ImpossiblePurchaseException.html" title="class in model.exceptions">model.exceptions.ImpossiblePurchaseException</a> extends java.lang.Exception implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialized Fields</h3>
@@ -95,17 +252,674 @@
 </li>
 </ul>
 </li>
-<li class="blockList"><a name="exceptions.TrainerWithoutPokemonsException">
+<li class="blockList"><a name="model.exceptions.TrainerWithoutPokemonsException">
 <!--   -->
 </a>
-<h3>Class <a href="exceptions/TrainerWithoutPokemonsException.html" title="class in exceptions">exceptions.TrainerWithoutPokemonsException</a> extends java.lang.Exception implements Serializable</h3>
+<h3>Class <a href="model/exceptions/TrainerWithoutPokemonsException.html" title="class in model.exceptions">model.exceptions.TrainerWithoutPokemonsException</a> extends java.lang.Exception implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialized Fields</h3>
 <ul class="blockList">
 <li class="blockListLast">
 <h4>trainer</h4>
-<pre><a href="models/Trainer.html" title="class in models">Trainer</a> trainer</pre>
+<pre><a href="model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a> trainer</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList">
+<h2 title="Package">Package&nbsp;view</h2>
+<ul class="blockList">
+<li class="blockList"><a name="view.MainFrame">
+<!--   -->
+</a>
+<h3>Class <a href="view/MainFrame.html" title="class in view">view.MainFrame</a> extends javax.swing.JFrame implements Serializable</h3>
+</li>
+<li class="blockList"><a name="view.TournamentFrame">
+<!--   -->
+</a>
+<h3>Class <a href="view/TournamentFrame.html" title="class in view">view.TournamentFrame</a> extends javax.swing.JFrame implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>contentPane</h4>
+<pre>javax.swing.JPanel contentPane</pre>
+</li>
+<li class="blockList">
+<h4>TextAreaPane</h4>
+<pre>javax.swing.JScrollPane TextAreaPane</pre>
+</li>
+<li class="blockList">
+<h4>TournamentTextArea</h4>
+<pre>javax.swing.JTextArea TournamentTextArea</pre>
+</li>
+<li class="blockList">
+<h4>listener</h4>
+<pre>java.awt.event.ActionListener listener</pre>
+</li>
+<li class="blockListLast">
+<h4>obs</h4>
+<pre><a href="model/interfaces/Observable.html" title="interface in model.interfaces">Observable</a> obs</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList">
+<h2 title="Package">Package&nbsp;view.personalizedComponents</h2>
+<ul class="blockList">
+<li class="blockList"><a name="view.personalizedComponents.ButtonWithObject">
+<!--   -->
+</a>
+<h3>Class <a href="view/personalizedComponents/ButtonWithObject.html" title="class in view.personalizedComponents">view.personalizedComponents.ButtonWithObject</a> extends javax.swing.JButton implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>obj</h4>
+<pre>java.lang.Object obj</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="view.personalizedComponents.ToggleButtonWithTrainer">
+<!--   -->
+</a>
+<h3>Class <a href="view/personalizedComponents/ToggleButtonWithTrainer.html" title="class in view.personalizedComponents">view.personalizedComponents.ToggleButtonWithTrainer</a> extends javax.swing.JToggleButton implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>trainer</h4>
+<pre><a href="model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a> trainer</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList">
+<h2 title="Package">Package&nbsp;view.personalizedPanes</h2>
+<ul class="blockList">
+<li class="blockList"><a name="view.personalizedPanes.ArenaPane">
+<!--   -->
+</a>
+<h3>Class <a href="view/personalizedPanes/ArenaPane.html" title="class in view.personalizedPanes">view.personalizedPanes.ArenaPane</a> extends javax.swing.JPanel implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>NamePane</h4>
+<pre>javax.swing.JPanel NamePane</pre>
+</li>
+<li class="blockList">
+<h4>DescriptionPane</h4>
+<pre>javax.swing.JPanel DescriptionPane</pre>
+</li>
+<li class="blockList">
+<h4>ButtonPane</h4>
+<pre>javax.swing.JPanel ButtonPane</pre>
+</li>
+<li class="blockList">
+<h4>DeleteButton</h4>
+<pre><a href="view/personalizedComponents/ButtonWithObject.html" title="class in view.personalizedComponents">ButtonWithObject</a> DeleteButton</pre>
+</li>
+<li class="blockList">
+<h4>NameLabel</h4>
+<pre>javax.swing.JLabel NameLabel</pre>
+</li>
+<li class="blockList">
+<h4>TypeArenaLabel</h4>
+<pre>javax.swing.JLabel TypeArenaLabel</pre>
+</li>
+<li class="blockList">
+<h4>LevelArenaLabel</h4>
+<pre>javax.swing.JLabel LevelArenaLabel</pre>
+</li>
+<li class="blockList">
+<h4>WinnerCreditsArenaLabel</h4>
+<pre>javax.swing.JLabel WinnerCreditsArenaLabel</pre>
+</li>
+<li class="blockListLast">
+<h4>arena</h4>
+<pre><a href="model/interfaces/Arena.html" title="interface in model.interfaces">Arena</a> arena</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="view.personalizedPanes.CardPane">
+<!--   -->
+</a>
+<h3>Class <a href="view/personalizedPanes/CardPane.html" title="class in view.personalizedPanes">view.personalizedPanes.CardPane</a> extends javax.swing.JPanel implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>statePane</h4>
+<pre><a href="view/personalizedPanes/StatePane.html" title="class in view.personalizedPanes">StatePane</a> statePane</pre>
+</li>
+<li class="blockListLast">
+<h4>actionListener</h4>
+<pre>java.awt.event.ActionListener actionListener</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="view.personalizedPanes.GymPane">
+<!--   -->
+</a>
+<h3>Class <a href="view/personalizedPanes/GymPane.html" title="class in view.personalizedPanes">view.personalizedPanes.GymPane</a> extends javax.swing.JPanel implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>TrainersArenasPane</h4>
+<pre>javax.swing.JPanel TrainersArenasPane</pre>
+</li>
+<li class="blockList">
+<h4>InteractivePane</h4>
+<pre>javax.swing.JPanel InteractivePane</pre>
+</li>
+<li class="blockList">
+<h4>TrainersScrollPane</h4>
+<pre>javax.swing.JScrollPane TrainersScrollPane</pre>
+</li>
+<li class="blockList">
+<h4>ArenasScrollPane</h4>
+<pre>javax.swing.JScrollPane ArenasScrollPane</pre>
+</li>
+<li class="blockList">
+<h4>ButtonsPane</h4>
+<pre>javax.swing.JPanel ButtonsPane</pre>
+</li>
+<li class="blockList">
+<h4>MainMenuButton</h4>
+<pre>javax.swing.JButton MainMenuButton</pre>
+</li>
+<li class="blockList">
+<h4>ShopButton</h4>
+<pre>javax.swing.JButton ShopButton</pre>
+</li>
+<li class="blockList">
+<h4>TournamentButton</h4>
+<pre>javax.swing.JButton TournamentButton</pre>
+</li>
+<li class="blockList">
+<h4>ExitButton</h4>
+<pre>javax.swing.JButton ExitButton</pre>
+</li>
+<li class="blockList">
+<h4>StatePanel</h4>
+<pre><a href="view/personalizedPanes/CardPane.html" title="class in view.personalizedPanes">CardPane</a> StatePanel</pre>
+</li>
+<li class="blockList">
+<h4>TrainerContainer</h4>
+<pre>javax.swing.JPanel TrainerContainer</pre>
+</li>
+<li class="blockList">
+<h4>ArenasContainer</h4>
+<pre>javax.swing.JPanel ArenasContainer</pre>
+</li>
+<li class="blockList">
+<h4>TrainerPanes</h4>
+<pre>java.util.HashMap&lt;K,V&gt; TrainerPanes</pre>
+</li>
+<li class="blockList">
+<h4>ArenaPanes</h4>
+<pre>java.util.HashMap&lt;K,V&gt; ArenaPanes</pre>
+</li>
+<li class="blockList">
+<h4>TrainerButtonGroup</h4>
+<pre>javax.swing.ButtonGroup TrainerButtonGroup</pre>
+</li>
+<li class="blockListLast">
+<h4>actionListener</h4>
+<pre>java.awt.event.ActionListener actionListener</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="view.personalizedPanes.InventoryStatePane">
+<!--   -->
+</a>
+<h3>Class <a href="view/personalizedPanes/InventoryStatePane.html" title="class in view.personalizedPanes">view.personalizedPanes.InventoryStatePane</a> extends <a href="view/personalizedPanes/StatePane.html" title="class in view.personalizedPanes">StatePane</a> implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>PokemonsScrollPane</h4>
+<pre>javax.swing.JScrollPane PokemonsScrollPane</pre>
+</li>
+<li class="blockList">
+<h4>ButtonsPane</h4>
+<pre>javax.swing.JPanel ButtonsPane</pre>
+</li>
+<li class="blockList">
+<h4>WeaponsScrollPane</h4>
+<pre>javax.swing.JScrollPane WeaponsScrollPane</pre>
+</li>
+<li class="blockList">
+<h4>PokemonList</h4>
+<pre>javax.swing.JList&lt;E&gt; PokemonList</pre>
+</li>
+<li class="blockList">
+<h4>WeaponList</h4>
+<pre>javax.swing.JList&lt;E&gt; WeaponList</pre>
+</li>
+<li class="blockList">
+<h4>SellButton</h4>
+<pre>javax.swing.JButton SellButton</pre>
+</li>
+<li class="blockList">
+<h4>addToPokemon</h4>
+<pre>javax.swing.JButton addToPokemon</pre>
+</li>
+<li class="blockList">
+<h4>WrapperSellButton</h4>
+<pre>javax.swing.JPanel WrapperSellButton</pre>
+</li>
+<li class="blockList">
+<h4>WrapperAddButton</h4>
+<pre>javax.swing.JPanel WrapperAddButton</pre>
+</li>
+<li class="blockList">
+<h4>pokemonListModel</h4>
+<pre>javax.swing.DefaultListModel&lt;E&gt; pokemonListModel</pre>
+</li>
+<li class="blockList">
+<h4>weaponListModel</h4>
+<pre>javax.swing.DefaultListModel&lt;E&gt; weaponListModel</pre>
+</li>
+<li class="blockListLast">
+<h4>trainer</h4>
+<pre><a href="model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a> trainer</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="view.personalizedPanes.MainMenuStatePane">
+<!--   -->
+</a>
+<h3>Class <a href="view/personalizedPanes/MainMenuStatePane.html" title="class in view.personalizedPanes">view.personalizedPanes.MainMenuStatePane</a> extends <a href="view/personalizedPanes/StatePane.html" title="class in view.personalizedPanes">StatePane</a> implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>addTrainerPane</h4>
+<pre>javax.swing.JPanel addTrainerPane</pre>
+</li>
+<li class="blockList">
+<h4>addArenaPane</h4>
+<pre>javax.swing.JPanel addArenaPane</pre>
+</li>
+<li class="blockList">
+<h4>TrainerIconScrollPane</h4>
+<pre>javax.swing.JScrollPane TrainerIconScrollPane</pre>
+</li>
+<li class="blockList">
+<h4>ButtonDataPane</h4>
+<pre>javax.swing.JPanel ButtonDataPane</pre>
+</li>
+<li class="blockList">
+<h4>DataTrainerPane</h4>
+<pre>javax.swing.JPanel DataTrainerPane</pre>
+</li>
+<li class="blockList">
+<h4>NameTrainerLbl</h4>
+<pre>javax.swing.JLabel NameTrainerLbl</pre>
+</li>
+<li class="blockList">
+<h4>NameTrainerPane</h4>
+<pre>javax.swing.JPanel NameTrainerPane</pre>
+</li>
+<li class="blockList">
+<h4>addTrainerButtonPane</h4>
+<pre>javax.swing.JPanel addTrainerButtonPane</pre>
+</li>
+<li class="blockList">
+<h4>textField</h4>
+<pre>javax.swing.JTextField textField</pre>
+</li>
+<li class="blockList">
+<h4>addTrainerButton</h4>
+<pre>javax.swing.JButton addTrainerButton</pre>
+</li>
+<li class="blockList">
+<h4>TypeLevelArenaPane</h4>
+<pre>javax.swing.JPanel TypeLevelArenaPane</pre>
+</li>
+<li class="blockList">
+<h4>TypeRdioButtons</h4>
+<pre>javax.swing.JPanel TypeRdioButtons</pre>
+</li>
+<li class="blockList">
+<h4>LevelRdioButtons</h4>
+<pre>javax.swing.JPanel LevelRdioButtons</pre>
+</li>
+<li class="blockList">
+<h4>ForestRdioBtn</h4>
+<pre>javax.swing.JRadioButton ForestRdioBtn</pre>
+</li>
+<li class="blockList">
+<h4>DesertRdioBtn</h4>
+<pre>javax.swing.JRadioButton DesertRdioBtn</pre>
+</li>
+<li class="blockList">
+<h4>JungleRdioBtn</h4>
+<pre>javax.swing.JRadioButton JungleRdioBtn</pre>
+</li>
+<li class="blockList">
+<h4>EasyRdioBtn</h4>
+<pre>javax.swing.JRadioButton EasyRdioBtn</pre>
+</li>
+<li class="blockList">
+<h4>IntermediateRdioBtn</h4>
+<pre>javax.swing.JRadioButton IntermediateRdioBtn</pre>
+</li>
+<li class="blockList">
+<h4>DifficultRdioBtn</h4>
+<pre>javax.swing.JRadioButton DifficultRdioBtn</pre>
+</li>
+<li class="blockList">
+<h4>buttonDataPaneArena</h4>
+<pre>javax.swing.JPanel buttonDataPaneArena</pre>
+</li>
+<li class="blockList">
+<h4>dataArenaPane</h4>
+<pre>javax.swing.JPanel dataArenaPane</pre>
+</li>
+<li class="blockList">
+<h4>nameArenaPane</h4>
+<pre>javax.swing.JPanel nameArenaPane</pre>
+</li>
+<li class="blockList">
+<h4>nameArenaLbl</h4>
+<pre>javax.swing.JLabel nameArenaLbl</pre>
+</li>
+<li class="blockList">
+<h4>nameArenaTxfld</h4>
+<pre>javax.swing.JTextField nameArenaTxfld</pre>
+</li>
+<li class="blockList">
+<h4>addArenaButtonPane</h4>
+<pre>javax.swing.JPanel addArenaButtonPane</pre>
+</li>
+<li class="blockList">
+<h4>addArenaButton</h4>
+<pre>javax.swing.JButton addArenaButton</pre>
+</li>
+<li class="blockList">
+<h4>buttonGroup</h4>
+<pre>javax.swing.ButtonGroup buttonGroup</pre>
+</li>
+<li class="blockListLast">
+<h4>buttonGroup_1</h4>
+<pre>javax.swing.ButtonGroup buttonGroup_1</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="view.personalizedPanes.ShopStatePane">
+<!--   -->
+</a>
+<h3>Class <a href="view/personalizedPanes/ShopStatePane.html" title="class in view.personalizedPanes">view.personalizedPanes.ShopStatePane</a> extends <a href="view/personalizedPanes/StatePane.html" title="class in view.personalizedPanes">StatePane</a> implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>PokemonPurchasePane</h4>
+<pre>javax.swing.JPanel PokemonPurchasePane</pre>
+</li>
+<li class="blockList">
+<h4>WeaponPurchasePane</h4>
+<pre>javax.swing.JPanel WeaponPurchasePane</pre>
+</li>
+<li class="blockList">
+<h4>TypeBtnsPane</h4>
+<pre>javax.swing.JPanel TypeBtnsPane</pre>
+</li>
+<li class="blockList">
+<h4>DataButtonPokemonPane</h4>
+<pre>javax.swing.JPanel DataButtonPokemonPane</pre>
+</li>
+<li class="blockList">
+<h4>FirePokemonButton</h4>
+<pre>javax.swing.JRadioButton FirePokemonButton</pre>
+</li>
+<li class="blockList">
+<h4>StonePokemonButton</h4>
+<pre>javax.swing.JRadioButton StonePokemonButton</pre>
+</li>
+<li class="blockList">
+<h4>IcePokemonButton</h4>
+<pre>javax.swing.JRadioButton IcePokemonButton</pre>
+</li>
+<li class="blockList">
+<h4>WaterPokemonButton</h4>
+<pre>javax.swing.JRadioButton WaterPokemonButton</pre>
+</li>
+<li class="blockList">
+<h4>buttonGroup</h4>
+<pre>javax.swing.ButtonGroup buttonGroup</pre>
+</li>
+<li class="blockList">
+<h4>buttonGrouptype</h4>
+<pre>javax.swing.ButtonGroup buttonGrouptype</pre>
+</li>
+<li class="blockList">
+<h4>NamePokemonLabel</h4>
+<pre>javax.swing.JLabel NamePokemonLabel</pre>
+</li>
+<li class="blockList">
+<h4>NamePokemonTF</h4>
+<pre>javax.swing.JTextField NamePokemonTF</pre>
+</li>
+<li class="blockList">
+<h4>NameFieldPane</h4>
+<pre>javax.swing.JPanel NameFieldPane</pre>
+</li>
+<li class="blockList">
+<h4>addPokemonButtonPane</h4>
+<pre>javax.swing.JPanel addPokemonButtonPane</pre>
+</li>
+<li class="blockList">
+<h4>addPokemonBtn</h4>
+<pre>javax.swing.JButton addPokemonBtn</pre>
+</li>
+<li class="blockList">
+<h4>RdioBtnsWeaponPane</h4>
+<pre>javax.swing.JPanel RdioBtnsWeaponPane</pre>
+</li>
+<li class="blockList">
+<h4>addWeaponButtonPane</h4>
+<pre>javax.swing.JPanel addWeaponButtonPane</pre>
+</li>
+<li class="blockList">
+<h4>SwordRdioBtn</h4>
+<pre>javax.swing.JRadioButton SwordRdioBtn</pre>
+</li>
+<li class="blockList">
+<h4>AxeRdioBtn</h4>
+<pre>javax.swing.JRadioButton AxeRdioBtn</pre>
+</li>
+<li class="blockListLast">
+<h4>addWeaponBtn</h4>
+<pre>javax.swing.JButton addWeaponBtn</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="view.personalizedPanes.StatePane">
+<!--   -->
+</a>
+<h3>Class <a href="view/personalizedPanes/StatePane.html" title="class in view.personalizedPanes">view.personalizedPanes.StatePane</a> extends javax.swing.JPanel implements Serializable</h3>
+</li>
+<li class="blockList"><a name="view.personalizedPanes.TournamentStatePane">
+<!--   -->
+</a>
+<h3>Class <a href="view/personalizedPanes/TournamentStatePane.html" title="class in view.personalizedPanes">view.personalizedPanes.TournamentStatePane</a> extends <a href="view/personalizedPanes/StatePane.html" title="class in view.personalizedPanes">StatePane</a> implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>TrainersScrollPane</h4>
+<pre>javax.swing.JScrollPane TrainersScrollPane</pre>
+</li>
+<li class="blockList">
+<h4>ButtonPane</h4>
+<pre>javax.swing.JPanel ButtonPane</pre>
+</li>
+<li class="blockList">
+<h4>TrainersList</h4>
+<pre>javax.swing.JList&lt;E&gt; TrainersList</pre>
+</li>
+<li class="blockList">
+<h4>StartTournamentButton</h4>
+<pre>javax.swing.JButton StartTournamentButton</pre>
+</li>
+<li class="blockListLast">
+<h4>trainerListModel</h4>
+<pre>javax.swing.DefaultListModel&lt;E&gt; trainerListModel</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="view.personalizedPanes.TrainerPane">
+<!--   -->
+</a>
+<h3>Class <a href="view/personalizedPanes/TrainerPane.html" title="class in view.personalizedPanes">view.personalizedPanes.TrainerPane</a> extends javax.swing.JPanel implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>CenterPaneButton</h4>
+<pre><a href="view/personalizedComponents/ToggleButtonWithTrainer.html" title="class in view.personalizedComponents">ToggleButtonWithTrainer</a> CenterPaneButton</pre>
+</li>
+<li class="blockList">
+<h4>SouthPane</h4>
+<pre>javax.swing.JPanel SouthPane</pre>
+</li>
+<li class="blockList">
+<h4>WestPaneData</h4>
+<pre>javax.swing.JPanel WestPaneData</pre>
+</li>
+<li class="blockList">
+<h4>CenterPaneData</h4>
+<pre>javax.swing.JPanel CenterPaneData</pre>
+</li>
+<li class="blockList">
+<h4>TrainerNameLabel</h4>
+<pre>javax.swing.JLabel TrainerNameLabel</pre>
+</li>
+<li class="blockList">
+<h4>INVENTORY</h4>
+<pre><a href="view/personalizedComponents/ButtonWithObject.html" title="class in view.personalizedComponents">ButtonWithObject</a> INVENTORY</pre>
+</li>
+<li class="blockList">
+<h4>DELETE</h4>
+<pre><a href="view/personalizedComponents/ButtonWithObject.html" title="class in view.personalizedComponents">ButtonWithObject</a> DELETE</pre>
+</li>
+<li class="blockList">
+<h4>panelDetalle</h4>
+<pre>javax.swing.JPanel panelDetalle</pre>
+</li>
+<li class="blockList">
+<h4>panelEliminarButton</h4>
+<pre>javax.swing.JPanel panelEliminarButton</pre>
+</li>
+<li class="blockList">
+<h4>ImgTrainerLabel</h4>
+<pre>javax.swing.JLabel ImgTrainerLabel</pre>
+</li>
+<li class="blockList">
+<h4>InfoTrainerPane</h4>
+<pre>javax.swing.JPanel InfoTrainerPane</pre>
+</li>
+<li class="blockList">
+<h4>TrainerLevel</h4>
+<pre>javax.swing.JLabel TrainerLevel</pre>
+</li>
+<li class="blockList">
+<h4>TrainerCredits</h4>
+<pre>javax.swing.JLabel TrainerCredits</pre>
+</li>
+<li class="blockList">
+<h4>TrainerLevelData</h4>
+<pre>javax.swing.JLabel TrainerLevelData</pre>
+</li>
+<li class="blockList">
+<h4>TrainerCreditsData</h4>
+<pre>javax.swing.JLabel TrainerCreditsData</pre>
+</li>
+<li class="blockList">
+<h4>TrainerIcon</h4>
+<pre>javax.swing.ImageIcon TrainerIcon</pre>
+</li>
+<li class="blockList">
+<h4>trainer</h4>
+<pre><a href="model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a> trainer</pre>
+</li>
+<li class="blockListLast">
+<h4>SELECT_COLOR</h4>
+<pre>java.awt.Color SELECT_COLOR</pre>
 </li>
 </ul>
 </li>

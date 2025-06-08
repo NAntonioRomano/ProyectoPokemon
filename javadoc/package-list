@@ -1,8 +1,19 @@
 
-capabilities
-exceptions
-interfaces
-models
-models.pokemons
-models.spells
-models.weapons
+controller
+model.capabilities
+model.converters
+model.dto
+model.entities
+model.entities.arenas
+model.entities.pokemons
+model.entities.spells
+model.entities.trainers
+model.entities.weapons
+model.exceptions
+model.interfaces
+model.messages
+model.persistence
+view
+view.interfaces
+view.personalizedComponents
+view.personalizedPanes
