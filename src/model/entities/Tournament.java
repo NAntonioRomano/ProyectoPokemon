@@ -1,6 +1,7 @@
 package model.entities;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import model.entities.trainers.Trainer;
 import model.exceptions.TrainerWithoutPokemonsException;
@@ -33,6 +34,8 @@ public class Tournament {
         while (finalTrainers.size() != 2)
             wait();
 
+        Collections.shuffle(finalTrainers); // Change the order of begining.
+
         startBattle(gym, finalTrainers.get(0), finalTrainers.get(1), "Final");
     }
 
@@ -40,12 +43,16 @@ public class Tournament {
         while (semifinalTrainers.size() != 4)
             wait();
 
+        Collections.shuffle(semifinalTrainers);
+
         for (int i = 0; i < semifinalTrainers.size() - 1; i += 2)
             startBattle(gym, semifinalTrainers.get(i), semifinalTrainers.get(i + 1),
                     "Semi Final");
     }
 
     private void runQuarterfinals() throws TrainerWithoutPokemonsException {
+        Collections.shuffle(quarterfinalTrainers);
+
         for (int i = 0; i < quarterfinalTrainers.size() - 1; i += 2)
             startBattle(gym, quarterfinalTrainers.get(i), quarterfinalTrainers.get(i + 1),
                     "Quarter Final");

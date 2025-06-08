@@ -1,25 +1,13 @@
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-import model.entities.Battle;
 import model.entities.Gym;
 import model.entities.Tournament;
 import model.entities.arenas.ArenaFactory;
-import model.entities.arenas.ArenaWithLevel;
-import model.entities.arenas.ArenaWithType;
-import model.entities.arenas.BaseArena;
-import model.entities.pokemons.FirePokemon;
-import model.entities.pokemons.IcePokemon;
 import model.entities.pokemons.Pokemon;
 import model.entities.pokemons.PokemonFactory;
-import model.entities.pokemons.StonePokemon;
-import model.entities.pokemons.WaterPokemon;
-import model.entities.spells.Spell;
-import model.entities.spells.WindSpell;
 import model.entities.trainers.Trainer;
 import model.entities.trainers.TrainerFactory;
-import model.entities.trainers.TrainerPrepared;
 import model.entities.weapons.Sword;
 import model.entities.weapons.Weapon;
 import model.interfaces.Arena;
@@ -130,8 +118,6 @@ public class Main {
             vscode.purchase(vulpix4);
             vscode.purchase(geodude6);
             trainers.add(vscode);
-
-            Collections.shuffle(trainers);
 
             Tournament tournament = new Tournament(gym, trainers);
 
