@@ -52,6 +52,7 @@ public class MainFrame extends JFrame {
 			persistence.closeInput();
 			gymPane.restoreView(gym.getTrainers(), gym.getArenas());
 
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			gym = new Gym();

@@ -18,9 +18,12 @@ import model.interfaces.Observable;
 import model.interfaces.Observer;
 import model.messages.BattleWinner;
 import view.interfaces.GymView;
+import view.personalizedPanes.BattleArenaPane;
 
 import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
@@ -46,6 +49,7 @@ public class TournamentFrame extends JFrame implements Observer {
 		
 		this.TextAreaPane = new JScrollPane();
 		this.contentPane.add(this.TextAreaPane, BorderLayout.SOUTH);
+        this.TextAreaPane.setPreferredSize(new Dimension(50,100));
 		
 		this.TournamentTextArea = new JTextArea();
 		this.TextAreaPane.setViewportView(this.TournamentTextArea);
@@ -59,12 +63,16 @@ public class TournamentFrame extends JFrame implements Observer {
 
         this.obs = tournament;
         obs.addObserver(this);
+        setArenas(arenas);
 
         this.setVisible(true);
     }
 
     private void setArenas(ArrayList<Arena> arenas){
-        
+        for(int i = 0; i< arenas.size(); i++){
+            BattleArenaPane pane = new BattleArenaPane(arenas.get(i));
+            this.ArenaPane.add(pane);
+        }
     }
 
     public void setActionListener(ActionListener listener) {

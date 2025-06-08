@@ -45,4 +45,15 @@ public class ArenaWithLevel extends ArenaDecorator {
         return getArena().getType();
     }
 
+    
+    @Override
+    public void addObserver(Observer o) {
+        getArena().addObserver(o);
+    }
+
+    @Override
+    public void notifyObservers(Object args) {
+        getArena().notifyObservers(args);
+    }
+
 }
