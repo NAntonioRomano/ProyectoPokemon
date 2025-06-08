@@ -19,13 +19,14 @@ import view.interfaces.GymView;
 import view.personalizedPanes.GymPane;
 
 public class MainFrame extends JFrame {
-	private static Persistence persistence = new XMLPersistence();
+	private static Persistence<Object> persistence = new XMLPersistence();
 	private static GymFacade gymFacade;
 
 	public MainFrame(GymPane gymPane) {
 		setTitle("Gimnasio Pokémon - Grupocho");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setSize(1400, 1400);
+		setSize(1200, 700);
+		setResizable(false);
 		setLocationRelativeTo(null);
 		add(gymPane);
 		setVisible(true);
@@ -41,7 +42,7 @@ public class MainFrame extends JFrame {
 
 	public static void main(String[] args) {
 		Gym gym;
-        GymPane gymPane = new GymPane();
+		GymPane gymPane = new GymPane();
 
 		try {
 			GymConverter gymConverter = new GymConverter();
@@ -49,7 +50,7 @@ public class MainFrame extends JFrame {
 			GymDTO dto = (GymDTO) persistence.read();
 			gym = gymConverter.fromDTOtoEntity(dto);
 			persistence.closeInput();
-            gymPane.restoreView(gym.getTrainers(),gym.getArenas());
+			gymPane.restoreView(gym.getTrainers(), gym.getArenas());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,8 +59,7 @@ public class MainFrame extends JFrame {
 
 		gymFacade = new GymFacade(gym);
 
-
-        GymView gymView = gymPane;
+		GymView gymView = gymPane;
 		GymController gymController = new GymController(gymView, gymFacade);
 
 		gymView.setActionListener(gymController);
@@ -80,4 +80,3 @@ public class MainFrame extends JFrame {
 	}
 
 }
-

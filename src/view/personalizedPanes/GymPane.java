@@ -56,7 +56,7 @@ public class GymPane extends JPanel implements GymView {
 	 * Create the panel.
 	 */
 	public GymPane() {
-		setMinimumSize(new Dimension(1400, 1400));
+		setMinimumSize(new Dimension(1400, 1000));
 		setLayout(new GridLayout(1, 2, 1, 1));
 
 		this.TrainersArenasPane = new JPanel();
