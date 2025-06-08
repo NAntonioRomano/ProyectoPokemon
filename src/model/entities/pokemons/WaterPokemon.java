@@ -20,7 +20,7 @@ public class WaterPokemon extends Pokemon {
 	}
 
 	@Override
-	protected double getAttack() {
+	public double getAttack() {
 		return damage * 0.1;
 	}
 
@@ -52,7 +52,7 @@ public class WaterPokemon extends Pokemon {
 	}
 
 	@Override
-	public Object clone() throws CloneNotSupportedException{
+	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
 	}
 

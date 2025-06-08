@@ -94,11 +94,11 @@ public class Gym {
 	}
 
 	public void setTrainers(List<Trainer> trainers) {
-		this.trainers = (ArrayList) trainers;
+		this.trainers = (ArrayList<Trainer>) trainers;
 	}
 
 	public void setArenas(List<Arena> arenas) {
-		this.arenas = (ArrayList) arenas;
+		this.arenas = (ArrayList<Arena>) arenas;
 	}
 
 }

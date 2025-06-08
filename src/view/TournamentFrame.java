@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -29,47 +30,48 @@ import javax.swing.SwingUtilities;
 
 public class TournamentFrame extends JFrame implements Observer {
 
-	private JPanel contentPane;
-	private JScrollPane TextAreaPane;
-	private JTextArea TournamentTextArea;
-	private JScrollPane ArenasScrollPane;
-	private JPanel ArenaPane;
+    private JPanel contentPane;
+    private JScrollPane TextAreaPane;
+    private JTextArea TournamentTextArea;
+    private JScrollPane ArenasScrollPane;
+    private JPanel ArenaPane;
     private ActionListener listener;
 
     private Observable obs;
 
     public TournamentFrame(Tournament tournament, ArrayList<Arena> arenas) {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		this.contentPane = new JPanel();
-		this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setBounds(100, 100, 450, 300);
+        this.contentPane = new JPanel();
+        this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(this.contentPane);
-		this.contentPane.setLayout(new BorderLayout(0, 0));
-		
-		this.TextAreaPane = new JScrollPane();
-		this.contentPane.add(this.TextAreaPane, BorderLayout.SOUTH);
-        this.TextAreaPane.setPreferredSize(new Dimension(50,100));
-		
-		this.TournamentTextArea = new JTextArea();
-		this.TextAreaPane.setViewportView(this.TournamentTextArea);
-		
-		this.ArenasScrollPane = new JScrollPane();
-		this.contentPane.add(this.ArenasScrollPane, BorderLayout.CENTER);
-		
-		this.ArenaPane = new JPanel();
-		this.ArenasScrollPane.setViewportView(this.ArenaPane);
-		this.ArenaPane.setLayout(new GridLayout(1, 3, 3, 3));
+        setContentPane(this.contentPane);
+        this.contentPane.setLayout(new BorderLayout(0, 0));
+
+        this.TextAreaPane = new JScrollPane();
+        this.contentPane.add(this.TextAreaPane, BorderLayout.SOUTH);
+        this.TextAreaPane.setPreferredSize(new Dimension(50, 100));
+
+        this.TournamentTextArea = new JTextArea();
+        this.TextAreaPane.setViewportView(this.TournamentTextArea);
+
+        this.ArenasScrollPane = new JScrollPane();
+        this.contentPane.add(this.ArenasScrollPane, BorderLayout.CENTER);
+
+        this.ArenaPane = new JPanel();
+        this.ArenaPane.setLayout(new GridLayout(1, 0, 10, 10));
+        this.ArenaPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        this.ArenasScrollPane.setViewportView(this.ArenaPane);
+        setArenas(arenas);
 
         this.obs = tournament;
         obs.addObserver(this);
-        setArenas(arenas);
 
         this.setVisible(true);
     }
 
-    private void setArenas(ArrayList<Arena> arenas){
-        for(int i = 0; i< arenas.size(); i++){
+    private void setArenas(ArrayList<Arena> arenas) {
+        for (int i = 0; i < arenas.size(); i++) {
             BattleArenaPane pane = new BattleArenaPane(arenas.get(i));
             this.ArenaPane.add(pane);
         }
@@ -93,13 +95,13 @@ public class TournamentFrame extends JFrame implements Observer {
                                 + battle.getWinner().getCredits() + ")\n");
                 listener.actionPerformed(new ActionEvent(battle.getWinner(), ActionEvent.ACTION_PERFORMED, "UPDATE"));
             });
-        }else if(arg instanceof TrainerWithoutPokemonsException){
+        } else if (arg instanceof TrainerWithoutPokemonsException) {
             ShowErrorMessage(((TrainerWithoutPokemonsException) arg).getMessage());
         }
 
     }
 
     public void ShowErrorMessage(String message) {
-		JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE, null);
-	}
+        JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE, null);
+    }
 }

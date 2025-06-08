@@ -53,14 +53,12 @@ public class BaseArena implements Arena {
         while (pokemonInBattleTP1 != null && pokemonInBattleTP2 != null) {
             pokemonInBattleTP1.attack(pokemonInBattleTP2);
             notifyObservers(new PokemonAttack(pokemonInBattleTP1, pokemonInBattleTP2));
-            try {Thread.sleep(20);} catch (InterruptedException e) {e.printStackTrace();}
             if (pokemonInBattleTP2.isDead()) {
                 notifyObservers(new DeadPokemon(pokemonInBattleTP2));
                 pokemonInBattleTP2 = TP2.getRandomPokemon();
             } else {
                 pokemonInBattleTP2.attack(pokemonInBattleTP1);
                 notifyObservers(new PokemonAttack(pokemonInBattleTP2, pokemonInBattleTP1));
-                try {Thread.sleep(20);} catch (InterruptedException e) {e.printStackTrace();}
                 if (pokemonInBattleTP1.isDead()) {
                     notifyObservers(new DeadPokemon(pokemonInBattleTP1));
                     pokemonInBattleTP1 = TP1.getRandomPokemon();

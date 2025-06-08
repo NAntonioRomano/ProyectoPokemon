@@ -5,14 +5,33 @@
    <object class="java.util.ArrayList">
     <void method="add">
      <object class="model.dto.ArenaDTO">
+      <void property="creditsForWinner">
+       <int>900</int>
+      </void>
       <void property="level">
-       <string>FOREST</string>
+       <string>EASY</string>
       </void>
       <void property="name">
-       <string>adasd</string>
+       <string>arena 1</string>
       </void>
       <void property="type">
-       <string>EASY</string>
+       <string>DESERT</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="model.dto.ArenaDTO">
+      <void property="creditsForWinner">
+       <int>960</int>
+      </void>
+      <void property="level">
+       <string>INTERMEDIATE</string>
+      </void>
+      <void property="name">
+       <string>arena 2</string>
+      </void>
+      <void property="type">
+       <string>JUNGLE</string>
       </void>
      </object>
     </void>
@@ -23,7 +42,7 @@
     <void method="add">
      <object class="model.dto.TrainerDTO">
       <void property="credits">
-       <double>6140.0</double>
+       <double>9590.0</double>
       </void>
       <void property="name">
        <string>MILEI</string>
@@ -64,7 +83,7 @@
            <string>WaterPokemon</string>
           </void>
           <void property="xp">
-           <int>15</int>
+           <int>24</int>
           </void>
          </object>
         </void>
@@ -78,7 +97,7 @@
     <void method="add">
      <object class="model.dto.TrainerDTO">
       <void property="credits">
-       <double>5300.0</double>
+       <double>7790.0</double>
       </void>
       <void property="name">
        <string>CRISTINA</string>
@@ -119,7 +138,7 @@
            <string>WaterPokemon</string>
           </void>
           <void property="xp">
-           <int>11</int>
+           <int>17</int>
           </void>
          </object>
         </void>
@@ -133,7 +152,7 @@
     <void method="add">
      <object class="model.dto.TrainerDTO">
       <void property="credits">
-       <double>6690.0</double>
+       <double>30540.0</double>
       </void>
       <void property="name">
        <string>ALBERTO</string>
@@ -146,22 +165,22 @@
            <double>120.0</double>
           </void>
           <void property="damage">
-           <double>873.6000000000001</double>
+           <double>3897.6000000000004</double>
           </void>
           <void property="health">
-           <double>5787.600000000001</double>
+           <double>25821.600000000002</double>
           </void>
           <void property="name">
            <string>PIKACHU</string>
           </void>
           <void property="shield">
-           <double>2184.0000000000005</double>
+           <double>9744.000000000002</double>
           </void>
           <void property="type">
            <string>FirePokemon</string>
           </void>
           <void property="xp">
-           <int>13</int>
+           <int>58</int>
           </void>
          </object>
         </void>
@@ -186,7 +205,7 @@
            <string>WaterPokemon</string>
           </void>
           <void property="xp">
-           <int>9</int>
+           <int>12</int>
           </void>
          </object>
         </void>
@@ -213,7 +232,7 @@
     <void method="add">
      <object class="model.dto.TrainerDTO">
       <void property="credits">
-       <double>480.0</double>
+       <double>2340.0</double>
       </void>
       <void property="name">
        <string>KARINA</string>
@@ -226,22 +245,22 @@
            <double>120.0</double>
           </void>
           <void property="damage">
-           <double>134.4</double>
+           <double>537.6</double>
           </void>
           <void property="health">
-           <double>890.4000000000001</double>
+           <double>3561.6000000000004</double>
           </void>
           <void property="name">
            <string>PIKACHU</string>
           </void>
           <void property="shield">
-           <double>336.00000000000006</double>
+           <double>1344.0000000000002</double>
           </void>
           <void property="type">
            <string>FirePokemon</string>
           </void>
           <void property="xp">
-           <int>2</int>
+           <int>8</int>
           </void>
          </object>
         </void>
@@ -255,7 +274,7 @@
     <void method="add">
      <object class="model.dto.TrainerDTO">
       <void property="credits">
-       <double>2110.0</double>
+       <double>16390.0</double>
       </void>
       <void property="name">
        <string>BULRICH</string>
@@ -268,22 +287,22 @@
            <double>120.0</double>
           </void>
           <void property="damage">
-           <double>336.0</double>
+           <double>2553.6000000000004</double>
           </void>
           <void property="health">
-           <double>2226.0</double>
+           <double>16917.600000000002</double>
           </void>
           <void property="name">
            <string>PIKACHU</string>
           </void>
           <void property="shield">
-           <double>840.0</double>
+           <double>6384.0</double>
           </void>
           <void property="type">
            <string>FirePokemon</string>
           </void>
           <void property="xp">
-           <int>5</int>
+           <int>38</int>
           </void>
          </object>
         </void>
@@ -310,7 +329,7 @@
     <void method="add">
      <object class="model.dto.TrainerDTO">
       <void property="credits">
-       <double>910.0</double>
+       <double>7450.0</double>
       </void>
       <void property="name">
        <string>SANTORO</string>
@@ -323,22 +342,22 @@
            <double>120.0</double>
           </void>
           <void property="damage">
-           <double>268.8</double>
+           <double>1612.8000000000002</double>
           </void>
           <void property="health">
-           <double>1780.8000000000002</double>
+           <double>10684.800000000001</double>
           </void>
           <void property="name">
            <string>PIKACHU</string>
           </void>
           <void property="shield">
-           <double>672.0000000000001</double>
+           <double>4032.000000000001</double>
           </void>
           <void property="type">
            <string>FirePokemon</string>
           </void>
           <void property="xp">
-           <int>4</int>
+           <int>24</int>
           </void>
          </object>
         </void>
@@ -391,7 +410,7 @@
            <double>100.0</double>
           </void>
           <void property="damage">
-           <double>107.42742872077689</double>
+           <double>431.1752612297673</double>
           </void>
           <void property="health">
            <double>200.0</double>
@@ -405,6 +424,9 @@
           <void property="type">
            <string>IcePokemon</string>
           </void>
+          <void property="xp">
+           <int>1</int>
+          </void>
          </object>
         </void>
        </object>
@@ -417,7 +439,7 @@
     <void method="add">
      <object class="model.dto.TrainerDTO">
       <void property="credits">
-       <double>380.0</double>
+       <double>4100.0</double>
       </void>
       <void property="name">
        <string>NESTOR</string>
@@ -443,7 +465,7 @@
            <double>100.0</double>
           </void>
           <void property="damage">
-           <double>211.11203632849748</double>
+           <double>601.642437085219</double>
           </void>
           <void property="health">
            <double>200.0</double>
@@ -456,6 +478,9 @@
           </void>
           <void property="type">
            <string>IcePokemon</string>
+          </void>
+          <void property="xp">
+           <int>6</int>
           </void>
          </object>
         </void>

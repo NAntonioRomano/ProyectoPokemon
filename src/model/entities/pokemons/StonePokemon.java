@@ -28,7 +28,7 @@ public class StonePokemon extends Pokemon {
 	}
 
 	@Override
-	protected double getAttack() {
+	public double getAttack() {
 		return this.damage * 0.15;
 	}
 

@@ -13,7 +13,7 @@ public class IcePokemon extends Pokemon {
 	}
 
 	@Override
-	protected double getAttack() {
+	public double getAttack() {
 		return damage * 0.15;
 	}
 
