@@ -10,7 +10,7 @@ import model.interfaces.Observable;
 import model.interfaces.Observer;
 import model.messages.BattleWinner;
 
-public class Tournament implements Observable {
+public class Tournament implements Observable,Runnable{
 
     private Gym gym;
     private Trainer winner;
@@ -99,5 +99,16 @@ public class Tournament implements Observable {
     @Override
     synchronized public void notifyObservers(Object args) {
         observers.forEach(item -> item.update(this, args));
+    }
+
+    @Override
+    public void run() {
+        try {
+            startTournament();
+        } catch (TrainerWithoutPokemonsException e) {
+            notifyObservers(e);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

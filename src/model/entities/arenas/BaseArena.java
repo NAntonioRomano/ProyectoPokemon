@@ -57,6 +57,12 @@ public class BaseArena implements Arena {
                     pokemonInBattleTP1 = TP1.getRandomPokemon();
                 }
             }
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         TrainerPrepared winner = pokemonInBattleTP1 != null ? TP1 : TP2;
@@ -100,6 +106,16 @@ public class BaseArena implements Arena {
     @Override
     public String getLevel() {
         return null;
+    }
+
+    @Override
+    public void addObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    synchronized public void notifyObservers(Object args) {
+        observers.forEach(item -> item.update(this, args));
     }
 
 }
