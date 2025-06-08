@@ -343,7 +343,7 @@ public class GymPane extends JPanel implements GymView {
 
 	@Override
 	public void startTournament(Tournament tournament) {
-		TournamentFrame tf = new TournamentFrame(tournament);
+		TournamentFrame tf = new TournamentFrame(tournament, new ArrayList<Arena>(ArenaPanes.keySet()));
 		tf.setActionListener(this);
 	}
 

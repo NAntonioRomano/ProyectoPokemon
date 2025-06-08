@@ -51,7 +51,8 @@ public class GymController implements ActionListener {
             if (trainers != null) {
                 Tournament tournament = gymFacade.getTournament(trainers);
                 gymView.startTournament(tournament);
-                tournament.startTournament();
+                Thread thread = new Thread(tournament);
+                thread.start();
             }
         } catch (TrainerWithoutPokemonsException e) {
             gymView.ShowErrorMessage(e.getMessage());

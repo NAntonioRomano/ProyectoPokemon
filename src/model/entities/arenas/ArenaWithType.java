@@ -46,4 +46,5 @@ public class ArenaWithType extends ArenaDecorator {
         return getArena().getType();
     }
 
+
 }

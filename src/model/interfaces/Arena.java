@@ -3,7 +3,7 @@ package model.interfaces;
 import model.entities.trainers.Trainer;
 import model.entities.trainers.TrainerPrepared;
 
-public interface Arena{
+public interface Arena extends Observable{
     /**
      * Starts a battle between two trainers.
      * The trainers are represented by TrainerPrepared objects,

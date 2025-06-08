@@ -3,6 +3,7 @@ package model.entities.arenas;
 import model.entities.trainers.Trainer;
 import model.entities.trainers.TrainerPrepared;
 import model.interfaces.Arena;
+import model.interfaces.Observer;
 
 public abstract class ArenaDecorator implements Arena {
     private Arena arena;
@@ -30,6 +31,14 @@ public abstract class ArenaDecorator implements Arena {
         getArena().setBusy(busy);
     }
 
-    
+    @Override
+    public void addObserver(Observer o) {
+        getArena().addObserver(o);
+    }
+
+    @Override
+    public void notifyObservers(Object args) {
+        getArena().notifyObservers(args);
+    }
 
 }
