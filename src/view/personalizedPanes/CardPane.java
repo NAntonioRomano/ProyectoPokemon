@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import model.entities.pokemons.Pokemon;
 import model.entities.trainers.Trainer;
 import model.entities.weapons.Weapon;
+import model.interfaces.Valuable;
 
 
 public class CardPane extends JPanel {
@@ -52,5 +53,6 @@ public class CardPane extends JPanel {
     public void updatePokemonList(){statePane.updatePokemonList();}
     public void updateWeaponList(){statePane.updateWeaponList();}
     public ArrayList<Trainer> getSelectedTrainers(){return statePane.getSelectedTrainers();}
+    public Valuable getSelectedValuable(){return statePane.getSelectedValuable();}
 
 }

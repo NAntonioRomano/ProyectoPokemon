@@ -24,7 +24,7 @@ public class ArenaConverter extends Converter<Arena, ArenaDTO> {
         if (dto == null)
             return null;
 
-        return ArenaFactory.newArena(dto.getName(), dto.getType(), dto.getLevel());
+        return ArenaFactory.newArena(dto.getName(), dto.getLevel(), dto.getType());
     }
 
 }

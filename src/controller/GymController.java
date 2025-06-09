@@ -35,7 +35,8 @@ public class GymController implements ActionListener {
             removeArena(e);
         } else if (command.equals(GymView.PURCHASE_POKEMON)) {
             purchasePokemon();
-        } else if (command.equals(GymView.RMV_POKEMON_FROM_TRAINER)) {
+        } else if (command.equals(GymView.SELL_VALUABLE_FROM_TRAINER)) {
+            removeValuable((Trainer)e.getSource());
         } else if (command.equals(GymView.PURCHASE_WEAPON)) {
             purchaseWeapon();
         } else if (command.equals(GymView.ADD_WEAPON_TO_POKEMON)) {
@@ -45,6 +46,9 @@ public class GymController implements ActionListener {
         }
     }
 
+    private void removeValuable(Trainer trainer){
+        gymFacade.removeValuable(trainer, gymView.getSelectedValuable());
+    }
     private void startTournament() {
         try {
             ArrayList<Trainer> trainers = gymView.getSelectedTrainers();

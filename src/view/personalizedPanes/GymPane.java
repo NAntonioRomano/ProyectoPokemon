@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 
 import model.interfaces.Arena;
+import model.interfaces.Valuable;
 import model.entities.Tournament;
 import model.entities.pokemons.Pokemon;
 import model.entities.trainers.Trainer;
@@ -157,6 +158,12 @@ public class GymPane extends JPanel implements GymView {
 			this.actionListener.actionPerformed(e);
 		} else if (action.equals(GymView.START_TOURNAMENT)) {
 			this.actionListener.actionPerformed(e);
+		} else if (action.equals(GymView.SELL_VALUABLE_FROM_TRAINER)) {
+			ButtonWithObject button = (ButtonWithObject) e.getSource();
+			this.actionListener.actionPerformed(
+					new ActionEvent((Trainer) button.getObject(), ActionEvent.ACTION_PERFORMED,
+							GymView.SELL_VALUABLE_FROM_TRAINER));
+			updateTrainerData((Trainer) button.getObject());
 		} else if (action.equals("MAINMENU")) {
 			this.changeStatePane(action, e.getSource());
 		} else if (action.equals("SHOP")) {
@@ -228,6 +235,11 @@ public class GymPane extends JPanel implements GymView {
 			ShowErrorMessage("Debe seleccionar un arma de la lista");
 			return null;
 		}
+	}
+
+	@Override
+	public Valuable getSelectedValuable() {
+		return this.StatePanel.getSelectedValuable();
 	}
 
 	@Override

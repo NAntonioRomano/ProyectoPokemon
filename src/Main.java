@@ -18,8 +18,8 @@ public class Main {
         try {
             Gym gym = new Gym();
 
-            Arena arena1 = ArenaFactory.newArena("Pewter City", "Difficult", "Forest");
-            Arena arena2 = ArenaFactory.newArena("Cerulean City", "Difficult", "Desert");
+            Arena arena1 = ArenaFactory.newArena("Pewter City", "Hard", "Forest");
+            Arena arena2 = ArenaFactory.newArena("Cerulean City", "Hard", "Desert");
             gym.addArena(arena1);
             gym.addArena(arena2);
 

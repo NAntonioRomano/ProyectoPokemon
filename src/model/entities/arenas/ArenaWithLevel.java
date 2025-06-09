@@ -30,7 +30,7 @@ public class ArenaWithLevel extends ArenaDecorator {
             credits *= 0.9;
         } else if (level.equalsIgnoreCase("Intermediate")) {
             credits *= 1.2;
-        } else if (level.equalsIgnoreCase("Difficult")) {
+        } else if (level.equalsIgnoreCase("Hard")) {
             credits *= 1.5;
         }
         return credits;
@@ -45,7 +45,6 @@ public class ArenaWithLevel extends ArenaDecorator {
         return getArena().getType();
     }
 
-    
     @Override
     public void addObserver(Observer o) {
         getArena().addObserver(o);

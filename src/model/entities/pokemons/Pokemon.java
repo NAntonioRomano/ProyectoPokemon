@@ -164,7 +164,7 @@ public abstract class Pokemon implements Hostile, Valuable, Classifiable, Witcha
 	@Override
 	public void attack(Pokemon other) {
 		try {
-			Thread.sleep(0);
+			Thread.sleep(10);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

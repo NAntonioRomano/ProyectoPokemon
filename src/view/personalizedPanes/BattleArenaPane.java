@@ -42,6 +42,8 @@ public class BattleArenaPane extends JPanel implements Observer {
 	private JPanel T2Pokemon3;
 	private JLabel[] T2Pokemonlbl = new JLabel[3];
 	private JLabel[] T1Pokemonlbl = new JLabel[3];
+	private Pokemon[] inBattle1;
+	private Pokemon[] inBattle2;
 
 	private Observable obs;
 
@@ -70,7 +72,6 @@ public class BattleArenaPane extends JPanel implements Observer {
 		}
 		topTrainerPane.add(pokemonsRow1, BorderLayout.CENTER);
 		add(topTrainerPane, BorderLayout.NORTH);
-
 		// --- Texto de batalla en el centro ---
 		this.BattleObserverPane = new JScrollPane();
 		this.BattleTextArea = new JTextArea();
@@ -107,8 +108,10 @@ public class BattleArenaPane extends JPanel implements Observer {
 			SwingUtilities.invokeLater(() -> {
 				Trainer1NameLabel.setText(battle.getTrainer1().getName());
 				Trainer2NameLabel.setText(battle.getTrainer2().getName());
-				setPokemonText(1, battle.getTrainer1().getPokemons());
-				setPokemonText(2, battle.getTrainer2().getPokemons());
+				inBattle1 = battle.getTrainer1().getPokemons();
+				inBattle2 = battle.getTrainer2().getPokemons();
+				setPokemonText(1, inBattle1);
+				setPokemonText(2, inBattle2);
 				BattleTextArea.setText("");
 				BattleTextArea
 						.append("Comienza la batalla entre :" +
@@ -120,6 +123,8 @@ public class BattleArenaPane extends JPanel implements Observer {
 				BattleTextArea
 						.append(attack.getAttacker().getName() + " le inflinge a " + attack.getAttacked().getName()
 								+ " " + String.format("%.2f", attack.getAttacker().getAttack()) + " de danio" + "\n");
+				setPokemonText(1, inBattle1);
+				setPokemonText(2, inBattle2);
 			});
 		} else if (arg instanceof DeadPokemon) {
 			DeadPokemon dead = (DeadPokemon) arg;
@@ -133,14 +138,16 @@ public class BattleArenaPane extends JPanel implements Observer {
 	private void setPokemonText(int number, Pokemon[] pokemons) {
 		if (number == 1) {
 			for (int i = 0; i < pokemons.length; i++) {
-				T1Pokemonlbl[i].setText(pokemons[i].getName());
+				T1Pokemonlbl[i].setText(
+						(pokemons[i].getName() + "(" + String.format("%.2f", pokemons[i].getHealth()) + "Hp)"));
 			}
 			for (int i = pokemons.length; i < T1Pokemonlbl.length; i++) {
 				T1Pokemonlbl[i].setText("");
 			}
 		} else {
 			for (int i = 0; i < pokemons.length; i++) {
-				T2Pokemonlbl[i].setText(pokemons[i].getName());
+				T2Pokemonlbl[i]
+						.setText(pokemons[i].getName() + "(" + String.format("%.2f", pokemons[i].getHealth()) + "Hp)");
 			}
 			for (int i = pokemons.length; i < T2Pokemonlbl.length; i++) {
 				T2Pokemonlbl[i].setText("");

@@ -15,7 +15,9 @@ import javax.swing.DefaultListModel;
 import model.entities.pokemons.Pokemon;
 import model.entities.trainers.Trainer;
 import model.entities.weapons.Weapon;
+import model.interfaces.Valuable;
 import view.interfaces.GymView;
+import view.personalizedComponents.ButtonWithObject;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -30,7 +32,7 @@ public class InventoryStatePane extends StatePane {
 	private JScrollPane WeaponsScrollPane;
 	private JList<Pokemon> PokemonList;
 	private JList<Weapon> WeaponList;
-	private JButton SellButton;
+	private ButtonWithObject SellButton;
 	private JButton addToPokemon;
 	private JPanel WrapperSellButton;
 	private JPanel WrapperAddButton;
@@ -57,9 +59,9 @@ public class InventoryStatePane extends StatePane {
 		this.ButtonsPane.setPreferredSize(new Dimension(0, 10)); // menor altura
 		this.ButtonsPane.setMaximumSize(new Dimension(Integer.MAX_VALUE, 10));
 
-		this.SellButton = new JButton("VENDER");
+		this.SellButton = new ButtonWithObject("VENDER", trainer);
 		this.SellButton.setFont(new Font("SansSerif", Font.BOLD, 20));
-		this.SellButton.setActionCommand("SELL");
+		this.SellButton.setActionCommand(GymView.SELL_VALUABLE_FROM_TRAINER);
 		this.ButtonsPane.add(this.SellButton);
 
 		this.addToPokemon = new JButton("⬆⬆ AGREGAR ⬆⬆");
@@ -116,8 +118,20 @@ public class InventoryStatePane extends StatePane {
 
 	public void setTrainer(Trainer trainer) {
 		this.trainer = trainer;
+		this.SellButton.setObject(trainer);
 		this.updatePokemonList();
 		this.updateWeaponList();
+	}
+
+	@Override
+	public Valuable getSelectedValuable() {
+		if (PokemonList.getSelectedValue() != null) {
+			return PokemonList.getSelectedValue();
+		} else if (WeaponList.getSelectedValue() != null) {
+			return WeaponList.getSelectedValue();
+		}
+
+		return null;
 	}
 
 }

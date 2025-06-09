@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import model.entities.pokemons.Pokemon;
 import model.entities.trainers.Trainer;
 import model.entities.weapons.Weapon;
+import model.interfaces.Valuable;
 
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public abstract class StatePane extends JPanel{
     public void updatePokemonList(){}
     public void updateWeaponList(){}
     public ArrayList<Trainer> getSelectedTrainers(){return null;}
+    public Valuable getSelectedValuable(){return null;}
 
 
 }

@@ -82,7 +82,7 @@ public class TrainerPane extends JPanel implements ItemListener {
         this.CenterPaneButton.add(this.WestPaneData, BorderLayout.WEST);
 
         this.ImgTrainerLabel = new JLabel("", SwingConstants.CENTER);
-        //this.ImgTrainerLabel.setIcon(new ImageIcon(getClass().getResource("/assets/default_trainer.png")));
+        this.ImgTrainerLabel.setIcon(new ImageIcon(getClass().getResource("/assets/default_trainer.png")));
         this.WestPaneData.add(this.ImgTrainerLabel);
 
         this.CenterPaneData = new JPanel(new BorderLayout(0, 0));

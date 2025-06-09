@@ -46,9 +46,15 @@ public class BaseArena implements Arena {
 
     @Override
     public Trainer startBattle(TrainerPrepared TP1, TrainerPrepared TP2) {
+        System.out.println();
+        System.out.println("Battle between " + TP1.getTrainer().getName() + " and " + TP2.getTrainer().getName());
+
         notifyObservers(new BattleTrainers(TP1, TP2));
         Pokemon pokemonInBattleTP1 = TP1.getRandomPokemon();
         Pokemon pokemonInBattleTP2 = TP2.getRandomPokemon();
+
+        if (pokemonInBattleTP1 != null && pokemonInBattleTP2 != null)
+            System.out.println(pokemonInBattleTP1.getName() + " vs " + pokemonInBattleTP2.getName());
 
         while (pokemonInBattleTP1 != null && pokemonInBattleTP2 != null) {
             pokemonInBattleTP1.attack(pokemonInBattleTP2);
@@ -56,12 +62,17 @@ public class BaseArena implements Arena {
             if (pokemonInBattleTP2.isDead()) {
                 notifyObservers(new DeadPokemon(pokemonInBattleTP2));
                 pokemonInBattleTP2 = TP2.getRandomPokemon();
+                if (pokemonInBattleTP2 != null)
+                    System.out.println(pokemonInBattleTP1.getName() + " vs " + pokemonInBattleTP2.getName());
+
             } else {
                 pokemonInBattleTP2.attack(pokemonInBattleTP1);
                 notifyObservers(new PokemonAttack(pokemonInBattleTP2, pokemonInBattleTP1));
                 if (pokemonInBattleTP1.isDead()) {
                     notifyObservers(new DeadPokemon(pokemonInBattleTP1));
                     pokemonInBattleTP1 = TP1.getRandomPokemon();
+                    if (pokemonInBattleTP1 != null)
+                        System.out.println(pokemonInBattleTP1.getName() + " vs " + pokemonInBattleTP2.getName());
                 }
             }
         }

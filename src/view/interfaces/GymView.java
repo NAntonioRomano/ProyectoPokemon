@@ -3,6 +3,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import model.interfaces.Arena;
+import model.interfaces.Valuable;
 import model.entities.Tournament;
 import model.entities.Tournament;
 import model.entities.pokemons.Pokemon;
@@ -17,7 +18,7 @@ public interface GymView extends ActionListener {
     String RMV_ARENA = "RMV_ARENA";
     String RMV_ITEM = "RMV_ITEM";
     String PURCHASE_POKEMON = "PURCHASE_POKEMON";
-    String RMV_POKEMON_FROM_TRAINER = "RMV_POKEMON_FROM_TRAINER";
+    String SELL_VALUABLE_FROM_TRAINER = "SELL_VALUABLE_FROM_TRAINER";
     String PURCHASE_WEAPON = "PURCHASE_WEAPON";
     String ADD_WEAPON_TO_POKEMON = "ADD_WEAPON_TO_POKEMON";
     String START_TOURNAMENT = "START_TOURNAMENT";
@@ -38,4 +39,5 @@ public interface GymView extends ActionListener {
     Weapon getSelectedWeapon();
     ArrayList<Trainer> getSelectedTrainers();
     void startTournament(Tournament tournament);
+    Valuable getSelectedValuable();
 }

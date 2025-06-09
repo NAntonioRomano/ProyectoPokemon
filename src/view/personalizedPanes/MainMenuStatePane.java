@@ -255,7 +255,7 @@ public class MainMenuStatePane extends StatePane {
 		}else if(this.IntermediateRdioBtn.isSelected()) {
 			return "INTERMEDIATE";
 		}else if(this.DifficultRdioBtn.isSelected()) {
-			return "DIFFICULT";
+			return "HARD";
 		}
 		return null;
 	}

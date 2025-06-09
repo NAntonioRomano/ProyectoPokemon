@@ -65,4 +65,15 @@ public class GymFacade {
         return new Tournament(gym, trainers);
     }
 
+    public void removeValuable(Trainer trainer, Valuable valuable) {
+        if (valuable instanceof Pokemon) {
+            trainer.getPokemons().remove((Pokemon) valuable);
+        }
+        if (valuable instanceof Weapon) {
+            trainer.getWeapons().remove((Weapon) valuable);
+        }
+
+        trainer.addCredits(valuable.getCost());
+    }
+
 }

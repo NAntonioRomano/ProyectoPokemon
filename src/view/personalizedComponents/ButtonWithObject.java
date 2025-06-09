@@ -14,5 +14,9 @@ public class ButtonWithObject extends JButton {
     public Object getObject() {
         return obj;
     }
+
+    public void setObject(Object obj){
+        this.obj = obj;
+    }
     
 }
