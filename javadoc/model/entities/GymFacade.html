@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -188,6 +188,11 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../model/entities/GymFacade.html#removeTrainer-model.entities.trainers.Trainer-">removeTrainer</a></span>(<a href="../../model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a>&nbsp;trainer)</code>&nbsp;</td>
 </tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../model/entities/GymFacade.html#removeValuable-model.entities.trainers.Trainer-model.interfaces.Valuable-">removeValuable</a></span>(<a href="../../model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a>&nbsp;trainer,
+              <a href="../../model/interfaces/Valuable.html" title="interface in model.interfaces">Valuable</a>&nbsp;valuable)</code>&nbsp;</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -330,7 +335,7 @@ extends java.lang.Object</pre>
 <a name="getTournament-java.util.ArrayList-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getTournament</h4>
 <pre>public&nbsp;<a href="../../model/entities/Tournament.html" title="class in model.entities">Tournament</a>&nbsp;getTournament(java.util.ArrayList&lt;<a href="../../model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a>&gt;&nbsp;trainers)
@@ -341,6 +346,16 @@ extends java.lang.Object</pre>
 <dd><code><a href="../../model/exceptions/TrainerWithoutPokemonsException.html" title="class in model.exceptions">TrainerWithoutPokemonsException</a></code></dd>
 <dd><code>java.lang.InterruptedException</code></dd>
 </dl>
+</li>
+</ul>
+<a name="removeValuable-model.entities.trainers.Trainer-model.interfaces.Valuable-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>removeValuable</h4>
+<pre>public&nbsp;void&nbsp;removeValuable(<a href="../../model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a>&nbsp;trainer,
+                           <a href="../../model/interfaces/Valuable.html" title="interface in model.interfaces">Valuable</a>&nbsp;valuable)</pre>
 </li>
 </ul>
 </li>

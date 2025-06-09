@@ -130,7 +130,7 @@ public class BattleArenaPane extends JPanel implements Observer {
 			DeadPokemon dead = (DeadPokemon) arg;
 			SwingUtilities.invokeLater(() -> {
 				BattleTextArea
-						.append(dead.getDeadPokemon().getName() + "murio" + "\n");
+						.append(dead.getDeadPokemon().getName() + " murio" + "\n");
 			});
 		}
 	}

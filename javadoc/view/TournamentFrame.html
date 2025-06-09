@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -247,7 +247,8 @@ implements <a href="../model/interfaces/Observer.html" title="interface in model
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../view/TournamentFrame.html#TournamentFrame-model.entities.Tournament-">TournamentFrame</a></span>(<a href="../model/entities/Tournament.html" title="class in model.entities">Tournament</a>&nbsp;tournament)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../view/TournamentFrame.html#TournamentFrame-model.entities.Tournament-java.util.ArrayList-">TournamentFrame</a></span>(<a href="../model/entities/Tournament.html" title="class in model.entities">Tournament</a>&nbsp;tournament,
+               java.util.ArrayList&lt;<a href="../model/interfaces/Arena.html" title="interface in model.interfaces">Arena</a>&gt;&nbsp;arenas)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -269,6 +270,10 @@ implements <a href="../model/interfaces/Observer.html" title="interface in model
 <td class="colLast"><code><span class="memberNameLink"><a href="../view/TournamentFrame.html#setActionListener-java.awt.event.ActionListener-">setActionListener</a></span>(java.awt.event.ActionListener&nbsp;listener)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../view/TournamentFrame.html#ShowErrorMessage-java.lang.String-">ShowErrorMessage</a></span>(java.lang.String&nbsp;message)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../view/TournamentFrame.html#update-model.interfaces.Observable-java.lang.Object-">update</a></span>(<a href="../model/interfaces/Observable.html" title="interface in model.interfaces">Observable</a>&nbsp;obj,
       java.lang.Object&nbsp;arg)</code>&nbsp;</td>
@@ -337,13 +342,14 @@ implements <a href="../model/interfaces/Observer.html" title="interface in model
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="TournamentFrame-model.entities.Tournament-">
+<a name="TournamentFrame-model.entities.Tournament-java.util.ArrayList-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>TournamentFrame</h4>
-<pre>public&nbsp;TournamentFrame(<a href="../model/entities/Tournament.html" title="class in model.entities">Tournament</a>&nbsp;tournament)</pre>
+<pre>public&nbsp;TournamentFrame(<a href="../model/entities/Tournament.html" title="class in model.entities">Tournament</a>&nbsp;tournament,
+                       java.util.ArrayList&lt;<a href="../model/interfaces/Arena.html" title="interface in model.interfaces">Arena</a>&gt;&nbsp;arenas)</pre>
 </li>
 </ul>
 </li>
@@ -366,7 +372,7 @@ implements <a href="../model/interfaces/Observer.html" title="interface in model
 <a name="update-model.interfaces.Observable-java.lang.Object-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>update</h4>
 <pre>public&nbsp;void&nbsp;update(<a href="../model/interfaces/Observable.html" title="interface in model.interfaces">Observable</a>&nbsp;obj,
@@ -375,6 +381,15 @@ implements <a href="../model/interfaces/Observer.html" title="interface in model
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../model/interfaces/Observer.html#update-model.interfaces.Observable-java.lang.Object-">update</a></code>&nbsp;in interface&nbsp;<code><a href="../model/interfaces/Observer.html" title="interface in model.interfaces">Observer</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="ShowErrorMessage-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>ShowErrorMessage</h4>
+<pre>public&nbsp;void&nbsp;ShowErrorMessage(java.lang.String&nbsp;message)</pre>
 </li>
 </ul>
 </li>

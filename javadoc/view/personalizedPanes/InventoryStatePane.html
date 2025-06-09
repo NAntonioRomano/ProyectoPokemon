@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -249,22 +249,26 @@ extends <a href="../../view/personalizedPanes/StatePane.html" title="class in vi
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/InventoryStatePane.html#getSelectedPokemon--">getSelectedPokemon</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="../../model/interfaces/Valuable.html" title="interface in model.interfaces">Valuable</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/InventoryStatePane.html#getSelectedValuable--">getSelectedValuable</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../model/entities/weapons/Weapon.html" title="class in model.entities.weapons">Weapon</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/InventoryStatePane.html#getSelectedWeapon--">getSelectedWeapon</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/InventoryStatePane.html#setActionListener-java.awt.event.ActionListener-">setActionListener</a></span>(java.awt.event.ActionListener&nbsp;listener)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/InventoryStatePane.html#setTrainer-model.entities.trainers.Trainer-">setTrainer</a></span>(<a href="../../model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a>&nbsp;trainer)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/InventoryStatePane.html#updatePokemonList--">updatePokemonList</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/InventoryStatePane.html#updateWeaponList--">updateWeaponList</a></span>()</code>&nbsp;</td>
 </tr>
@@ -411,10 +415,23 @@ extends <a href="../../view/personalizedPanes/StatePane.html" title="class in vi
 <a name="setTrainer-model.entities.trainers.Trainer-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setTrainer</h4>
 <pre>public&nbsp;void&nbsp;setTrainer(<a href="../../model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a>&nbsp;trainer)</pre>
+</li>
+</ul>
+<a name="getSelectedValuable--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getSelectedValuable</h4>
+<pre>public&nbsp;<a href="../../model/interfaces/Valuable.html" title="interface in model.interfaces">Valuable</a>&nbsp;getSelectedValuable()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../view/personalizedPanes/StatePane.html#getSelectedValuable--">getSelectedValuable</a></code>&nbsp;in class&nbsp;<code><a href="../../view/personalizedPanes/StatePane.html" title="class in view.personalizedPanes">StatePane</a></code></dd>
+</dl>
 </li>
 </ul>
 </li>

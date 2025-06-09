@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -205,7 +205,7 @@ implements <a href="../../view/interfaces/GymView.html" title="interface in view
 <!--   -->
 </a>
 <h3>Fields inherited from interface&nbsp;view.interfaces.<a href="../../view/interfaces/GymView.html" title="interface in view.interfaces">GymView</a></h3>
-<code><a href="../../view/interfaces/GymView.html#ADD_ARENA">ADD_ARENA</a>, <a href="../../view/interfaces/GymView.html#ADD_TRAINER">ADD_TRAINER</a>, <a href="../../view/interfaces/GymView.html#ADD_WEAPON_TO_POKEMON">ADD_WEAPON_TO_POKEMON</a>, <a href="../../view/interfaces/GymView.html#PURCHASE_POKEMON">PURCHASE_POKEMON</a>, <a href="../../view/interfaces/GymView.html#PURCHASE_WEAPON">PURCHASE_WEAPON</a>, <a href="../../view/interfaces/GymView.html#RMV_ARENA">RMV_ARENA</a>, <a href="../../view/interfaces/GymView.html#RMV_ITEM">RMV_ITEM</a>, <a href="../../view/interfaces/GymView.html#RMV_POKEMON_FROM_TRAINER">RMV_POKEMON_FROM_TRAINER</a>, <a href="../../view/interfaces/GymView.html#RMV_TRAINER">RMV_TRAINER</a>, <a href="../../view/interfaces/GymView.html#START_TOURNAMENT">START_TOURNAMENT</a></code></li>
+<code><a href="../../view/interfaces/GymView.html#ADD_ARENA">ADD_ARENA</a>, <a href="../../view/interfaces/GymView.html#ADD_TRAINER">ADD_TRAINER</a>, <a href="../../view/interfaces/GymView.html#ADD_WEAPON_TO_POKEMON">ADD_WEAPON_TO_POKEMON</a>, <a href="../../view/interfaces/GymView.html#PURCHASE_POKEMON">PURCHASE_POKEMON</a>, <a href="../../view/interfaces/GymView.html#PURCHASE_WEAPON">PURCHASE_WEAPON</a>, <a href="../../view/interfaces/GymView.html#RMV_ARENA">RMV_ARENA</a>, <a href="../../view/interfaces/GymView.html#RMV_ITEM">RMV_ITEM</a>, <a href="../../view/interfaces/GymView.html#RMV_TRAINER">RMV_TRAINER</a>, <a href="../../view/interfaces/GymView.html#SELL_VALUABLE_FROM_TRAINER">SELL_VALUABLE_FROM_TRAINER</a>, <a href="../../view/interfaces/GymView.html#START_TOURNAMENT">START_TOURNAMENT</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.java.awt.image.ImageObserver">
@@ -292,47 +292,51 @@ implements <a href="../../view/interfaces/GymView.html" title="interface in view
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#getSelectedTrainers--">getSelectedTrainers</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code><a href="../../model/interfaces/Valuable.html" title="interface in model.interfaces">Valuable</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#getSelectedValuable--">getSelectedValuable</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../model/entities/weapons/Weapon.html" title="class in model.entities.weapons">Weapon</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#getSelectedWeapon--">getSelectedWeapon</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#getTrainerName--">getTrainerName</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#getWeaponType--">getWeaponType</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#restoreView-java.util.ArrayList-java.util.ArrayList-">restoreView</a></span>(java.util.ArrayList&lt;<a href="../../model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a>&gt;&nbsp;trainers,
            java.util.ArrayList&lt;<a href="../../model/interfaces/Arena.html" title="interface in model.interfaces">Arena</a>&gt;&nbsp;arenas)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#setActionListener-java.awt.event.ActionListener-">setActionListener</a></span>(java.awt.event.ActionListener&nbsp;actionListener)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#ShowErrorMessage-java.lang.String-">ShowErrorMessage</a></span>(java.lang.String&nbsp;message)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#startTournament-model.entities.Tournament-">startTournament</a></span>(<a href="../../model/entities/Tournament.html" title="class in model.entities">Tournament</a>&nbsp;tournament)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#toRemove-model.interfaces.Arena-">toRemove</a></span>(<a href="../../model/interfaces/Arena.html" title="interface in model.interfaces">Arena</a>&nbsp;arena)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#toRemove-model.entities.trainers.Trainer-">toRemove</a></span>(<a href="../../model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a>&nbsp;trainer)</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#updateTrainerData--">updateTrainerData</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/personalizedPanes/GymPane.html#updateTrainerData-model.entities.trainers.Trainer-">updateTrainerData</a></span>(<a href="../../model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a>&nbsp;trainer)</code>&nbsp;</td>
 </tr>
@@ -497,6 +501,19 @@ implements <a href="../../view/interfaces/GymView.html" title="interface in view
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../view/interfaces/GymView.html#getSelectedWeapon--">getSelectedWeapon</a></code>&nbsp;in interface&nbsp;<code><a href="../../view/interfaces/GymView.html" title="interface in view.interfaces">GymView</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getSelectedValuable--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSelectedValuable</h4>
+<pre>public&nbsp;<a href="../../model/interfaces/Valuable.html" title="interface in model.interfaces">Valuable</a>&nbsp;getSelectedValuable()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../view/interfaces/GymView.html#getSelectedValuable--">getSelectedValuable</a></code>&nbsp;in interface&nbsp;<code><a href="../../view/interfaces/GymView.html" title="interface in view.interfaces">GymView</a></code></dd>
 </dl>
 </li>
 </ul>

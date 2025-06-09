@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -157,11 +157,11 @@ extends java.awt.event.ActionListener</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../view/interfaces/GymView.html#RMV_POKEMON_FROM_TRAINER">RMV_POKEMON_FROM_TRAINER</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../view/interfaces/GymView.html#RMV_TRAINER">RMV_TRAINER</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../view/interfaces/GymView.html#RMV_TRAINER">RMV_TRAINER</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../view/interfaces/GymView.html#SELL_VALUABLE_FROM_TRAINER">SELL_VALUABLE_FROM_TRAINER</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
@@ -223,26 +223,30 @@ extends java.awt.event.ActionListener</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/interfaces/GymView.html#getSelectedTrainers--">getSelectedTrainers</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
+<td class="colFirst"><code><a href="../../model/interfaces/Valuable.html" title="interface in model.interfaces">Valuable</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../view/interfaces/GymView.html#getSelectedValuable--">getSelectedValuable</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../model/entities/weapons/Weapon.html" title="class in model.entities.weapons">Weapon</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/interfaces/GymView.html#getSelectedWeapon--">getSelectedWeapon</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/interfaces/GymView.html#getTrainerName--">getTrainerName</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/interfaces/GymView.html#getWeaponType--">getWeaponType</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/interfaces/GymView.html#setActionListener-java.awt.event.ActionListener-">setActionListener</a></span>(java.awt.event.ActionListener&nbsp;listener)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/interfaces/GymView.html#ShowErrorMessage-java.lang.String-">ShowErrorMessage</a></span>(java.lang.String&nbsp;message)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../view/interfaces/GymView.html#startTournament-model.entities.Tournament-">startTournament</a></span>(<a href="../../model/entities/Tournament.html" title="class in model.entities">Tournament</a>&nbsp;tournament)</code>&nbsp;</td>
 </tr>
@@ -346,16 +350,16 @@ extends java.awt.event.ActionListener</pre>
 </dl>
 </li>
 </ul>
-<a name="RMV_POKEMON_FROM_TRAINER">
+<a name="SELL_VALUABLE_FROM_TRAINER">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>RMV_POKEMON_FROM_TRAINER</h4>
-<pre>static final&nbsp;java.lang.String RMV_POKEMON_FROM_TRAINER</pre>
+<h4>SELL_VALUABLE_FROM_TRAINER</h4>
+<pre>static final&nbsp;java.lang.String SELL_VALUABLE_FROM_TRAINER</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../constant-values.html#view.interfaces.GymView.RMV_POKEMON_FROM_TRAINER">Constant Field Values</a></dd>
+<dd><a href="../../constant-values.html#view.interfaces.GymView.SELL_VALUABLE_FROM_TRAINER">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -544,10 +548,19 @@ extends java.awt.event.ActionListener</pre>
 <a name="startTournament-model.entities.Tournament-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>startTournament</h4>
 <pre>void&nbsp;startTournament(<a href="../../model/entities/Tournament.html" title="class in model.entities">Tournament</a>&nbsp;tournament)</pre>
+</li>
+</ul>
+<a name="getSelectedValuable--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getSelectedValuable</h4>
+<pre><a href="../../model/interfaces/Valuable.html" title="interface in model.interfaces">Valuable</a>&nbsp;getSelectedValuable()</pre>
 </li>
 </ul>
 </li>

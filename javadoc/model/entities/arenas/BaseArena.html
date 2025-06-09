@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../model/interfaces/Arena.html" title="interface in model.interfaces">Arena</a></dd>
+<dd><a href="../../../model/interfaces/Arena.html" title="interface in model.interfaces">Arena</a>, <a href="../../../model/interfaces/Observable.html" title="interface in model.interfaces">Observable</a></dd>
 </dl>
 <hr>
 <br>
@@ -158,40 +158,48 @@ implements <a href="../../../model/interfaces/Arena.html" title="interface in mo
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../model/entities/arenas/BaseArena.html#addObserver-model.interfaces.Observer-">addObserver</a></span>(<a href="../../../model/interfaces/Observer.html" title="interface in model.interfaces">Observer</a>&nbsp;o)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../model/entities/arenas/BaseArena.html#getCredditsForWinner--">getCredditsForWinner</a></span>()</code>
 <div class="block">Method that returns the credits for the winner of the arena.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../model/entities/arenas/BaseArena.html#getDetails--">getDetails</a></span>()</code>
 <div class="block">Method that returns a string with the details of the arena.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../model/entities/arenas/BaseArena.html#getLevel--">getLevel</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../model/entities/arenas/BaseArena.html#getName--">getName</a></span>()</code>
 <div class="block">Method that returns the name of the arena.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../model/entities/arenas/BaseArena.html#getType--">getType</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../model/entities/arenas/BaseArena.html#isBusy--">isBusy</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../model/entities/arenas/BaseArena.html#notifyObservers-java.lang.Object-">notifyObservers</a></span>(java.lang.Object&nbsp;args)</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../model/entities/arenas/BaseArena.html#setBusy-boolean-">setBusy</a></span>(boolean&nbsp;busy)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../model/entities/trainers/Trainer.html" title="class in model.entities.trainers">Trainer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../model/entities/arenas/BaseArena.html#startBattle-model.entities.trainers.TrainerPrepared-model.entities.trainers.TrainerPrepared-">startBattle</a></span>(<a href="../../../model/entities/trainers/TrainerPrepared.html" title="class in model.entities.trainers">TrainerPrepared</a>&nbsp;TP1,
            <a href="../../../model/entities/trainers/TrainerPrepared.html" title="class in model.entities.trainers">TrainerPrepared</a>&nbsp;TP2)</code>
@@ -381,13 +389,39 @@ implements <a href="../../../model/interfaces/Arena.html" title="interface in mo
 <a name="getLevel--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getLevel</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getLevel()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../model/interfaces/Arena.html#getLevel--">getLevel</a></code>&nbsp;in interface&nbsp;<code><a href="../../../model/interfaces/Arena.html" title="interface in model.interfaces">Arena</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="addObserver-model.interfaces.Observer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addObserver</h4>
+<pre>public&nbsp;void&nbsp;addObserver(<a href="../../../model/interfaces/Observer.html" title="interface in model.interfaces">Observer</a>&nbsp;o)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../model/interfaces/Observable.html#addObserver-model.interfaces.Observer-">addObserver</a></code>&nbsp;in interface&nbsp;<code><a href="../../../model/interfaces/Observable.html" title="interface in model.interfaces">Observable</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="notifyObservers-java.lang.Object-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>notifyObservers</h4>
+<pre>public&nbsp;void&nbsp;notifyObservers(java.lang.Object&nbsp;args)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../model/interfaces/Observable.html#notifyObservers-java.lang.Object-">notifyObservers</a></code>&nbsp;in interface&nbsp;<code><a href="../../../model/interfaces/Observable.html" title="interface in model.interfaces">Observable</a></code></dd>
 </dl>
 </li>
 </ul>

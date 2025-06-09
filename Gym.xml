@@ -6,16 +6,16 @@
     <void method="add">
      <object class="model.dto.ArenaDTO">
       <void property="creditsForWinner">
-       <int>720</int>
+       <int>900</int>
       </void>
       <void property="level">
        <string>EASY</string>
       </void>
       <void property="name">
-       <string>arena 1</string>
+       <string>Mar del Plata</string>
       </void>
       <void property="type">
-       <string>JUNGLE</string>
+       <string>DESERT</string>
       </void>
      </object>
     </void>
@@ -28,10 +28,26 @@
        <string>HARD</string>
       </void>
       <void property="name">
-       <string>arena 2</string>
+       <string>La Matanza</string>
       </void>
       <void property="type">
        <string>JUNGLE</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="model.dto.ArenaDTO">
+      <void property="creditsForWinner">
+       <int>630</int>
+      </void>
+      <void property="level">
+       <string>EASY</string>
+      </void>
+      <void property="name">
+       <string>CABA</string>
+      </void>
+      <void property="type">
+       <string>FOREST</string>
       </void>
      </object>
     </void>
@@ -42,36 +58,32 @@
     <void method="add">
      <object class="model.dto.TrainerDTO">
       <void property="credits">
-       <double>11040.0</double>
+       <double>280.0</double>
       </void>
       <void property="name">
-       <string>MILEI</string>
+       <string>Ash</string>
       </void>
       <void property="pokemons">
        <object class="java.util.ArrayList">
         <void method="add">
          <object class="model.dto.PokemonDTO">
           <void property="cost">
-           <double>120.0</double>
+           <double>100.0</double>
+          </void>
+          <void property="damage">
+           <double>100.0</double>
+          </void>
+          <void property="health">
+           <double>400.0</double>
           </void>
           <void property="name">
-           <string>pikachu</string>
+           <string>Pikachu</string>
           </void>
-          <void property="type">
-           <string>FirePokemon</string>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="model.dto.PokemonDTO">
-          <void property="cost">
+          <void property="shield">
            <double>120.0</double>
           </void>
-          <void property="name">
-           <string>mewtwo</string>
-          </void>
           <void property="type">
-           <string>FirePokemon</string>
+           <string>IcePokemon</string>
           </void>
          </object>
         </void>
@@ -87,7 +99,7 @@
            <double>500.0</double>
           </void>
           <void property="name">
-           <string>valentin</string>
+           <string>Mew</string>
           </void>
           <void property="shield">
            <double>100.0</double>
@@ -95,96 +107,24 @@
           <void property="type">
            <string>WaterPokemon</string>
           </void>
-          <void property="xp">
-           <int>3</int>
-          </void>
          </object>
         </void>
-       </object>
-      </void>
-      <void property="weapons">
-       <object class="java.util.ArrayList">
-        <void method="add">
-         <object class="model.dto.WeaponDTO">
-          <void property="cost">
-           <double>50.0</double>
-          </void>
-          <void property="type">
-           <string>Sword</string>
-          </void>
-         </object>
-        </void>
-       </object>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="model.dto.TrainerDTO">
-      <void property="credits">
-       <double>21030.0</double>
-      </void>
-      <void property="name">
-       <string>CRISTINA</string>
-      </void>
-      <void property="pokemons">
-       <object class="java.util.ArrayList">
         <void method="add">
          <object class="model.dto.PokemonDTO">
           <void property="cost">
+           <double>120.0</double>
+          </void>
+          <void property="damage">
+           <double>80.0</double>
+          </void>
+          <void property="health">
+           <double>530.0</double>
+          </void>
+          <void property="name">
+           <string>Charizar</string>
+          </void>
+          <void property="shield">
            <double>200.0</double>
-          </void>
-          <void property="damage">
-           <double>264.00000000000006</double>
-          </void>
-          <void property="health">
-           <double>1056.0000000000002</double>
-          </void>
-          <void property="name">
-           <string>mewtwo</string>
-          </void>
-          <void property="shield">
-           <double>528.0000000000001</double>
-          </void>
-          <void property="type">
-           <string>StonePokemon</string>
-          </void>
-          <void property="xp">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="model.dto.PokemonDTO">
-          <void property="cost">
-           <double>100.0</double>
-          </void>
-          <void property="damage">
-           <double>120.0</double>
-          </void>
-          <void property="health">
-           <double>500.0</double>
-          </void>
-          <void property="name">
-           <string>valentin</string>
-          </void>
-          <void property="shield">
-           <double>100.0</double>
-          </void>
-          <void property="type">
-           <string>WaterPokemon</string>
-          </void>
-          <void property="xp">
-           <int>3</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="model.dto.PokemonDTO">
-          <void property="cost">
-           <double>120.0</double>
-          </void>
-          <void property="name">
-           <string>tony</string>
           </void>
           <void property="type">
            <string>FirePokemon</string>
@@ -201,113 +141,10 @@
     <void method="add">
      <object class="model.dto.TrainerDTO">
       <void property="credits">
-       <double>52910.0</double>
+       <double>150.0</double>
       </void>
       <void property="name">
-       <string>ALBERTO</string>
-      </void>
-      <void property="pokemons">
-       <object class="java.util.ArrayList">
-        <void method="add">
-         <object class="model.dto.PokemonDTO">
-          <void property="cost">
-           <double>100.0</double>
-          </void>
-          <void property="damage">
-           <double>257.2986991095967</double>
-          </void>
-          <void property="health">
-           <double>200.0</double>
-          </void>
-          <void property="name">
-           <string>pikachu</string>
-          </void>
-          <void property="shield">
-           <double>100.0</double>
-          </void>
-          <void property="type">
-           <string>IcePokemon</string>
-          </void>
-          <void property="xp">
-           <int>3</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="model.dto.PokemonDTO">
-          <void property="cost">
-           <double>120.0</double>
-          </void>
-          <void property="damage">
-           <double>134.4</double>
-          </void>
-          <void property="health">
-           <double>890.4000000000001</double>
-          </void>
-          <void property="name">
-           <string>ivone</string>
-          </void>
-          <void property="shield">
-           <double>336.00000000000006</double>
-          </void>
-          <void property="type">
-           <string>FirePokemon</string>
-          </void>
-          <void property="xp">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="model.dto.PokemonDTO">
-          <void property="cost">
-           <double>100.0</double>
-          </void>
-          <void property="damage">
-           <double>120.0</double>
-          </void>
-          <void property="health">
-           <double>500.0</double>
-          </void>
-          <void property="name">
-           <string>chepápi</string>
-          </void>
-          <void property="shield">
-           <double>100.0</double>
-          </void>
-          <void property="type">
-           <string>WaterPokemon</string>
-          </void>
-          <void property="xp">
-           <int>6</int>
-          </void>
-         </object>
-        </void>
-       </object>
-      </void>
-      <void property="weapons">
-       <object class="java.util.ArrayList">
-        <void method="add">
-         <object class="model.dto.WeaponDTO">
-          <void property="cost">
-           <double>50.0</double>
-          </void>
-          <void property="type">
-           <string>Sword</string>
-          </void>
-         </object>
-        </void>
-       </object>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="model.dto.TrainerDTO">
-      <void property="credits">
-       <double>16050.0</double>
-      </void>
-      <void property="name">
-       <string>KARINA</string>
+       <string>Brok</string>
       </void>
       <void property="pokemons">
        <object class="java.util.ArrayList">
@@ -317,72 +154,157 @@
            <double>200.0</double>
           </void>
           <void property="damage">
-           <double>1848.0000000000002</double>
-          </void>
-          <void property="health">
-           <double>7392.000000000001</double>
-          </void>
-          <void property="name">
-           <string>mewtwo</string>
-          </void>
-          <void property="shield">
-           <double>3696.0000000000005</double>
-          </void>
-          <void property="type">
-           <string>StonePokemon</string>
-          </void>
-          <void property="xp">
-           <int>14</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="model.dto.PokemonDTO">
-          <void property="cost">
-           <double>100.0</double>
-          </void>
-          <void property="damage">
-           <double>301.0</double>
+           <double>150.0</double>
           </void>
           <void property="health">
            <double>600.0</double>
           </void>
           <void property="name">
-           <string>charisar</string>
+           <string>La piedra</string>
           </void>
           <void property="shield">
            <double>300.0</double>
           </void>
           <void property="type">
-           <string>IcePokemon</string>
-          </void>
-          <void property="xp">
-           <int>2</int>
+           <string>StonePokemon</string>
           </void>
          </object>
         </void>
         <void method="add">
          <object class="model.dto.PokemonDTO">
           <void property="cost">
+           <double>100.0</double>
+          </void>
+          <void property="damage">
+           <double>100.0</double>
+          </void>
+          <void property="health">
+           <double>400.0</double>
+          </void>
+          <void property="name">
+           <string>El hielo</string>
+          </void>
+          <void property="shield">
+           <double>120.0</double>
+          </void>
+          <void property="type">
+           <string>IcePokemon</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="model.dto.PokemonDTO">
+          <void property="cost">
+           <double>100.0</double>
+          </void>
+          <void property="damage">
+           <double>120.0</double>
+          </void>
+          <void property="health">
+           <double>500.0</double>
+          </void>
+          <void property="name">
+           <string>Bulbasur</string>
+          </void>
+          <void property="shield">
+           <double>100.0</double>
+          </void>
+          <void property="type">
+           <string>WaterPokemon</string>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="weapons">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="model.dto.WeaponDTO">
+          <void property="cost">
+           <double>50.0</double>
+          </void>
+          <void property="type">
+           <string>Sword</string>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="model.dto.TrainerDTO">
+      <void property="credits">
+       <double>280.0</double>
+      </void>
+      <void property="name">
+       <string>Misty</string>
+      </void>
+      <void property="pokemons">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="model.dto.PokemonDTO">
+          <void property="cost">
            <double>120.0</double>
           </void>
           <void property="damage">
-           <double>403.20000000000005</double>
+           <double>80.0</double>
           </void>
           <void property="health">
-           <double>2671.2000000000003</double>
+           <double>530.0</double>
           </void>
           <void property="name">
-           <string>lucas</string>
+           <string>Dibu</string>
           </void>
           <void property="shield">
-           <double>1008.0000000000002</double>
+           <double>200.0</double>
           </void>
           <void property="type">
            <string>FirePokemon</string>
           </void>
-          <void property="xp">
-           <int>6</int>
+         </object>
+        </void>
+        <void method="add">
+         <object class="model.dto.PokemonDTO">
+          <void property="cost">
+           <double>100.0</double>
+          </void>
+          <void property="damage">
+           <double>100.0</double>
+          </void>
+          <void property="health">
+           <double>400.0</double>
+          </void>
+          <void property="name">
+           <string>Lamil yamal</string>
+          </void>
+          <void property="shield">
+           <double>120.0</double>
+          </void>
+          <void property="type">
+           <string>IcePokemon</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="model.dto.PokemonDTO">
+          <void property="cost">
+           <double>100.0</double>
+          </void>
+          <void property="damage">
+           <double>120.0</double>
+          </void>
+          <void property="health">
+           <double>500.0</double>
+          </void>
+          <void property="name">
+           <string>mbappe</string>
+          </void>
+          <void property="shield">
+           <double>100.0</double>
+          </void>
+          <void property="type">
+           <string>WaterPokemon</string>
           </void>
          </object>
         </void>
@@ -396,10 +318,10 @@
     <void method="add">
      <object class="model.dto.TrainerDTO">
       <void property="credits">
-       <double>47330.0</double>
+       <double>300.0</double>
       </void>
       <void property="name">
-       <string>BULRICH</string>
+       <string>Alejandro</string>
       </void>
       <void property="pokemons">
        <object class="java.util.ArrayList">
@@ -415,7 +337,7 @@
            <double>500.0</double>
           </void>
           <void property="name">
-           <string>pikachu</string>
+           <string>wl wachin</string>
           </void>
           <void property="shield">
            <double>100.0</double>
@@ -423,38 +345,49 @@
           <void property="type">
            <string>WaterPokemon</string>
           </void>
-          <void property="xp">
-           <int>5</int>
-          </void>
          </object>
         </void>
-       </object>
-      </void>
-      <void property="weapons">
-       <object class="java.util.ArrayList"/>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="model.dto.TrainerDTO">
-      <void property="credits">
-       <double>12730.0</double>
-      </void>
-      <void property="name">
-       <string>SANTORO</string>
-      </void>
-      <void property="pokemons">
-       <object class="java.util.ArrayList">
         <void method="add">
          <object class="model.dto.PokemonDTO">
           <void property="cost">
-           <double>200.0</double>
+           <double>100.0</double>
+          </void>
+          <void property="damage">
+           <double>120.0</double>
+          </void>
+          <void property="health">
+           <double>500.0</double>
           </void>
           <void property="name">
-           <string>pikachu</string>
+           <string>wl wachon</string>
+          </void>
+          <void property="shield">
+           <double>100.0</double>
           </void>
           <void property="type">
-           <string>StonePokemon</string>
+           <string>WaterPokemon</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="model.dto.PokemonDTO">
+          <void property="cost">
+           <double>100.0</double>
+          </void>
+          <void property="damage">
+           <double>120.0</double>
+          </void>
+          <void property="health">
+           <double>500.0</double>
+          </void>
+          <void property="name">
+           <string>el teca</string>
+          </void>
+          <void property="shield">
+           <double>100.0</double>
+          </void>
+          <void property="type">
+           <string>WaterPokemon</string>
           </void>
          </object>
         </void>
@@ -468,10 +401,10 @@
     <void method="add">
      <object class="model.dto.TrainerDTO">
       <void property="credits">
-       <double>6860.0</double>
+       <double>480.0</double>
       </void>
       <void property="name">
-       <string>GRABOIS</string>
+       <string>Ricardo</string>
       </void>
       <void property="pokemons">
        <object class="java.util.ArrayList">
@@ -480,8 +413,134 @@
           <void property="cost">
            <double>120.0</double>
           </void>
+          <void property="damage">
+           <double>80.0</double>
+          </void>
+          <void property="health">
+           <double>530.0</double>
+          </void>
           <void property="name">
-           <string>PIKACHU</string>
+           <string>el teclas</string>
+          </void>
+          <void property="shield">
+           <double>200.0</double>
+          </void>
+          <void property="type">
+           <string>FirePokemon</string>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="weapons">
+       <object class="java.util.ArrayList"/>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="model.dto.TrainerDTO">
+      <void property="credits">
+       <double>500.0</double>
+      </void>
+      <void property="name">
+       <string>James</string>
+      </void>
+      <void property="pokemons">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="model.dto.PokemonDTO">
+          <void property="cost">
+           <double>100.0</double>
+          </void>
+          <void property="damage">
+           <double>100.0</double>
+          </void>
+          <void property="health">
+           <double>400.0</double>
+          </void>
+          <void property="name">
+           <string>el vscode</string>
+          </void>
+          <void property="shield">
+           <double>120.0</double>
+          </void>
+          <void property="type">
+           <string>IcePokemon</string>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="weapons">
+       <object class="java.util.ArrayList"/>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="model.dto.TrainerDTO">
+      <void property="credits">
+       <double>500.0</double>
+      </void>
+      <void property="name">
+       <string>CR7</string>
+      </void>
+      <void property="pokemons">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="model.dto.PokemonDTO">
+          <void property="cost">
+           <double>100.0</double>
+          </void>
+          <void property="damage">
+           <double>120.0</double>
+          </void>
+          <void property="health">
+           <double>500.0</double>
+          </void>
+          <void property="name">
+           <string>NVIM</string>
+          </void>
+          <void property="shield">
+           <double>100.0</double>
+          </void>
+          <void property="type">
+           <string>WaterPokemon</string>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="weapons">
+       <object class="java.util.ArrayList"/>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="model.dto.TrainerDTO">
+      <void property="credits">
+       <double>280.0</double>
+      </void>
+      <void property="name">
+       <string>MESSI</string>
+      </void>
+      <void property="pokemons">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="model.dto.PokemonDTO">
+          <void property="cost">
+           <double>120.0</double>
+          </void>
+          <void property="damage">
+           <double>80.0</double>
+          </void>
+          <void property="health">
+           <double>530.0</double>
+          </void>
+          <void property="name">
+           <string>la pelota</string>
+          </void>
+          <void property="shield">
+           <double>200.0</double>
           </void>
           <void property="type">
            <string>FirePokemon</string>
@@ -494,64 +553,19 @@
            <double>100.0</double>
           </void>
           <void property="damage">
-           <double>142.24305504680416</double>
-          </void>
-          <void property="health">
-           <double>200.0</double>
-          </void>
-          <void property="name">
-           <string>SNORLAX</string>
-          </void>
-          <void property="shield">
-           <double>100.0</double>
-          </void>
-          <void property="type">
-           <string>IcePokemon</string>
-          </void>
-          <void property="xp">
-           <int>6</int>
-          </void>
-         </object>
-        </void>
-       </object>
-      </void>
-      <void property="weapons">
-       <object class="java.util.ArrayList"/>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="model.dto.TrainerDTO">
-      <void property="credits">
-       <double>11040.0</double>
-      </void>
-      <void property="name">
-       <string>NESTOR</string>
-      </void>
-      <void property="pokemons">
-       <object class="java.util.ArrayList">
-        <void method="add">
-         <object class="model.dto.PokemonDTO">
-          <void property="cost">
            <double>120.0</double>
           </void>
-          <void property="damage">
-           <double>403.20000000000005</double>
-          </void>
           <void property="health">
-           <double>2671.2000000000003</double>
+           <double>500.0</double>
           </void>
           <void property="name">
-           <string>plata</string>
+           <string>la pelota 2</string>
           </void>
           <void property="shield">
-           <double>1008.0000000000002</double>
+           <double>100.0</double>
           </void>
           <void property="type">
-           <string>FirePokemon</string>
-          </void>
-          <void property="xp">
-           <int>6</int>
+           <string>WaterPokemon</string>
           </void>
          </object>
         </void>
@@ -561,44 +575,19 @@
            <double>100.0</double>
           </void>
           <void property="damage">
-           <double>186.594875</double>
+           <double>100.0</double>
           </void>
           <void property="health">
-           <double>200.0</double>
+           <double>400.0</double>
           </void>
           <void property="name">
-           <string>lazaro</string>
+           <string>la pelota 3</string>
           </void>
           <void property="shield">
-           <double>100.0</double>
+           <double>120.0</double>
           </void>
           <void property="type">
            <string>IcePokemon</string>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="model.dto.PokemonDTO">
-          <void property="cost">
-           <double>200.0</double>
-          </void>
-          <void property="damage">
-           <double>132.00000000000003</double>
-          </void>
-          <void property="health">
-           <double>528.0000000000001</double>
-          </void>
-          <void property="name">
-           <string>tuvi</string>
-          </void>
-          <void property="shield">
-           <double>264.00000000000006</double>
-          </void>
-          <void property="type">
-           <string>StonePokemon</string>
-          </void>
-          <void property="xp">
-           <int>1</int>
           </void>
          </object>
         </void>

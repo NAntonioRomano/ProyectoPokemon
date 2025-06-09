@@ -282,10 +282,6 @@
 <!--   -->
 </a>
 <h3>Class <a href="view/TournamentFrame.html" title="class in view">view.TournamentFrame</a> extends javax.swing.JFrame implements Serializable</h3>
-<dl class="nameValue">
-<dt>serialVersionUID:</dt>
-<dd>1L</dd>
-</dl>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialized Fields</h3>
@@ -301,6 +297,14 @@
 <li class="blockList">
 <h4>TournamentTextArea</h4>
 <pre>javax.swing.JTextArea TournamentTextArea</pre>
+</li>
+<li class="blockList">
+<h4>ArenasScrollPane</h4>
+<pre>javax.swing.JScrollPane ArenasScrollPane</pre>
+</li>
+<li class="blockList">
+<h4>ArenaPane</h4>
+<pre>javax.swing.JPanel ArenaPane</pre>
 </li>
 <li class="blockList">
 <h4>listener</h4>
@@ -403,6 +407,98 @@
 <li class="blockListLast">
 <h4>arena</h4>
 <pre><a href="model/interfaces/Arena.html" title="interface in model.interfaces">Arena</a> arena</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="view.personalizedPanes.BattleArenaPane">
+<!--   -->
+</a>
+<h3>Class <a href="view/personalizedPanes/BattleArenaPane.html" title="class in view.personalizedPanes">view.personalizedPanes.BattleArenaPane</a> extends javax.swing.JPanel implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>BattleObserverPane</h4>
+<pre>javax.swing.JScrollPane BattleObserverPane</pre>
+</li>
+<li class="blockList">
+<h4>BattleTextArea</h4>
+<pre>javax.swing.JTextArea BattleTextArea</pre>
+</li>
+<li class="blockList">
+<h4>Trainer1Pane</h4>
+<pre>javax.swing.JPanel Trainer1Pane</pre>
+</li>
+<li class="blockList">
+<h4>Trainer1NameLabel</h4>
+<pre>javax.swing.JLabel Trainer1NameLabel</pre>
+</li>
+<li class="blockList">
+<h4>PokemonsT1Pane</h4>
+<pre>javax.swing.JPanel PokemonsT1Pane</pre>
+</li>
+<li class="blockList">
+<h4>T1Pokemon1</h4>
+<pre>javax.swing.JPanel T1Pokemon1</pre>
+</li>
+<li class="blockList">
+<h4>T1Pokemon2</h4>
+<pre>javax.swing.JPanel T1Pokemon2</pre>
+</li>
+<li class="blockList">
+<h4>T1Pokemon3</h4>
+<pre>javax.swing.JPanel T1Pokemon3</pre>
+</li>
+<li class="blockList">
+<h4>Trainer2Pane</h4>
+<pre>javax.swing.JPanel Trainer2Pane</pre>
+</li>
+<li class="blockList">
+<h4>Trainer2NameLabel</h4>
+<pre>javax.swing.JLabel Trainer2NameLabel</pre>
+</li>
+<li class="blockList">
+<h4>pokemonsT2Pane</h4>
+<pre>javax.swing.JPanel pokemonsT2Pane</pre>
+</li>
+<li class="blockList">
+<h4>T2Pokemon1</h4>
+<pre>javax.swing.JPanel T2Pokemon1</pre>
+</li>
+<li class="blockList">
+<h4>T2Pokemon2</h4>
+<pre>javax.swing.JPanel T2Pokemon2</pre>
+</li>
+<li class="blockList">
+<h4>T2Pokemon3</h4>
+<pre>javax.swing.JPanel T2Pokemon3</pre>
+</li>
+<li class="blockList">
+<h4>T2Pokemonlbl</h4>
+<pre>javax.swing.JLabel[] T2Pokemonlbl</pre>
+</li>
+<li class="blockList">
+<h4>T1Pokemonlbl</h4>
+<pre>javax.swing.JLabel[] T1Pokemonlbl</pre>
+</li>
+<li class="blockList">
+<h4>inBattle1</h4>
+<pre><a href="model/entities/pokemons/Pokemon.html" title="class in model.entities.pokemons">Pokemon</a>[] inBattle1</pre>
+</li>
+<li class="blockList">
+<h4>inBattle2</h4>
+<pre><a href="model/entities/pokemons/Pokemon.html" title="class in model.entities.pokemons">Pokemon</a>[] inBattle2</pre>
+</li>
+<li class="blockListLast">
+<h4>obs</h4>
+<pre><a href="model/interfaces/Observable.html" title="interface in model.interfaces">Observable</a> obs</pre>
 </li>
 </ul>
 </li>
@@ -542,7 +638,7 @@
 </li>
 <li class="blockList">
 <h4>SellButton</h4>
-<pre>javax.swing.JButton SellButton</pre>
+<pre><a href="view/personalizedComponents/ButtonWithObject.html" title="class in view.personalizedComponents">ButtonWithObject</a> SellButton</pre>
 </li>
 <li class="blockList">
 <h4>addToPokemon</h4>
